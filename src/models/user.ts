@@ -12,6 +12,12 @@ const userSchema = new mongoose.Schema({
     required: [true, 'Enter your password']
   },
 
+  email: {
+    type: String,
+    required: [true, 'Provide your email'],
+    unique: true
+  },
+  
   isVerified: {
     type: Boolean,
     default: false
