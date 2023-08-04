@@ -48,7 +48,6 @@ export default function Login() {
 
         <button
           className={styles.submitButton}
-          type='submit'
           onClick={onLogin}
         >
           Submit

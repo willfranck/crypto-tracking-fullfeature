@@ -1,15 +1,15 @@
 import { connectToDb } from '@db/mongodb'
 import { NextRequest, NextResponse } from 'next/server'
-import User from '@models/user'
+import User from '@models/users'
 import bcryptjs from 'bcryptjs'
 
 
 connectToDb()
 
-export async function POST(req: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
-    const reqBody = await req.json()
-    const {email, username, password} = reqBody
+    const reqBody = await request.json()
+    const {email, username, password, isVerified, isAdmin} = reqBody
     console.log(reqBody);
 
     // Performs a check if User already exists
@@ -27,7 +27,9 @@ export async function POST(req: NextRequest) {
     const newUser = new User ({
       email,
       username,
-      password: hashedPassword
+      password: hashedPassword,
+      isVerified,
+      isAdmin
     })
 
     const savedUser = await newUser.save()
