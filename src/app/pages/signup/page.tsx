@@ -13,15 +13,48 @@ export default function SignUp() {
   })
 
   const onSignUp = async () => {
-
+    console.log('Submitted');
+    
   }
 
 
 
 
   return (
-    <div className={styles.center}>
+    <section className={styles.center}>
       <h1>Sign Up</h1>
-    </div>
+
+      <form className={styles.center}>
+        <label htmlFor='username'>Username</label>
+        <input
+          id='username'
+          type='text'
+          value={user.username}
+          placeholder=' Choose your username'
+          onChange={(e) => setUser({...user, username: e.target.value})}
+        >
+        </input>
+
+        <label htmlFor='password'>Password</label>
+        <input
+          id='password'
+          type='password'
+          value={user.password}
+          placeholder=' Create a unique password'
+          onChange={(e) => setUser({...user, password: e.target.value})}
+        >
+        </input>
+
+        <button
+          type='submit'
+          onClick={onSignUp}
+        >
+          Submit
+        </button>
+
+        <label>Already Signed Up?</label>
+        <Link href='/pages/login'>Login</Link>
+      </form>     
+    </section>
   )
 }

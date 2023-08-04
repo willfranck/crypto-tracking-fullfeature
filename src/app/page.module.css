@@ -74,13 +74,18 @@
 
 .center {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   padding: 4rem 0;
 }
 
-.center::before {
+.center > * {
+  margin: 0.5rem;
+}
+
+/* .center::before {
   background: var(--secondary-glow);
   border-radius: 50%;
   width: 480px;
@@ -88,11 +93,11 @@
   margin-left: -400px;
 }
 
-.center::after {
+.center::before {
   background: var(--primary-glow);
   width: 240px;
   height: 180px;
-  z-index: -1;
+  z-index: -100;
 }
 
 .center::before,
@@ -102,7 +107,7 @@
   position: absolute;
   filter: blur(45px);
   transform: translateZ(0);
-}
+} */
 
 .logo {
   position: relative;
