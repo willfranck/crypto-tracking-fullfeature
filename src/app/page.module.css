@@ -85,7 +85,7 @@
   margin: 0.5rem;
 }
 
-/* .center::before {
+.center::before {
   background: var(--secondary-glow);
   border-radius: 50%;
   width: 480px;
@@ -107,11 +107,26 @@
   position: absolute;
   filter: blur(45px);
   transform: translateZ(0);
-} */
+}
 
 .logo {
   position: relative;
 }
+
+.formInputs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 17rem;
+  margin: 0 0 1rem;
+}
+
+.submitButton {
+  width: 8rem;
+  height: 2rem;
+}
+
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {

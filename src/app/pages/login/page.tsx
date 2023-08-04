@@ -23,27 +23,31 @@ export default function Login() {
       <h1>Log In</h1>
 
       <form className={styles.center}>
-        <label htmlFor='username'>Username</label>
-        <input
-          id='username'
-          type='text'
-          value={user.username}
-          placeholder=' Choose your username'
-          onChange={(e) => setUser({...user, username: e.target.value})}
-        >
-        </input>
-
-        <label htmlFor='password'>Password</label>
-        <input
-          id='password'
-          type='password'
-          value={user.password}
-          placeholder=' Create a unique password'
-          onChange={(e) => setUser({...user, password: e.target.value})}
-        >
-        </input>
+      <div className={styles.formInputs}>
+          <label htmlFor='username'>Username</label>
+          <input
+            id='username'
+            type='text'
+            value={user.username}
+            placeholder='Choose your username'
+            onChange={(e) => setUser({...user, username: e.target.value})}
+          >
+          </input>
+        </div>
+        <div className={styles.formInputs}>
+          <label htmlFor='password'>Password</label>
+          <input
+            id='password'
+            type='password'
+            value={user.password}
+            placeholder='Create a unique password'
+            onChange={(e) => setUser({...user, password: e.target.value})}
+          >
+          </input>
+        </div>
 
         <button
+          className={styles.submitButton}
           type='submit'
           onClick={onLogin}
         >
@@ -51,7 +55,7 @@ export default function Login() {
         </button>
 
         <label>New here?</label>
-        <Link href='/pages/dashboard'>Sign Up</Link>
+        <Link href='/pages/signup'>SIGN UP</Link>
       </form>     
     </section>
   )
