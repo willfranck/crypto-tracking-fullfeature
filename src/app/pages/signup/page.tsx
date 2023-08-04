@@ -1,8 +1,8 @@
 'use client'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
 import axios from 'axios'
+import React, { useState } from 'react'
 import styles from '@styles/page.module.css'
 
 
@@ -16,8 +16,6 @@ export default function SignUp() {
     console.log('Submitted');
     
   }
-
-
 
 
   return (
