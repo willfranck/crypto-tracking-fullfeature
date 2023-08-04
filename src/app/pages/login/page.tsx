@@ -51,7 +51,7 @@ export default function Login() {
         </button>
 
         <label>New here?</label>
-        <Link href='/pages/signup'>Sign Up</Link>
+        <Link href='/pages/dashboard'>Sign Up</Link>
       </form>     
     </section>
   )
