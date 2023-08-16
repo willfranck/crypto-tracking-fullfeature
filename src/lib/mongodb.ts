@@ -1,20 +1,14 @@
-import mongoose from 'mongoose'
+import mongoose, { Connection } from 'mongoose'
 
-export async function connectToDb() {
-  try {
-    mongoose.connect(process.env.MONGODB_URI!)
-    const connection = mongoose.connection
 
-    connection.on('connected', () => {
-      console.log('Connected to MongoDB')
-    })
-
-    connection.on('error', (error: any) => {
-      console.log('MongoDB connection error.  Make sure MongoDB is running.' + error);
-      process.exit()
-    })
-
-  } catch (error) {
-    console.log('Error connecting to MongoDB')
+export async function connectToDb(): Promise<Connection> {
+  const options = {
+    dbName: 'userdb'
   }
+
+  mongoose.connect(process.env.MONGODB_URI!, options)
+  const connection = mongoose.connection
+  console.log('Connected to MongoDB')
+
+  return connection
 }

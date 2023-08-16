@@ -1,12 +1,13 @@
 'use client'
-import Link from 'next/link'
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import axios from 'axios'
-import React, { useState } from 'react'
 import styles from '@styles/page.module.css'
 
 
 export default function Login() {
+  const router = useRouter()
   const [user, setUser] = useState({
     username: '',
     password: ''
@@ -14,7 +15,6 @@ export default function Login() {
 
   const onLogin = async () => {
     console.log('Submitted');
-    
   }
 
 

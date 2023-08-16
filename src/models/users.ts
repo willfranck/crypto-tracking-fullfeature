@@ -3,35 +3,35 @@ import mongoose from 'mongoose'
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
-    required: [true, 'Provide your email'],
-    unique: true
+    required: true,
+    unique: true,
   },
 
   username: {
     type: String,
-    required: [true, 'Provide your username'],
-    unique: true
+    required: true,
+    unique: true,
   },
 
   password: {
     type: String,
-    required: [true, 'Enter your password']
+    required: true,
   },
 
   isVerified: {
     type: Boolean,
-    default: false
+    default: false,
   },
 
   isAdmin: {
     type: Boolean,
-    default: false
+    default: false,
   },
 
   forgotPasswordToken: String,
-  forgotPasswordTokenExpiry: Date,
+  forgotPasswordTokenExpiration: Date,
   verifyToken: String,
-  verifyTokenExpiry: Date,
+  verifyTokenExpiration: Date,
 })
 
 const User = mongoose.models.users || mongoose.model('users', userSchema)

@@ -1,48 +1,37 @@
-import { connectToDb } from '@db/mongodb'
 import { NextRequest, NextResponse } from 'next/server'
+import { connectToDb } from '@db/mongodb'
 import User from '@models/users'
-import bcryptjs from 'bcryptjs'
+import bcrypt from 'bcrypt'
 
 
-connectToDb()
-
-export async function POST(request: NextRequest) {
+export async function POST(req: NextRequest) {
   try {
-    const reqBody = await request.json()
-    const {email, username, password, isVerified, isAdmin} = reqBody
-    console.log(reqBody);
+    await connectToDb()
 
-    // Performs a check if User already exists
-    const existingUser = await User.findOne({email})
-    if (existingUser) {
-      return NextResponse.json({error: 'This user already exists'},
-      {status: 400})
+    const reqBody = await req.json()
+    const { email, username, password } = reqBody
+
+    const user = await User.findOne({ email })
+    if (user) {
+      console.log(user.email + ' already exists');
+      return NextResponse.json({ error: 'User already exists' })
     }
 
-    // Hash Password
-    const salt = await bcryptjs.genSalt(10)
-    const hashedPassword = await bcryptjs.hash(password, salt)
-
-    // Create a new User
-    const newUser = new User ({
+    const salt= await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(password, salt)
+    
+    const newUser = new User({
       email,
       username,
-      password: hashedPassword,
-      isVerified,
-      isAdmin
+      password: hashedPassword
     })
 
     const savedUser = await newUser.save()
+    console.log(savedUser)
 
-    return NextResponse.json({
-      message: 'User created successfully',
-      success: true,
-      savedUser
-    })
+    return NextResponse.json({ message: 'User created successfully' })
 
-    
-  } catch (error: any) {
-      return NextResponse.json({error: error.message},
-      {status: 500})
+  } catch (error) {
+      return NextResponse.json({ error: 'An error occurred' })
   }
 }
