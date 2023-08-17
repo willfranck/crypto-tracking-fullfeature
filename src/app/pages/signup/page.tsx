@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import axios from 'axios'
 import styles from '@styles/page.module.css'
 
 
@@ -16,17 +15,31 @@ export default function SignUp() {
     password: ''
   })
 
-  const signUp = async (e: React.FormEvent) => {
+  const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault()
 
     try {
       setSubmitting(true)
-      const res = await axios.post('/api/signup', user)
-      console.log('Sign Up SUCCESSFUL', res.data)
-      router.push('/pages/login')
+
+      const res = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+      })
+
+      if (res.ok) {
+        const userData = await res.json()
+        console.log('Sign Up SUCCESSFUL: ' + userData)
+        router.push('/pages/login')
+
+      } else {
+        console.log('Sign Up FAILED')
+      }
 
     } catch (error: any) {
-      console.log('Sign Up FAILED', error.message)
+      console.log(error.message)
 
     } finally {
       setSubmitting(false)
@@ -49,7 +62,7 @@ export default function SignUp() {
 
       <form 
         className={styles.center}
-        onSubmit={signUp}
+        onSubmit={handleSignUp}
       >
         <div className={styles.formInputs}>
           <label htmlFor='email'>Email</label>
@@ -83,7 +96,8 @@ export default function SignUp() {
         <button
           className={styles.submitButton}
           disabled={buttonDisabled}
-          // onClick={signUp}
+          type='submit'
+          // onClick={handleSignUp}
         >
           Register
         </button>
