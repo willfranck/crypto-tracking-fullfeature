@@ -10,11 +10,13 @@ export default function SignUp() {
   const router = useRouter()
   const [buttonDisabled, setButtonDisabled] = useState(true)
   const [submitting, setSubmitting] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
   const [user, setUser] = useState({
     email: '',
     username: '',
     password: ''
   })
+
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -24,20 +26,17 @@ export default function SignUp() {
 
       const res = await axios.post('/api/signup', user)
       
-      if (res.status === 200) {
-        const userData = res.data
-        console.log('Sign Up SUCCESSFUL: ' + userData)
+      if (res.status === 201) {
         router.push('/pages/login')
-
-      } else {
-        console.log('Sign Up FAILED')
       }
 
     } catch (error: any) {
-      console.log(error.message)
+        if (error.response.status === 409) {
+          setErrorMessage('User already exists')
+        }
 
     } finally {
-      setSubmitting(false)
+        setSubmitting(false)
     }
   }
 
@@ -55,10 +54,7 @@ export default function SignUp() {
     <section className={styles.center}>
       <h1>{submitting ? 'Loading' : 'Sign Up'}</h1>
 
-      <form 
-        className={styles.center}
-        onSubmit={handleSignUp}
-      >
+      <form className={styles.center} onSubmit={handleSignUp}>
         <div className={styles.formInputs}>
           <label htmlFor='email'>Email</label>
           <input
@@ -92,7 +88,6 @@ export default function SignUp() {
           className={styles.submitButton}
           disabled={buttonDisabled}
           type='submit'
-          // onClick={handleSignUp}
         >
           Register
         </button>
@@ -100,6 +95,12 @@ export default function SignUp() {
         <label>Already Signed Up?</label>
         <Link href='/pages/login'>LOG IN</Link>
       </form>
+
+      {errorMessage && (
+        <div>
+          <h2>{errorMessage}</h2>
+        </div>
+      )}
     </section>
   )
 }
