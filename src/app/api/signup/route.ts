@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
       const existingUser = await User.findOne({ email })
       if (existingUser) {
         console.log(existingUser.email + ' already exists')
-        return NextResponse.json({ error: 'User already exists' }, {status: 409})
+        return NextResponse.json({ error: 'User already exists' }, { status: 409 })
       }
 
       const salt = await bcrypt.genSalt(10)
@@ -30,13 +30,13 @@ export async function POST(req: NextRequest) {
       const savedUser = await newUser.save()
       console.log(savedUser)
 
-      return NextResponse.json({ message: 'User created successfully' }, {status: 201})
+      return NextResponse.json({ message: 'User created successfully' }, { status: 201 })
 
     } catch (error) {
-      return NextResponse.json({ error: 'An error occurred' }, {status: 500})
+        return NextResponse.json({ error: 'An error occurred' }, { status: 500 })
     }
-
+    
   } else {
-    return NextResponse.json({ error: 'Method not allowed' }, {status: 405})
+      return NextResponse.json({ error: 'Method not allowed' }, { status: 405 })
   }
 }

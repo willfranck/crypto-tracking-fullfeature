@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
 import Link from 'next/link'
@@ -17,7 +17,6 @@ export default function SignUp() {
     password: ''
   })
 
-
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault()
 
@@ -25,7 +24,6 @@ export default function SignUp() {
       setSubmitting(true)
 
       const res = await axios.post('/api/signup', user)
-      
       if (res.status === 201) {
         router.push('/pages/login')
       }
