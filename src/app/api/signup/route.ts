@@ -1,13 +1,13 @@
-import { NextApiRequest } from 'next'
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { connectToDb } from '@db/mongodb'
 import bcrypt from 'bcrypt'
 import User from '@models/users'
 
 
-export async function POST(req: NextApiRequest) {
+export async function POST(req: NextRequest) {
   if (req.method === 'POST') {
-    const { email, username, password } = req.body
+    const userData = await req.json()
+    const { email, username, password } = userData
 
     try {
       await connectToDb()
