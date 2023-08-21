@@ -1,10 +1,11 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiRequest } from 'next'
+import { NextResponse } from 'next/server'
 import { connectToDb } from '@db/mongodb'
 import bcrypt from 'bcrypt'
 import User from '@models/users'
 
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: NextApiRequest) {
   if (req.method === 'POST') {
     const { email, username, password } = req.body
 
@@ -14,7 +15,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
       const existingUser = await User.findOne({ email })
       if (existingUser) {
         console.log(existingUser.email + ' already exists')
-        return res.status(409).json({ error: 'User already exists' })
+        return NextResponse.json({ error: 'User already exists' }, {status: 409})
       }
 
       const salt = await bcrypt.genSalt(10)
@@ -29,13 +30,13 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
       const savedUser = await newUser.save()
       console.log(savedUser)
 
-      return res.status(201).json({ message: 'User created successfully' })
+      return NextResponse.json({ message: 'User created successfully' }, {status: 201})
 
     } catch (error) {
-      return res.status(500).json({ error: 'An error occurred' })
+      return NextResponse.json({ error: 'An error occurred' }, {status: 500})
     }
 
   } else {
-    return res.status(405).json({ error: 'Method not allowed' })
+    return NextResponse.json({ error: 'Method not allowed' }, {status: 405})
   }
 }

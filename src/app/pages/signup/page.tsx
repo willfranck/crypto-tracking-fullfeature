@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import axios from 'axios'
 import Link from 'next/link'
 import styles from '@styles/page.module.css'
 
@@ -21,16 +22,10 @@ export default function SignUp() {
     try {
       setSubmitting(true)
 
-      const res = await fetch('/api/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-      })
-
-      if (res.ok) {
-        const userData = await res.json()
+      const res = await axios.post('/api/signup', user)
+      
+      if (res.status === 200) {
+        const userData = res.data.json()
         console.log('Sign Up SUCCESSFUL: ' + userData)
         router.push('/pages/login')
 
