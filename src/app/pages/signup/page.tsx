@@ -25,7 +25,7 @@ export default function SignUp() {
       const res = await axios.post('/api/signup', user)
       
       if (res.status === 200) {
-        const userData = res.data.json()
+        const userData = res.data
         console.log('Sign Up SUCCESSFUL: ' + userData)
         router.push('/pages/login')
 
