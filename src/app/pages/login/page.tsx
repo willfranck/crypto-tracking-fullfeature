@@ -29,12 +29,10 @@ export default function Login() {
 
     } catch (error: any) {
         if (error.response.status === 400) {
+          setSubmitting(false)
           setErrorMessage('Login info incorrect')
         }
-
-    } finally {
-        setSubmitting(false)
-    }
+      }
   }
 
   useEffect(() => {

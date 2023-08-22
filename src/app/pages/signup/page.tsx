@@ -30,12 +30,10 @@ export default function SignUp() {
 
     } catch (error: any) {
         if (error.response.status === 409) {
+          setSubmitting(false)
           setErrorMessage('User already exists')
         }
-
-    } finally {
-        setSubmitting(false)
-    }
+      }
   }
 
   useEffect(() => {

@@ -4,7 +4,7 @@ export default function Dashboard() {
   return (
     <section className={styles.center}>
       <h1>Dashboard</h1>
-      <p>Sign In</p>
+      <p>Saved Coins</p>
     </section>
   )
 }
