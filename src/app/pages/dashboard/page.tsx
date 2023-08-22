@@ -1,9 +1,35 @@
+'use client'
+import axios from 'axios'
 import styles from '@styles/page.module.css'
+import { useRouter } from 'next/navigation'
+
 
 export default function Dashboard() {
+  const router = useRouter()
+  
+  const logout = async () => {
+    try {
+      await axios.get('/api/logout')
+      router.push('/pages/login')
+
+    } catch (error: any) {
+        console.log(error.message)
+    }
+  }
+
+
   return (
     <section className={styles.center}>
-      <h1>Dashboard</h1>
+      <nav className={styles.center}>
+        <h1>Dashboard</h1>
+
+        <button
+          onClick={logout}
+        >
+          Log Out
+        </button>
+      </nav>
+
       <p>Saved Coins</p>
     </section>
   )
