@@ -1,8 +1,8 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import axios from 'axios'
 import Link from 'next/link'
+import axios from 'axios'
 import styles from '@styles/page.module.css'
 
 
@@ -24,7 +24,7 @@ export default function Login() {
 
       const res = await axios.post('/api/login', user)
       if (res.status === 200) {
-        router.push('/pages/dashboard')
+        router.push('/pages/dashboard/' + `${user.username}`)
       }
 
     } catch (error: any) {

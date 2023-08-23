@@ -1,12 +1,12 @@
 'use client'
+import { useRouter } from 'next/navigation'
 import axios from 'axios'
 import styles from '@styles/page.module.css'
-import { useRouter } from 'next/navigation'
 
 
 export default function Dashboard() {
   const router = useRouter()
-  
+
   const logout = async () => {
     try {
       await axios.get('/api/logout')
