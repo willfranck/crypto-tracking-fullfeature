@@ -23,15 +23,11 @@ const userSchema = new mongoose.Schema({
     default: false,
   },
 
-  isAdmin: {
-    type: Boolean,
-    default: false,
-  },
-
-  // forgotPasswordToken: String,
-  // forgotPasswordTokenExpiration: Date,
-  // verifyToken: String,
-  // verifyTokenExpiration: Date,
+  forgotPasswordToken: String,
+  forgotPasswordTokenExpiration: Date,
+  
+  verifyToken: String,
+  verifyTokenExpiration: Date,
 })
 
 const User = mongoose.models.users || mongoose.model('users', userSchema)
