@@ -10,7 +10,7 @@ export default function UserProfile({ params }: any) {
   const logout = async () => {
     try {
       await axios.get('/api/logout')
-      router.push('/pages/login')
+      router.push('/')
 
     } catch (error: any) {
         console.log(error.message)
