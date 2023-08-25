@@ -17,7 +17,7 @@ export const SigninButton = () => {
 export const RegisterButton = () => {
   return (
     <Link 
-      href='/pages/register'
+      href={'/pages/register'}
      >
       Register
     </Link>
@@ -36,5 +36,12 @@ export const SignoutButton = () => {
 }
 
 export const ProfileButton = () => {
-  return <Link href='/pages/dashboard'>Dashboard</Link>
+  return (
+    <Link
+      href={''}
+      onClick={() => signIn(undefined, { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
+    >
+      Dashboard
+    </Link>
+  )
 }

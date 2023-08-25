@@ -26,7 +26,7 @@ export default function SignUp() {
 
       const res = await axios.post('/api/register', user)
       if (res.status === 201) {
-        router.push('/pages/dashboard')
+        router.push('/pages/dashboard/[id]')
       }
 
     } catch (error: any) {
