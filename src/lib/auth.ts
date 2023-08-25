@@ -27,9 +27,9 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials: any) {
         try {
           await connectToDb()
-
+          
           const user = await User.findOne({ username: credentials.username })
-
+         
           if (user && user.password === credentials.password) {
             return { id: user._id, username: user.username, email: user.email }
             
@@ -38,7 +38,8 @@ export const authOptions: NextAuthOptions = {
           }
 
         } catch (error: any) {
-          return null
+            console.log(error.message);
+            return null
         }
       },
     }),

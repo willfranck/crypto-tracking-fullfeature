@@ -1,5 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
+import { SignoutButton } from '@components/buttons.component'
 import axios from 'axios'
 import styles from '@styles/page.module.css'
 
@@ -24,7 +25,7 @@ export default function UserProfile() {
 
         <h2>Welcome</h2>
 
-        <button onClick={logout}>Log Out</button>
+        <SignoutButton/>
       </nav>
 
       <p>Saved Coins</p>

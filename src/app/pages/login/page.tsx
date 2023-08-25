@@ -6,40 +6,38 @@ import axios from 'axios'
 import styles from '@styles/page.module.css'
 
 
-export default function SignUp() {
+export default function Login() {
   const router = useRouter()
   const [buttonDisabled, setButtonDisabled] = useState(true)
   const [submitting, setSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [user, setUser] = useState({
-    email: '',
     username: '',
-    password: ''
+    password: '',
   })
 
-  const handleSignUp = async (e: React.FormEvent) => {
+  const onLogin = async (e: React.FormEvent) => {
     e.preventDefault()
 
     try {
       setSubmitting(true)
 
-      const res = await axios.post('/api/register', user)
-      if (res.status === 201) {
-        router.push('/pages/login')
+      const res = await axios.post('/api/login', user)
+      if (res.status === 200) {
+        router.push('/pages/dashboard/' + `${user.username}`)
       }
 
     } catch (error: any) {
-        if (error.response.status === 409) {
+        if (error.response.status === 400) {
           setSubmitting(false)
-          setErrorMessage('User already exists')
+          setErrorMessage('Login info incorrect')
         }
       }
   }
 
   useEffect(() => {
-    if (user.email.length > 0 && user.username.length > 0 && user.password.length >= 6) {
+    if (user.username.length > 0 && user.password.length > 0) {
       setButtonDisabled(false)
-      
     } else {
       setButtonDisabled(true)
     }
@@ -48,18 +46,9 @@ export default function SignUp() {
 
   return (
     <section className={styles.center}>
-      <h1>{submitting ? 'Loading' : 'Sign Up'}</h1>
+      <h1>{submitting ? 'Loading' : 'Log In'}</h1>
 
-      <form className={styles.center} onSubmit={handleSignUp}>
-        <div className={styles.formInputs}>
-          <label htmlFor='email'>Email</label>
-          <input
-            id='email'
-            type='text'
-            value={user.email}
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
-          ></input>
-        </div>
+      <form className={styles.center}>
         <div className={styles.formInputs}>
           <label htmlFor='username'>Username</label>
           <input
@@ -75,21 +64,21 @@ export default function SignUp() {
             id='password'
             type='password'
             value={user.password}
-            placeholder=' Must be at least 6 digits'
             onChange={(e) => setUser({ ...user, password: e.target.value })}
           ></input>
         </div>
 
-        <button
+        <button 
           className={styles.submitButton}
           disabled={buttonDisabled}
           type='submit'
+          onClick={onLogin}
         >
-          Register
+          Submit
         </button>
 
-        <label>Already Signed Up?</label>
-        <Link href='/pages/login'>LOG IN</Link>
+        <label>New here?</label>
+        <Link href='/pages/signup'>SIGN UP</Link>
       </form>
 
       {errorMessage && (

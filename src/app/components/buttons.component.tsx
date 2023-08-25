@@ -3,11 +3,14 @@ import { signIn, signOut } from 'next-auth/react'
 import Link from 'next/link'
 
 
-export const LoginButton = () => {
+export const SigninButton = () => {
   return (
-    <button onClick={() => signIn()}>
-      Sign in
-    </button>
+    <Link 
+      href={''}
+      onClick={() => signIn(undefined, { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
+    >
+      Sign In
+    </Link>
   )
 }
 
@@ -19,11 +22,14 @@ export const RegisterButton = () => {
   )
 }
 
-export const LogoutButton = () => {
+export const SignoutButton = () => {
   return (
-    <button onClick={() => signOut()}>
+    <Link 
+      href={''} 
+      onClick={() => signOut({ callbackUrl: 'http://localhost:3000' })}
+    >
       Sign Out
-    </button>
+    </Link>
   )
 }
 

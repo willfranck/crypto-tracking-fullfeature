@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import { 
-  LoginButton, 
-  LogoutButton, 
+  SigninButton, 
+  SignoutButton, 
   ProfileButton, 
   RegisterButton 
 } from '@components/buttons.component'
@@ -34,8 +34,8 @@ export default function Home() {
           </a>
         </div>{' '}
 
-        <LoginButton />
-        <LogoutButton />
+        <SigninButton />
+        <SignoutButton />
         <ProfileButton />
         <RegisterButton />
       </div>
