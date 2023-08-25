@@ -23,13 +23,9 @@ export default function UserProfile({ params }: any) {
       <nav className={styles.center}>
         <h1>Dashboard</h1>
 
-        <h2>Welcome { params.id }</h2>
+        <h2>Welcome {params.username}</h2>
 
-        <button 
-          onClick={logout}
-        >
-          Log Out
-        </button>
+        <button onClick={logout}>Log Out</button>
       </nav>
 
       <p>Saved Coins</p>

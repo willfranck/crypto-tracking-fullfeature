@@ -1,6 +1,12 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import styles from './page.module.css'
+import { 
+  LoginButton, 
+  LogoutButton, 
+  ProfileButton, 
+  RegisterButton 
+} from '@components/buttons.component'
+
 
 export default function Home() {
   return (
@@ -17,12 +23,21 @@ export default function Home() {
             rel='noopener noreferrer'
           >
             By{' '}
-            <Image src='/vercel.svg' alt='Vercel Logo' className={styles.vercelLogo} width={100} height={24} priority />
+            <Image
+              src='/vercel.svg'
+              alt='Vercel Logo'
+              className={styles.vercelLogo}
+              width={100}
+              height={24}
+              priority
+            />
           </a>
         </div>{' '}
-        
-        <Link href='/pages/signup'>SIGN UP</Link>
-        <Link href='/pages/login'>LOG IN</Link>
+
+        <LoginButton />
+        <LogoutButton />
+        <ProfileButton />
+        <RegisterButton />
       </div>
 
       <div className={styles.center}>
