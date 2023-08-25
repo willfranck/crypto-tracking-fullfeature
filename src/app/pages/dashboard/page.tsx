@@ -28,8 +28,6 @@ export default function UserProfile() {
     )
 
   } else if (status === 'unauthenticated') {
-      return (
-        router.push('/api/auth/signin')
-      )
+      router.push('/api/auth/signin')
   }
 }
