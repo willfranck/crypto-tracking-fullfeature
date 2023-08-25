@@ -1,6 +1,7 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from 'next-auth/providers/google'
+import bcrypt from 'bcrypt'
 import { connectToDb } from './mongodb'
 import User from '@models/users'
 
@@ -30,8 +31,12 @@ export const authOptions: NextAuthOptions = {
           
           const user = await User.findOne({ username: credentials.username })
          
-          if (user && user.password === credentials.password) {
-            return { id: user._id, username: user.username, email: user.email }
+          if (user && (await bcrypt.compare(credentials.password, user.password))) {
+            return { 
+              id: user._id, 
+              username: user.username, 
+              email: user.email 
+            }
             
           } else {
             return null

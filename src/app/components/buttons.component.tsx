@@ -16,7 +16,9 @@ export const SigninButton = () => {
 
 export const RegisterButton = () => {
   return (
-    <Link href='/pages/register'>
+    <Link 
+      href='/pages/register'
+     >
       Register
     </Link>
   )

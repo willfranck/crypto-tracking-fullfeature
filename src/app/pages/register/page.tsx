@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { SigninButton } from '@components/buttons.component'
 import axios from 'axios'
 import styles from '@styles/page.module.css'
 
@@ -25,7 +26,7 @@ export default function SignUp() {
 
       const res = await axios.post('/api/register', user)
       if (res.status === 201) {
-        router.push('/pages/login')
+        router.push('/pages/dashboard')
       }
 
     } catch (error: any) {
@@ -89,7 +90,7 @@ export default function SignUp() {
         </button>
 
         <label>Already Signed Up?</label>
-        <Link href='/pages/login'>LOG IN</Link>
+        <SigninButton/>
       </form>
 
       {errorMessage && (
