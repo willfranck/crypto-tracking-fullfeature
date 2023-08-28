@@ -2,6 +2,7 @@
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { SignoutButton } from '@components/userNavButtons'
+import Link from 'next/link'
 import styles from '@styles/page.module.css'
 
 
@@ -25,6 +26,8 @@ export default function UserProfile() {
         </nav>
 
         <p>Saved Coins</p>
+
+        <Link href={'/'}>Homepage</Link>
       </section>
     )
   }

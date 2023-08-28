@@ -4,10 +4,12 @@ import Link from 'next/link'
 
 
 export const SigninButton = () => {
+  const { data: session } = useSession()
+
   return (
     <Link 
-      href={''}
-      onClick={() => signIn(undefined, { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
+      href={'/pages/dashboard'}
+      onClick={() => !session ? signIn(undefined, { callbackUrl: 'http://localhost:3000/pages/dashboard' }) : null}
     >
       Sign In
     </Link>
