@@ -3,7 +3,6 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { SignoutButton } from '@components/userNavButtons'
 import Link from 'next/link'
-import styles from '@styles/page.module.css'
 
 
 export default function UserProfile() {
@@ -16,8 +15,8 @@ export default function UserProfile() {
 
   } else if (session?.user) {
     return (
-      <section className={styles.center}>
-        <nav className={styles.center}>
+      <section>
+        <nav>
           <h1>Dashboard</h1>
 
           <h2>Welcome {session?.user?.name}</h2>

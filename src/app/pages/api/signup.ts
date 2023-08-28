@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { connectToDb } from '@db/mongodb'
+import { connectToDb } from '@lib/mongodb'
 import bcrypt from 'bcrypt'
 import User from '@models/users'
 

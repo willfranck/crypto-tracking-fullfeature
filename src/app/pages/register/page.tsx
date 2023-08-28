@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { SigninButton } from '@components/userNavButtons'
 import axios from 'axios'
-import styles from '@styles/page.module.css'
 
 
 export default function SignUp() {
@@ -25,7 +24,7 @@ export default function SignUp() {
 
       const res = await axios.post('/api/register', user)
       if (res.status === 201) {
-        router.push('/pages/dashboard/[id]')
+        router.push('/pages/dashboard')
       }
 
     } catch (error: any) {
@@ -47,11 +46,11 @@ export default function SignUp() {
 
 
   return (
-    <section className={styles.center}>
+    <section>
       <h1>{submitting ? 'Loading' : 'Sign Up'}</h1>
 
-      <form className={styles.center} onSubmit={handleSignUp}>
-        <div className={styles.formInputs}>
+      <form  onSubmit={handleSignUp}>
+        <div>
           <label htmlFor='email'>Email</label>
           <input
             id='email'
@@ -60,7 +59,7 @@ export default function SignUp() {
             onChange={(e) => setUser({ ...user, email: e.target.value })}
           ></input>
         </div>
-        <div className={styles.formInputs}>
+        <div>
           <label htmlFor='username'>Username</label>
           <input
             id='username'
@@ -69,7 +68,7 @@ export default function SignUp() {
             onChange={(e) => setUser({ ...user, username: e.target.value })}
           ></input>
         </div>
-        <div className={styles.formInputs}>
+        <div>
           <label htmlFor='password'>Password</label>
           <input
             id='password'
@@ -81,7 +80,6 @@ export default function SignUp() {
         </div>
 
         <button
-          className={styles.submitButton}
           disabled={buttonDisabled}
           type='submit'
         >
