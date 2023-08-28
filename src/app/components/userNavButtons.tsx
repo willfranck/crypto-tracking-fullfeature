@@ -1,5 +1,5 @@
 'use client'
-import { signIn, signOut } from 'next-auth/react'
+import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 
 
@@ -36,10 +36,12 @@ export const SignoutButton = () => {
 }
 
 export const ProfileButton = () => {
-  return (
-    <Link
-      href={''}
-      onClick={() => signIn(undefined, { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
+  const { data: session } = useSession()
+
+  return(
+    <Link 
+      href={'/pages/dashboard'}
+      onClick={() => !session ? signIn(undefined, { callbackUrl: 'http://localhost:3000/pages/dashboard' }) : null}
     >
       Dashboard
     </Link>

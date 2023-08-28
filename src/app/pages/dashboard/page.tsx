@@ -1,7 +1,7 @@
 'use client'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { SigninButton, SignoutButton } from '@components/buttons.component'
+import { SignoutButton } from '@components/userNavButtons'
 import styles from '@styles/page.module.css'
 
 
@@ -9,10 +9,11 @@ export default function UserProfile() {
   const router = useRouter()
   const { data: session, status } = useSession()
 
-  console.log(session, status);
-  
 
-  if (status === 'authenticated') {
+  if (!session && status === 'unauthenticated') {
+    router.push('/api/auth/signin')
+
+  } else if (session?.user) {
     return (
       <section className={styles.center}>
         <nav className={styles.center}>
@@ -26,8 +27,5 @@ export default function UserProfile() {
         <p>Saved Coins</p>
       </section>
     )
-
-  } else if (status === 'unauthenticated') {
-      router.push('/api/auth/signin')
   }
 }

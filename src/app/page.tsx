@@ -5,7 +5,7 @@ import {
   SignoutButton, 
   ProfileButton, 
   RegisterButton 
-} from '@components/buttons.component'
+} from '@components/userNavButtons'
 
 
 export default function Home() {

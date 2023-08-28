@@ -1,8 +1,8 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from 'next-auth/providers/google'
-import { compare } from 'bcrypt'
 import { connectToDb } from './mongodb'
+import { compare } from 'bcrypt'
 import User from '@models/users'
 
 
@@ -53,30 +53,28 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
 
-  callbacks: {
-    session: ({ session, token }) => {
-      console.log('Session Callback', { session, token })
-      return {
-        ...session,
-        user: {
-          ...session.user,
-          id: token.id,
-          randomKey: token.randomKey,
-        },
-      }
-    },
+  // callbacks: {
+  //   session: ({ session, token }) => {
+  //     return {
+  //       ...session,
+  //       user: {
+  //         ...session.user,
+  //         id: token.id,
+  //         randomKey: token.randomKey,
+  //       },
+  //     }
+  //   },
 
-    jwt: ({ token, user }) => {
-      console.log('JWT Callback', { token, user })
-      if (user) {
-        const u = user as unknown as any
-        return {
-          ...token,
-          id: u.id,
-          randomKey: u.randomKey,
-        }
-      }
-      return token
-    },
-  },
+  //   jwt: ({ token, user }) => {
+  //     if (user) {
+  //       const u = user as unknown as any
+  //       return {
+  //         ...token,
+  //         id: u.id,
+  //         randomKey: u.randomKey,
+  //       }
+  //     }
+  //     return token
+  //   },
+  // },
 }
