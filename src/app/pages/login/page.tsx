@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { SigninButton, RegisterButton } from '@components/userNavButtons'
+import { RegisterButton, SigninButton } from '@components/userNavButtons'
 import axios from 'axios'
 
 
@@ -11,7 +11,6 @@ export default function SignUp() {
   const [submitting, setSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [user, setUser] = useState({
-    email: '',
     username: '',
     password: ''
   })
@@ -36,9 +35,8 @@ export default function SignUp() {
   }
 
   useEffect(() => {
-    if (user.email.length > 0 && user.username.length > 0 && user.password.length >= 6) {
+    if (user.username.length > 0 && user.password.length >= 6) {
       setButtonDisabled(false)
-      
     } else {
       setButtonDisabled(true)
     }
@@ -59,24 +57,10 @@ export default function SignUp() {
         </div>
 
         <h1 className='mb-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-300'>
-          {submitting ? 'Loading' : 'Sign Up'}
+          {submitting ? 'Loading' : 'Sign In'}
         </h1>
 
         <form className='flex flex-col items-center w-full space-y-6' onSubmit={handleSignUp}>
-          <div className='w-full'>
-            <label htmlFor='email' className='text-sm font-medium leading-6 text-gray-400'>
-              Email
-            </label>
-            <input
-              className='w-full rounded-md border-0 py-1.5 px-3 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-              id='email'
-              type='text'
-              required
-              value={user.email}
-              onChange={(e) => setUser({ ...user, email: e.target.value })}
-            ></input>
-          </div>
-
           <div className='w-full'>
             <label htmlFor='username' className='text-sm font-medium leading-6 text-gray-400'>
               Username
@@ -101,24 +85,19 @@ export default function SignUp() {
               type='password'
               required
               value={user.password}
-              placeholder=' Must be at least 6 digits'
               onChange={(e) => setUser({ ...user, password: e.target.value })}
             ></input>
           </div>
 
           <div className='w-full space-y-4'>
-            <button
-              className='w-full mt-6 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-              disabled={buttonDisabled}
-              type='submit'
-            >
-              Register
-            </button>
+            <div className='w-full mt-6'>
+              <SigninButton />
+            </div>
 
             <div className='flex justify-between items-center w-full'>
-              <label>Already Signed Up?</label>
+              <label>New here?</label>
 
-              <SigninButton />
+              <RegisterButton />
             </div>
           </div>
         </form>

@@ -3,14 +3,26 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 
 
-export const SigninButton = () => {
+export const LoginPageButton = () => {
   const { data: session } = useSession()
 
   return (
     <Link
-      href={'/pages/dashboard'}
+      href={'/pages/login'}
       onClick={() => (!session ? signIn(undefined, { callbackUrl: 'http://localhost:3000/pages/dashboard' }) : null)}
-      className='flex justify-center w-40 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+      className='flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+    >
+      Sign In
+    </Link>
+  )
+}
+
+export const SigninButton = () => {
+  return (
+    <Link
+      href={'/pages/dashboard'}
+      onClick={() => signIn(undefined, { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
+      className='flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
     >
       Sign In
     </Link>
@@ -21,7 +33,7 @@ export const RegisterButton = () => {
   return (
     <Link
       href={'/pages/register'}
-      className='flex justify-center w-40 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+      className='flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
     >
       Register
     </Link>
@@ -33,7 +45,7 @@ export const SignoutButton = () => {
     <Link
       href={''}
       onClick={() => signOut({ callbackUrl: 'http://localhost:3000' })}
-      className='flex justify-center w-40 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+      className='flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
     >
       Sign Out
     </Link>
@@ -47,7 +59,7 @@ export const ProfileButton = () => {
     <Link
       href={'/pages/dashboard'}
       onClick={() => (!session ? signIn(undefined, { callbackUrl: 'http://localhost:3000/pages/dashboard' }) : null)}
-      className='flex justify-center w-40 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+      className='flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
     >
       Dashboard
     </Link>

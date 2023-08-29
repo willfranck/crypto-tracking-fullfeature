@@ -7,6 +7,10 @@ import User from '@models/users'
 
 
 export const authOptions: NextAuthOptions = {
+  pages: {
+    signIn: '/pages/login',
+  },
+
   session: {
     strategy: 'jwt',
   },
