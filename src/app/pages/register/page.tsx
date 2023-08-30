@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { SigninButton, RegisterButton } from '@components/userNavButtons'
+import { CredentialsSigninBtn } from '@components/userNavButtons'
 import axios from 'axios'
 
 
@@ -68,13 +68,14 @@ export default function SignUp() {
               Email
             </label>
             <input
-              className='w-full rounded-md border-0 py-1.5 px-3 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
               id='email'
               type='text'
               required
               value={user.email}
               onChange={(e) => setUser({ ...user, email: e.target.value })}
-            ></input>
+              className='w-full rounded-md border-0 py-1.5 px-3 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+            >
+            </input>
           </div>
 
           <div className='w-full'>
@@ -82,13 +83,14 @@ export default function SignUp() {
               Username
             </label>
             <input
-              className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
               id='username'
               type='text'
               required
               value={user.username}
               onChange={(e) => setUser({ ...user, username: e.target.value })}
-            ></input>
+              className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+            >
+            </input>
           </div>
 
           <div className='w-full'>
@@ -96,21 +98,22 @@ export default function SignUp() {
               Password
             </label>
             <input
-              className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
               id='password'
               type='password'
               required
               value={user.password}
               placeholder=' Must be at least 6 digits'
               onChange={(e) => setUser({ ...user, password: e.target.value })}
-            ></input>
+              className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+            >
+            </input>
           </div>
 
           <div className='w-full space-y-4'>
             <button
-              className='w-full mt-6 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-              disabled={buttonDisabled}
               type='submit'
+              disabled={buttonDisabled}
+              className='w-full mt-6 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
             >
               Register
             </button>
@@ -118,7 +121,7 @@ export default function SignUp() {
             <div className='flex justify-center items-center w-full'>
               <label>Already Signed Up? &ensp;</label>
 
-              <SigninButton />
+              <CredentialsSigninBtn />
             </div>
           </div>
         </form>

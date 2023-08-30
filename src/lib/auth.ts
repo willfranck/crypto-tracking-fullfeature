@@ -8,7 +8,8 @@ import User from '@models/users'
 
 export const authOptions: NextAuthOptions = {
   pages: {
-    signIn: '/pages/login',
+    signIn: '/pages/signin',
+    newUser: '/pages/register',
   },
 
   session: {
@@ -17,7 +18,7 @@ export const authOptions: NextAuthOptions = {
 
   providers: [
     CredentialsProvider({
-      name: 'your Username',
+      name: ' your Username',
       credentials: {
         username: {
           label: 'Username',
@@ -36,6 +37,7 @@ export const authOptions: NextAuthOptions = {
           const user = await User.findOne({ username: credentials.username })
 
           if (user && (await compare(credentials.password, user.password))) {
+            
             return {
               id: user._id,
               name: user.username,

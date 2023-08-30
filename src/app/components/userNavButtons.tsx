@@ -3,12 +3,12 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 
 
-export const LoginPageButton = () => {
+export const LoginPageBtn = () => {
   const { data: session } = useSession()
 
   return (
     <Link
-      href={'/pages/login'}
+      href={'/pages/signin'}
       onClick={() => (!session ? signIn(undefined, { callbackUrl: 'http://localhost:3000/pages/dashboard' }) : null)}
       className='flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
     >
@@ -17,19 +17,31 @@ export const LoginPageButton = () => {
   )
 }
 
-export const SigninButton = () => {
+export const CredentialsSigninBtn = () => {
   return (
-    <Link
-      href={''}
-      onClick={() => signIn(undefined, { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
-      className='flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+    <button
+      type='submit'
+      onClick={() => signIn('credentials', { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
+      className='flex justify-center w-full mt-6 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
     >
       Sign In
-    </Link>
+    </button>
   )
 }
 
-export const RegisterButton = () => {
+export const GoogleSigninBtn = () => {
+  return (
+    <button
+      type='submit'
+      onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
+      className='flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+    >
+      Sign In with GOOGLE
+    </button>
+  )
+}
+
+export const RegisterBtn = () => {
   return (
     <Link
       href={'/pages/register'}
@@ -40,7 +52,7 @@ export const RegisterButton = () => {
   )
 }
 
-export const SignoutButton = () => {
+export const SignoutBtn = () => {
   return (
     <Link
       href={''}
@@ -52,7 +64,7 @@ export const SignoutButton = () => {
   )
 }
 
-export const ProfileButton = () => {
+export const ProfileBtn = () => {
   const { data: session } = useSession()
 
   return (

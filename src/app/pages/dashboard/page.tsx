@@ -1,7 +1,7 @@
 'use client'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { SignoutButton } from '@components/userNavButtons'
+import { SignoutBtn } from '@components/userNavButtons'
 import Link from 'next/link'
 
 
@@ -21,7 +21,7 @@ export default function UserProfile() {
 
           <h2>Welcome {session?.user?.name}</h2>
 
-          <SignoutButton />
+          <SignoutBtn />
         </nav>
 
         <p>Saved Coins</p>
