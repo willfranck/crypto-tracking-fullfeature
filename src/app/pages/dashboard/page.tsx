@@ -19,7 +19,7 @@ export default function UserProfile() {
         <nav>
           <h1>Dashboard</h1>
 
-          <h2>Welcome {session?.user?.name}</h2>
+          <h2>Signed in as &ensp; {session?.user?.name}</h2>
 
           <SignoutBtn />
         </nav>

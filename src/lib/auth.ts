@@ -22,7 +22,7 @@ export const authOptions: NextAuthOptions = {
       credentials: {
         username: {
           label: 'Username',
-          type: 'username',
+          type: 'text',
         },
         password: {
           label: 'Password',
@@ -37,17 +37,16 @@ export const authOptions: NextAuthOptions = {
           const user = await User.findOne({ username: credentials.username })
 
           if (user && (await compare(credentials.password, user.password))) {
-            
             return {
               id: user._id,
-              name: user.username,
               email: user.email,
+              name: user.username,
             }
 
           } else {
-            return null
+              return null
           }
-          
+
         } catch (error: any) {
           console.log(error.message)
           return null

@@ -17,18 +17,6 @@ export const SigninPageBtn = () => {
   )
 }
 
-export const CredentialsSigninBtn = () => {
-  return (
-    <button
-      type='submit'
-      onClick={() => signIn('credentials', { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
-      className='w-full mt-6 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-    >
-      Sign In
-    </button>
-  )
-}
-
 export const GoogleSigninBtn = () => {
   return (
     <button
@@ -36,7 +24,7 @@ export const GoogleSigninBtn = () => {
       onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
       className='flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
     >
-      Sign In with GOOGLE
+      Sign In with Google
     </button>
   )
 }

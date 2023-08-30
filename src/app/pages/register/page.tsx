@@ -5,7 +5,7 @@ import { SigninPageBtn } from '@components/userNavButtons'
 import axios from 'axios'
 
 
-export default function SignUp() {
+export default function SignUpPage() {
   const router = useRouter()
   const [buttonDisabled, setButtonDisabled] = useState(true)
   const [submitting, setSubmitting] = useState(false)
@@ -62,9 +62,15 @@ export default function SignUp() {
           {submitting ? 'Loading' : 'Sign Up'}
         </h1>
 
-        <form className='flex flex-col items-center w-full mb-14 space-y-6' onSubmit={handleSignUp}>
+        <form 
+          onSubmit={handleSignUp} 
+          className='flex flex-col items-center w-full mb-14 space-y-6'
+        >
           <div className='w-full'>
-            <label htmlFor='email' className='text-sm font-medium leading-6 text-gray-400'>
+            <label 
+              htmlFor='email' 
+              className='text-sm font-medium leading-6 text-gray-400'
+            >
               Email
             </label>
             <input
@@ -72,6 +78,7 @@ export default function SignUp() {
               type='text'
               required
               value={user.email}
+              autoComplete='on'
               onChange={(e) => setUser({ ...user, email: e.target.value })}
               className='w-full rounded-md border-0 py-1.5 px-3 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
             >
@@ -79,7 +86,10 @@ export default function SignUp() {
           </div>
 
           <div className='w-full'>
-            <label htmlFor='username' className='text-sm font-medium leading-6 text-gray-400'>
+            <label 
+              htmlFor='username' 
+              className='text-sm font-medium leading-6 text-gray-400'
+            >
               Username
             </label>
             <input
@@ -87,6 +97,7 @@ export default function SignUp() {
               type='text'
               required
               value={user.username}
+              autoComplete='on'
               onChange={(e) => setUser({ ...user, username: e.target.value })}
               className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
             >
