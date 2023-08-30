@@ -5,7 +5,6 @@ import { signIn } from 'next-auth/react'
 
 
 export default function SignInPage() {
-  const [buttonDisabled, setButtonDisabled] = useState(true)
   const [submitting, setSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [user, setUser] = useState({
@@ -19,26 +18,20 @@ export default function SignInPage() {
     try {
       setSubmitting(true)
 
-      signIn('credentials', {
+      const res = await signIn('credentials', {
         username: user.username,
         password: user.password,
         callbackUrl: 'http://localhost:3000/pages/dashboard',
       })
 
-    } catch (error: any) {
-        setSubmitting(false)
+      if (res?.error) {
         setErrorMessage('Invalid credentials')
       }
-  }
 
-  useEffect(() => {
-    if (user.username.length > 0 && user.password.length > 0) {
-      setButtonDisabled(false)
-      
-    } else {
-      setButtonDisabled(true)
-    }
-  }, [user])
+    } catch (error: any) {
+        setSubmitting(false)
+      }
+  }
 
 
   return (
@@ -100,7 +93,6 @@ export default function SignInPage() {
           <div className='w-full space-y-4'>
             <button
               type='submit'
-              disabled={buttonDisabled}
               className='w-full mt-6 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
             >
               Sign In

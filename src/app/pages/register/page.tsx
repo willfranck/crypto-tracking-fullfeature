@@ -7,7 +7,6 @@ import axios from 'axios'
 
 export default function SignUpPage() {
   const router = useRouter()
-  const [buttonDisabled, setButtonDisabled] = useState(true)
   const [submitting, setSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [user, setUser] = useState({
@@ -34,15 +33,6 @@ export default function SignUpPage() {
         }
       }
   }
-
-  useEffect(() => {
-    if (user.email.length > 0 && user.username.length > 0 && user.password.length >= 6) {
-      setButtonDisabled(false)
-      
-    } else {
-      setButtonDisabled(true)
-    }
-  }, [user])
 
 
   return (
@@ -123,7 +113,6 @@ export default function SignUpPage() {
           <div className='w-full space-y-4'>
             <button
               type='submit'
-              disabled={buttonDisabled}
               className='w-full mt-6 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
             >
               Register
