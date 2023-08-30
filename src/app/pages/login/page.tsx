@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { RegisterButton, SigninButton } from '@components/userNavButtons'
+import { signIn } from 'next-auth/react'
 
 
 export default function SignUp() {
@@ -32,7 +33,7 @@ export default function SignUp() {
 
 
   return (
-    <main className='flex flex-col justify-center items-center min-h-full px-6 py-12 lg:px-8'>
+    <main className='flex flex-col justify-center items-center min-h-full px-8'>
       <section className='w-full sm:mx-auto sm:w-full sm:max-w-sm'>
         {/* <div className='relative'>
           {errorMessage && (
@@ -48,7 +49,7 @@ export default function SignUp() {
           Sign In
         </h1>
 
-        <form className='flex flex-col items-center w-full space-y-6'>
+        <form className='flex flex-col items-center w-full mb-10 space-y-6'>
           <div className='w-full'>
             <label htmlFor='username' className='text-sm font-medium leading-6 text-gray-400'>
               Username
@@ -85,8 +86,8 @@ export default function SignUp() {
               <SigninButton />
             </button>
 
-            <div className='flex justify-between items-center w-full'>
-              <label>New here?</label>
+            <div className='flex justify-center items-center w-full'>
+              <label>New here? &ensp;</label>
 
               <RegisterButton />
             </div>

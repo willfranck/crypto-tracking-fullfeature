@@ -46,7 +46,7 @@ export default function SignUp() {
 
 
   return (
-    <main className='flex flex-col justify-center items-center min-h-full px-6 py-12 lg:px-8'>
+    <main className='flex flex-col justify-center items-center min-h-full px-8'>
       <section className='w-full sm:mx-auto sm:w-full sm:max-w-sm'>
         <div className='relative'>
           {errorMessage && (
@@ -62,7 +62,7 @@ export default function SignUp() {
           {submitting ? 'Loading' : 'Sign Up'}
         </h1>
 
-        <form className='flex flex-col items-center w-full space-y-6' onSubmit={handleSignUp}>
+        <form className='flex flex-col items-center w-full mb-10 space-y-6' onSubmit={handleSignUp}>
           <div className='w-full'>
             <label htmlFor='email' className='text-sm font-medium leading-6 text-gray-400'>
               Email
@@ -115,8 +115,8 @@ export default function SignUp() {
               Register
             </button>
 
-            <div className='flex justify-between items-center w-full'>
-              <label>Already Signed Up?</label>
+            <div className='flex justify-center items-center w-full'>
+              <label>Already Signed Up? &ensp;</label>
 
               <SigninButton />
             </div>
