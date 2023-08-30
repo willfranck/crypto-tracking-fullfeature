@@ -3,7 +3,7 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 
 
-export const LoginPageBtn = () => {
+export const SigninPageBtn = () => {
   const { data: session } = useSession()
 
   return (
@@ -22,7 +22,7 @@ export const CredentialsSigninBtn = () => {
     <button
       type='submit'
       onClick={() => signIn('credentials', { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
-      className='flex justify-center w-full mt-6 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+      className='w-full mt-6 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
     >
       Sign In
     </button>

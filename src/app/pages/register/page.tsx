@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { CredentialsSigninBtn } from '@components/userNavButtons'
+import { SigninPageBtn } from '@components/userNavButtons'
 import axios from 'axios'
 
 
@@ -62,7 +62,7 @@ export default function SignUp() {
           {submitting ? 'Loading' : 'Sign Up'}
         </h1>
 
-        <form className='flex flex-col items-center w-full mb-10 space-y-6' onSubmit={handleSignUp}>
+        <form className='flex flex-col items-center w-full mb-14 space-y-6' onSubmit={handleSignUp}>
           <div className='w-full'>
             <label htmlFor='email' className='text-sm font-medium leading-6 text-gray-400'>
               Email
@@ -121,7 +121,7 @@ export default function SignUp() {
             <div className='flex justify-center items-center w-full'>
               <label>Already Signed Up? &ensp;</label>
 
-              <CredentialsSigninBtn />
+              <SigninPageBtn />
             </div>
           </div>
         </form>

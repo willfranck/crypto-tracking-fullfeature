@@ -44,7 +44,7 @@ export default function SignUp() {
         <form
           action='http://localhost:3000/api/auth/callback/credentials'
           method='POST'
-          className='flex flex-col items-center w-full mb-10 space-y-6'
+          className='flex flex-col items-center w-full mb-20 space-y-6'
         >
           <div className='w-full'>
             <label
@@ -94,7 +94,7 @@ export default function SignUp() {
         </form>
       </section>
 
-      <section>
+      <section className='mb-6'>
         <GoogleSigninBtn />
       </section>
     </main>

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { LoginPageBtn, SignoutBtn, ProfileBtn, RegisterBtn } from '@components/userNavButtons'
+import { SigninPageBtn, SignoutBtn, ProfileBtn, RegisterBtn } from '@components/userNavButtons'
 
 export default function Home() {
   return (
@@ -33,7 +33,7 @@ export default function Home() {
       </div>
 
       <div>
-        <LoginPageBtn />
+        <SigninPageBtn />
         <SignoutBtn />
         <ProfileBtn />
         <RegisterBtn />
