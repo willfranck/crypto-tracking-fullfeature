@@ -1,52 +1,40 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import { RegisterButton, SigninButton } from '@components/userNavButtons'
-import axios from 'axios'
 
 
 export default function SignUp() {
-  const router = useRouter()
-  const [buttonDisabled, setButtonDisabled] = useState(true)
-  const [submitting, setSubmitting] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
+  // const router = useRouter()
+  // const [submitting, setSubmitting] = useState(false)
+  // const [errorMessage, setErrorMessage] = useState('')
   const [user, setUser] = useState({
     username: '',
     password: ''
   })
 
-  const handleSignUp = async (e: React.FormEvent) => {
-    e.preventDefault()
+  // const handleSignUp = async (e: React.FormEvent) => {
+  //   e.preventDefault()
 
-    try {
-      setSubmitting(true)
+  //   try {
+  //     setSubmitting(true)
 
-      const res = await axios.post('/api/register', user)
-      if (res.status === 201) {
-        router.push('/pages/dashboard')
-      }
+  //     if (res.status === 201) {
+  //       router.push('/pages/dashboard')
+  //     }
 
-    } catch (error: any) {
-        if (error.response.status === 409) {
-          setSubmitting(false)
-          setErrorMessage('User already exists')
-        }
-      }
-  }
-
-  useEffect(() => {
-    if (user.username.length > 0 && user.password.length >= 6) {
-      setButtonDisabled(false)
-    } else {
-      setButtonDisabled(true)
-    }
-  }, [user])
+  //   } catch (error: any) {
+  //       if (error.response.status === 409) {
+  //         setSubmitting(false)
+  //         setErrorMessage('User already exists')
+  //       }
+  //     }
+  // }
 
 
   return (
     <main className='flex flex-col justify-center items-center min-h-full px-6 py-12 lg:px-8'>
       <section className='w-full sm:mx-auto sm:w-full sm:max-w-sm'>
-        <div className='relative'>
+        {/* <div className='relative'>
           {errorMessage && (
             <div>
               <h2 className='absolute bottom-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-600 '>
@@ -54,13 +42,13 @@ export default function SignUp() {
               </h2>
             </div>
           )}
-        </div>
+        </div> */}
 
         <h1 className='mb-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-300'>
-          {submitting ? 'Loading' : 'Sign In'}
+          Sign In
         </h1>
 
-        <form className='flex flex-col items-center w-full space-y-6' onSubmit={handleSignUp}>
+        <form className='flex flex-col items-center w-full space-y-6'>
           <div className='w-full'>
             <label htmlFor='username' className='text-sm font-medium leading-6 text-gray-400'>
               Username
@@ -90,9 +78,12 @@ export default function SignUp() {
           </div>
 
           <div className='w-full space-y-4'>
-            <div className='w-full mt-6'>
+            <button 
+              className='w-full mt-6'
+              type='submit'
+            >
               <SigninButton />
-            </div>
+            </button>
 
             <div className='flex justify-between items-center w-full'>
               <label>New here?</label>
