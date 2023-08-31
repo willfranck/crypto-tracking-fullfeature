@@ -3,9 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+
+  --font-size-largest: 2.5rem;
+  --font-size-larger: 2rem;
+  --font-size-large: 1.5rem;
+  --font-size-small: 0.875rem;
+
+  --font-weight-bold: 600;
+  --font-weight-bolder: 700;
+  --font-weight-boldest: 800;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,6 +25,12 @@
   }
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -24,4 +39,43 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: square;
+  color: var(--color-text-light);
+}
+
+h1 {
+  font-family: var(--font-title);
+  font-size: var(--font-size-largest);
+  font-weight: var(--font-weight-bolder);
+  color: var(--color-text-light);
+}
+
+h2 {
+  font-family: var(--font-body);
+  font-size: var(--font-size-larger);
+  color: var(--color-text-light);
+}
+
+h3 {
+  font-family: var(--font-title);
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-boldest);
+  color: var(--color-text-light);
+}
+
+p {
+  max-width: 80ch;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-light);
+}
+
+span {
+  font-size: var(--font-size-small);
 }

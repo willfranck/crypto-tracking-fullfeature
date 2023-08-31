@@ -32,7 +32,7 @@ export default function SignInPage() {
 
   return (
     <main className='flex flex-col justify-center items-center min-h-full px-8'>
-      <section className='relative w-full sm:w-full sm:max-w-sm'>
+      <section className='w-80 sm:w-96'>
         {errorMessage && (
           <div>
             <h2 className='absolute bottom-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-600 '>
@@ -92,7 +92,7 @@ export default function SignInPage() {
         </form>
       </section>
 
-      <hr className="w-96 h-10 mt-14 mb-6 text-center text-gray-400 border-t-1 border-gray-400 overflow-visible before:relative before:content-['or'] before:bottom-3.5 before:px-1 before:bg-black"></hr>
+      <hr className="w-full sm:w-1/2 h-10 mt-14 mb-6 text-center text-gray-400 border-t-1 border-gray-400 overflow-visible before:relative before:content-['or'] before:bottom-3.5 before:px-2 before:bg-black before:rounded-full"></hr>
 
       <section className='mb-6'>
         <GoogleSigninBtn />

@@ -8,7 +8,7 @@ export default function NavBar() {
 
   
   return (
-    <nav className='flex justify-end w-full'>
+    <nav className='flex justify-end w-full mb-6'>
       {session ? (
         <div className='flex space-x-4'>
           <ProfileBtn />
