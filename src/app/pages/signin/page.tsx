@@ -18,15 +18,11 @@ export default function SignInPage() {
     try {
       setSubmitting(true)
 
-      const res = await signIn('credentials', {
+      signIn('credentials', {
         username: user.username,
         password: user.password,
         callbackUrl: 'http://localhost:3000/pages/dashboard',
       })
-
-      if (res?.error) {
-        setErrorMessage('Invalid credentials')
-      }
 
     } catch (error: any) {
         setSubmitting(false)
