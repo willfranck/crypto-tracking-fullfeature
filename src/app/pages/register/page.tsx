@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { SigninPageBtn } from '@components/userNavButtons'
+import { SigninPageBtn, GoogleSigninBtn } from '@components/userNavButtons'
 import axios from 'axios'
 
 
@@ -37,7 +37,7 @@ export default function SignUpPage() {
 
   return (
     <main className='flex flex-col justify-center items-center min-h-full px-8'>
-      <section className='w-full sm:mx-auto sm:w-full sm:max-w-sm'>
+      <section className='w-80 sm:w-96'>
         <div className='relative'>
           {errorMessage && (
             <div>
@@ -52,15 +52,9 @@ export default function SignUpPage() {
           {submitting ? 'Loading' : 'Sign Up'}
         </h1>
 
-        <form 
-          onSubmit={handleSignUp} 
-          className='flex flex-col items-center w-full mb-14 space-y-6'
-        >
+        <form onSubmit={handleSignUp} className='flex flex-col items-center w-full space-y-6'>
           <div className='w-full'>
-            <label 
-              htmlFor='email' 
-              className='text-sm font-medium leading-6 text-gray-400'
-            >
+            <label htmlFor='email' className='text-sm font-medium leading-6 text-gray-400'>
               Email
             </label>
             <input
@@ -71,15 +65,11 @@ export default function SignUpPage() {
               autoComplete='on'
               onChange={(e) => setUser({ ...user, email: e.target.value })}
               className='w-full rounded-md border-0 py-1.5 px-3 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-            >
-            </input>
+            ></input>
           </div>
 
           <div className='w-full'>
-            <label 
-              htmlFor='username' 
-              className='text-sm font-medium leading-6 text-gray-400'
-            >
+            <label htmlFor='username' className='text-sm font-medium leading-6 text-gray-400'>
               Username
             </label>
             <input
@@ -90,8 +80,7 @@ export default function SignUpPage() {
               autoComplete='on'
               onChange={(e) => setUser({ ...user, username: e.target.value })}
               className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-            >
-            </input>
+            ></input>
           </div>
 
           <div className='w-full'>
@@ -106,8 +95,7 @@ export default function SignUpPage() {
               placeholder=' Must be at least 6 digits'
               onChange={(e) => setUser({ ...user, password: e.target.value })}
               className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-            >
-            </input>
+            ></input>
           </div>
 
           <div className='w-full space-y-4'>
@@ -125,6 +113,12 @@ export default function SignUpPage() {
             </div>
           </div>
         </form>
+      </section>
+
+      <hr className="w-full sm:w-1/2 h-10 mt-14 mb-6 text-center text-gray-400 border-t-1 border-gray-400 overflow-visible before:relative before:content-['or'] before:bottom-3.5 before:px-1 before:bg-black"></hr>
+
+      <section className='mb-6'>
+        <GoogleSigninBtn />
       </section>
     </main>
   )

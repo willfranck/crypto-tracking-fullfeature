@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { RegisterBtn, GoogleSigninBtn } from '@components/userNavButtons'
 import { signIn } from 'next-auth/react'
 
@@ -32,7 +32,7 @@ export default function SignInPage() {
 
   return (
     <main className='flex flex-col justify-center items-center min-h-full px-8'>
-      <section className='relative w-full sm:mx-auto sm:w-full sm:max-w-sm'>
+      <section className='relative w-full sm:w-full sm:max-w-sm'>
         {errorMessage && (
           <div>
             <h2 className='absolute bottom-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-600 '>
@@ -45,15 +45,9 @@ export default function SignInPage() {
           {submitting ? 'Loading' : 'Sign In'}
         </h1>
 
-        <form
-          onSubmit={handleSignIn}
-          className='flex flex-col items-center w-full mb-20 space-y-6'
-        >
+        <form onSubmit={handleSignIn} className='flex flex-col items-center w-full space-y-6'>
           <div className='w-full'>
-            <label
-              htmlFor='username'
-              className='text-sm font-medium leading-6 text-gray-400'
-            >
+            <label htmlFor='username' className='text-sm font-medium leading-6 text-gray-400'>
               Username
             </label>
             <input
@@ -64,15 +58,11 @@ export default function SignInPage() {
               autoComplete='on'
               onChange={(e) => setUser({ ...user, username: e.target.value })}
               className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-            >
-            </input>
+            ></input>
           </div>
 
           <div className='w-full'>
-            <label
-              htmlFor='password'
-              className='text-sm font-medium leading-6 text-gray-400'
-            >
+            <label htmlFor='password' className='text-sm font-medium leading-6 text-gray-400'>
               Password
             </label>
             <input
@@ -82,8 +72,7 @@ export default function SignInPage() {
               value={user.password}
               onChange={(e) => setUser({ ...user, password: e.target.value })}
               className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-            >
-            </input>
+            ></input>
           </div>
 
           <div className='w-full space-y-4'>
@@ -102,6 +91,8 @@ export default function SignInPage() {
           </div>
         </form>
       </section>
+
+      <hr className="w-96 h-10 mt-14 mb-6 text-center text-gray-400 border-t-1 border-gray-400 overflow-visible before:relative before:content-['or'] before:bottom-3.5 before:px-1 before:bg-black"></hr>
 
       <section className='mb-6'>
         <GoogleSigninBtn />
