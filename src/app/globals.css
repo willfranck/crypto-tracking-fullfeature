@@ -39,6 +39,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  padding: 1.5rem;
 }
 
 a {
@@ -51,20 +52,18 @@ ul {
 }
 
 h1 {
-  font-family: var(--font-title);
   font-size: var(--font-size-largest);
   font-weight: var(--font-weight-bolder);
   color: var(--color-text-light);
 }
 
 h2 {
-  font-family: var(--font-body);
   font-size: var(--font-size-larger);
+  font-weight: var(--font-weight-boldest);
   color: var(--color-text-light);
 }
 
 h3 {
-  font-family: var(--font-title);
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-boldest);
   color: var(--color-text-light);

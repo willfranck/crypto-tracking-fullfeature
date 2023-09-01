@@ -1,26 +1,30 @@
-// import { useState, useEffect } from 'react'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-// function CryptoCard(cryptoProps) {
-//   const [textStyle, setTextStyle] = useState(null)
-//   const [priceChange, setPriceChange] = useState(null)
-      
-//   useEffect(() => {
-//     if (cryptoProps.change >= 0) {
-//       setTextStyle({ color: 'var(--color-value-increase)' })
-//       // setPriceChange(<FontAwesomeIcon icon="fa-solid fa-caret-up" size="3x" />)
-//     } else {
-//       setTextStyle({ color: 'var(--color-value-decrease)' })
-//       // setPriceChange(<FontAwesomeIcon icon="fa-solid fa-caret-down" size="3x" />)
-//     }
-    
-//   }, [cryptoProps.change])
-
+import Image from "next/image"
 
 export default function CryptoCard() {
-return (
-    <article className="crypto-card flex">
-      
+  return (
+    <article className='flex justify-between w-80 h-17 px-2 py-1 rounded-md bg-gray-700'>
+      <div className='flex items-center'>
+        <div className='w-12'>
+          <Image 
+            src={'/google_logo.svg'}
+            alt='Coin Logo'
+            width={36}
+            height={36}
+          />
+        </div>
+        <div>
+          <p className='my-1'>G-Coin</p>
+          <span>SYMB</span>
+        </div>
+      </div>
+
+      <div className='flex flex-col items-end w-28'>
+          <h3>$20,000</h3>
+          <div className='flex justify-between items-center w-full'>
+            <p>+3.4%</p>
+            <span>24h</span>
+          </div>
+      </div>
     </article>
   )
 }

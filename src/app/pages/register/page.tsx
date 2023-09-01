@@ -36,7 +36,7 @@ export default function SignUpPage() {
 
 
   return (
-    <main className='flex flex-col justify-center items-center min-h-full px-8'>
+    <main className='flex flex-col justify-center items-center min-h-full px-4'>
       <section className='w-80 sm:w-96'>
         <div className='relative'>
           {errorMessage && (

@@ -1,13 +1,16 @@
 import Image from 'next/image'
 import NavBar from '@components/navBar'
 import HeroCard from '@components/heroCard'
+import CryptoCard from '@components/cryptoCard'
 
 export default function Home() {
   return (
-    <main className='flex flex-col items-center xl:container min-h-screen mx-auto p-6'>
+    <main className='flex flex-col justify-between items-center xl:container min-h-full mx-auto'>
       <NavBar />
 
       <HeroCard />
+
+      <CryptoCard />
     </main>
   )
 }
