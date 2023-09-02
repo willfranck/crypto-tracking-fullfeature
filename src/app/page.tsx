@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import NavBar from '@components/navBar'
 import HeroCard from '@components/heroCard'
-import CryptoCard from '@components/cryptoCard'
+import CryptoCardGrid from '@components/cryptoCardGrid'
+
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
 
       <HeroCard />
 
-      <CryptoCard />
+      <CryptoCardGrid />
     </main>
   )
 }

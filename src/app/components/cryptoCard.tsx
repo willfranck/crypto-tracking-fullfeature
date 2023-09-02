@@ -1,10 +1,11 @@
-import Image from "next/image"
+import Image from 'next/image'
+
 
 export default function CryptoCard() {
   return (
     <article className='flex justify-between w-80 h-17 px-2 py-1 rounded-md bg-gray-700'>
       <div className='flex items-center'>
-        <div className='w-12'>
+        <div className='w-11'>
           <Image 
             src={'/google_logo.svg'}
             alt='Coin Logo'
@@ -13,7 +14,7 @@ export default function CryptoCard() {
           />
         </div>
         <div>
-          <p className='my-1'>G-Coin</p>
+          <h3 className=''>G-Coin</h3>
           <span>SYMB</span>
         </div>
       </div>
