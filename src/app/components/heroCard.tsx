@@ -1,6 +1,6 @@
 function HeroCard() {
 	return (
-    <section className='w-full flex-1'>
+    <section className='w-full mb-16 flex-1'>
       <h1 className='py-4'>Crypto Tracker</h1>
 
       <div className='mt-4'>

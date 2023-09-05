@@ -18,6 +18,7 @@ const config: Config = {
         90: '22.5rem',
       },
       minWidth: {
+        ss: '21rem',
         sm: '22.5rem',
       },
       maxWidth: {
@@ -25,7 +26,7 @@ const config: Config = {
         sm: '22.5rem',
       },
       screens: {
-        sm: '390px',
+        sm: '396px',
         md: '768px',
         lg: '984px',
         xl: '1240px',
