@@ -20,10 +20,10 @@ export default function CryptoCard(cryptoProps: any) {
       </div>
 
       <div className='flex flex-col items-end w-28'>
-          <h3>${cryptoProps.price}</h3>
-          <div className='flex justify-between items-center w-full'>
+          <h3 className='text-green-400'>${cryptoProps.price}</h3>
+          <div className='flex items-center'>
             <p>{cryptoProps.change}%</p>
-            <span className='text-gray-400'>24h</span>
+            <span className='ml-4 text-gray-300'>24h</span>
           </div>
       </div>
     </article>
