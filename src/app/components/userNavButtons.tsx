@@ -26,7 +26,7 @@ export const GoogleSigninBtn = () => {
       className='flex justify-around items-center w-60 rounded-md px-4 py-4 bg-white text-black font-semibold leading-6 shadow-sm hover:bg-gray-700 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
     >
       <Image src={'/google_logo.svg'} alt='Google Logo' width={32} height={32} />
-      <span>&ensp; Sign In with Google</span>
+      <p>&ensp; Sign In with Google</p>
     </button>
   )
 }

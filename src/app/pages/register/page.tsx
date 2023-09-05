@@ -115,7 +115,7 @@ export default function SignUpPage() {
         </form>
       </section>
 
-      <hr className="w-full sm:w-1/2 h-10 mt-14 mb-6 text-center text-gray-400 border-t-1 border-gray-400 overflow-visible before:relative before:content-['or'] before:bottom-3.5 before:px-1 before:bg-black"></hr>
+      <hr className="w-full md:w-2/3 xl:w-1/2 h-10 mt-14 mb-6 text-center text-gray-400 border-t-1 border-gray-400 overflow-visible before:relative before:content-['or'] before:bottom-3.5 before:px-1 before:bg-black"></hr>
 
       <section className='mb-6'>
         <GoogleSigninBtn />
