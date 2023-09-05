@@ -18,6 +18,18 @@ const nextConfig = {
       },
     ]
   },
+
+  images: {
+    domains: ['cdn.coinranking.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.coinranking.com',
+        port: '',
+        pathname: '/components/**',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig

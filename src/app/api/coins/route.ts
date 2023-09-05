@@ -45,8 +45,7 @@ export async function GET() {
     const res = await axios.request(options)
     const coinData = res.data
 
-    console.log(coinData)
-    return coinData
+    return NextResponse.json(coinData, { status: 200 })
 
   } catch (error: any) {
       console.error(error)
