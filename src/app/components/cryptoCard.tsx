@@ -13,7 +13,7 @@ export default function CryptoCard(cryptoProps: any) {
             height={36}
           />
         </div>
-        <div className='w-22 sm:w-32'>
+        <div className='w-28 sm:w-36'>
           <p className='truncate'>{cryptoProps.name}</p>
           <span>{cryptoProps.symbol}</span>
         </div>
