@@ -15,7 +15,6 @@ interface Coin {
 
 export default function CryptoCardGrid() {
   const [currencies, setValues] = useState<Coin[]>([])
-  const [priceChangeText, setPriceChangeText] = useState(null)
 
   useEffect(() => {
     const fetchCoins = async () => {
