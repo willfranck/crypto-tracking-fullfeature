@@ -38,7 +38,7 @@ const config: Config = {
         md: '768px',
         lg: '984px',
         xl: '1240px',
-      }
+      },
     },
   },
   plugins: [],
