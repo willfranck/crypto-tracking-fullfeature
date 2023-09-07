@@ -11,12 +11,19 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'hero': 'url(/crypto_graph.jpg)',
+      },
+      backgroundColor: {
+        cover: 'rgba(0, 0, 0, 0.5)'
       },
       width: {
         22: '5.5rem',
         26: '6.5rem',
         86: '21rem',
         90: '22.5rem',
+      },
+      height: {
+        hero: '50vh',
       },
       minWidth: {
         ss: '21rem',

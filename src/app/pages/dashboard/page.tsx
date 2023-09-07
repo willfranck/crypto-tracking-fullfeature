@@ -2,7 +2,9 @@
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { SignoutBtn } from '@components/userNavButtons'
+import NavBar from '@components/navBar'
+import UserNav from '@components/userNav'
+import CryptoCardGrid from '@components/cryptoCardGrid'
 
 
 export default function UserProfile() {
@@ -16,13 +18,12 @@ export default function UserProfile() {
   } else if (session?.user) {
     return (
       <section>
-        <nav className='flex justify-end w-full'>
-          <SignoutBtn />
-        </nav>
+        <NavBar />
 
-        <p>Saved Coins</p>
-
-        <Link href={'/'}>Homepage</Link>
+        <div className='flex flex-col md:flex-row'>
+          <UserNav />
+          <CryptoCardGrid />
+        </div>
       </section>
     )
   }

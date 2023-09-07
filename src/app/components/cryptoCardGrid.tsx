@@ -40,7 +40,7 @@ export default function CryptoCardGrid() {
   }, [])
 
   return (
-    <section className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 w-full sm:w-auto my-4'>
+    <section className='w-full'>
       {currencies &&
         currencies.map((coin) => (
           <CryptoCard

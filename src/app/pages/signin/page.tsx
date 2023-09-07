@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { RegisterBtn, GoogleSigninBtn } from '@components/userNavButtons'
+import { RegisterBtn, GoogleSigninBtn } from '@components/navBarButtons'
 import { signIn } from 'next-auth/react'
 
 
@@ -78,7 +78,7 @@ export default function SignInPage() {
           <div className='w-full space-y-4'>
             <button
               type='submit'
-              className='w-full mt-6 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+              className='w-full mt-6 rounded-md bg-slate-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
             >
               Sign In
             </button>
