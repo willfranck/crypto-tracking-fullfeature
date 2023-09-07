@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import NavBar from '@components/navBar'
 import HeroCard from '@components/heroCard'
 import CryptoCardGrid from '@components/cryptoCardGrid'

@@ -1,7 +1,6 @@
 'use client'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'
 import NavBar from '@components/navBar'
 import UserNav from '@components/userNav'
 import CryptoCardGrid from '@components/cryptoCardGrid'
