@@ -19,12 +19,15 @@ export default function NavBar() {
               height={50}
             />
           </div>
+
           <div className='space-x-4'>
             <ProfileBtn />
             <SignoutBtn />
           </div>
         </div>
+
       ) : (
+
         <div className='flex justify-between items-center'>
           <div className='rounded-full overflow-hidden'>
             <Image 
@@ -34,6 +37,7 @@ export default function NavBar() {
               height={50}
             />
           </div>
+          
           <div className='space-x-4'>
             <RegisterBtn />
             <SigninPageBtn />
