@@ -8,7 +8,7 @@ export default function NavBar() {
   const { data: session } = useSession()
 
   return (
-    <nav className='w-full px-8 py-4'>
+    <nav className='w-full h-28 px-8 py-4'>
       {session ? (
         <div className='flex justify-between items-center'>
           <div className='rounded-full overflow-hidden'>
@@ -20,7 +20,7 @@ export default function NavBar() {
             />
           </div>
 
-          <div className='flex flex-col text-center space-y-1'>
+          <div className='flex flex-col text-center w-26 space-y-1'>
             <ProfileBtn />
             <SignoutBtn />
           </div>
