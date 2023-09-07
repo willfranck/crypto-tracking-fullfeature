@@ -1,7 +1,7 @@
 'use client'
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
-import { ProfileBtn, SigninPageBtn, SignoutBtn, RegisterBtn } from '@components/navBarButtons'
+import { ProfileBtn, SigninPageBtn, SignoutBtn, RegisterBtn } from '@components/navButtons'
 
 
 export default function NavBar() {

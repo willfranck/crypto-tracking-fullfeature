@@ -17,14 +17,14 @@ export default function UserProfile() {
 
   } else if (session?.user) {
     return (
-      <section>
+      <main className='flex flex-col items-center xl:container min-h-full mx-auto'>
         <NavBar />
 
-        <div className='flex flex-col md:flex-row'>
+        <section className='flex flex-col md:flex-row'>
           <UserNav />
           <CryptoCardGrid />
-        </div>
-      </section>
+        </section>
+      </main>
     )
   }
 }
