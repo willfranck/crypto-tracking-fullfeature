@@ -1,7 +1,10 @@
+import { titleFont } from '../../utils/fonts'
+
+
 function HeroCard() {
   return (
     <section className='relative flex flex-col justify-center w-full p-4 h-hero bg-hero bg-cover bg-center isolate before:-z-10 before:absolute before:content-[""] before:inset-0 before:bg-cover'>
-      <h1 className='py-4'>Today's Crypto Prices</h1>
+      <h1 className={titleFont.className + ' py-4'}>Today's Crypto Prices</h1>
 
       <div className='mt-4'>
         <span>a Full Stack demo built with:</span>
