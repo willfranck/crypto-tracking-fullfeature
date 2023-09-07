@@ -45,7 +45,7 @@ export const SignoutBtn = () => {
   return (
     <button
       onClick={() => signOut({ callbackUrl: 'http://localhost:3000' })}
-      className='h-8 px-3 py-1 bg-slate-700 text-white text-sm font-semibold leading-6 rounded-md shadow-sm hover:bg-slate-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-700'
+      className='h-full px-3 py-1.5 bg-slate-700 text-white text-sm font-semibold leading-6 rounded-md shadow-sm hover:bg-slate-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-700'
     >
       Sign Out
     </button>

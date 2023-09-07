@@ -20,7 +20,7 @@ export default function NavBar() {
             />
           </div>
 
-          <div className='flex flex-col space-x-4 space-y-1'>
+          <div className='flex flex-col text-center space-y-1'>
             <ProfileBtn />
             <SignoutBtn />
           </div>
@@ -38,7 +38,7 @@ export default function NavBar() {
             />
           </div>
 
-          <div className='flex flex-col space-x-4 space-y-1'>
+          <div className='flex flex-col text-center w-26 space-y-1'>
             <RegisterBtn />
             <SigninPageBtn />
           </div>
