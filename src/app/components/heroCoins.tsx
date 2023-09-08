@@ -16,16 +16,19 @@ interface Coin {
 
 export default function HeroCoins() {
   const [currencies, setValues] = useState<Coin[]>([])
-  const queryParams = {
-    'uuids[0]': 'Qwsogvtv82FCd',  // Bitcoin
-    'uuids[1]': 'razxDUgYGNAdQ',  // Ethereum
-    'uuids[2]': 'a91GCGd_u96cF',  // Dogecoin
-  }
 
   useEffect(() => {
     const fetchCoins = async () => {
       try {
-        const getCoins = await axios.get('/api/coins', {params: queryParams})
+        const getCoins = await axios.get('/api/coins', { 
+          params: {
+            referenceCurrencyUuid: 'yhjMzLPhuIDl',  //USD
+
+            'uuids[0]': 'Qwsogvtv82FCd',  // Bitcoin
+            'uuids[1]': 'razxDUgYGNAdQ',  // Ethereum
+            'uuids[2]': 'a91GCGd_u96cF',  // Dogecoin
+          }
+        })
 
         if (Array.isArray(getCoins.data.data.coins)) {
           console.log(getCoins.data.data.coins)

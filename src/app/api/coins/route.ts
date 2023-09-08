@@ -11,9 +11,6 @@ export async function GET() {
         'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
         'X-RapidAPI-Host': process.env.RAPIDAPI_HOST,
       },
-      params: {
-        referenceCurrencyUuid: 'yhjMzLPhuIDl',  //USD
-      },
     }
     
     const res = await axios.request(defaultOptions)
