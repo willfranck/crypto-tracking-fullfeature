@@ -26,7 +26,6 @@
       "@models/*": ["../models/*"],
       "@helpers/*": ["../helpers/*"],
       "@img/*": ["../public/*"],
-      "@styles/*": ["./*"],
       "@lib/*": ["../lib/*"],
       "@api/*": ["./api/*"]
     }

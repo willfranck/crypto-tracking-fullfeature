@@ -29,6 +29,7 @@ const nextConfig = {
         pathname: '/components/**',
       },
     ],
+    dangerouslyAllowSVG: true,
   },
 }
 

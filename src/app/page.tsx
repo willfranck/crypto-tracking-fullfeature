@@ -9,8 +9,6 @@ export default function Home() {
       <NavBar />
 
       <HeroCard />
-
-      <CryptoCardGrid />
     </main>
   )
 }
