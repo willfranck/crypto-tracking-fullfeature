@@ -21,7 +21,6 @@ export default function HeroCoins() {
     const fetchCoins = async () => {
       try {
         const queryParams = {
-          referenceCurrencyUuid: 'yhjMzLPhuIDl',  //USD
           'uuids[0]': 'Qwsogvtv82FCd',  // Bitcoin
           'uuids[1]': 'razxDUgYGNAdQ',  // Ethereum
           'uuids[2]': 'a91GCGd_u96cF',  // Dogecoin

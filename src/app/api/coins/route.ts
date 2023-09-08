@@ -15,7 +15,6 @@ export async function GET() {
         referenceCurrencyUuid: 'yhjMzLPhuIDl',  //USD
       },
     }
-
     
     const res = await axios.request(defaultOptions)
     const coinData = res.data
