@@ -1,4 +1,3 @@
-import { NextApiRequest } from 'next'
 import { NextResponse } from 'next/server'
 import axios from 'axios'
 
@@ -12,9 +11,9 @@ export async function GET() {
         'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
         'X-RapidAPI-Host': process.env.RAPIDAPI_HOST,
       },
-      // params: {
-      //   referenceCurrencyUuid: 'yhjMzLPhuIDl',  //USD
-      // },
+      params: {
+        referenceCurrencyUuid: 'yhjMzLPhuIDl',  //USD
+      },
     }
 
     
