@@ -15,25 +15,23 @@ interface Coin {
 
 
 export default function HeroCoins() {
-  const [currencies, setValues] = useState<Coin[]>([])
+  const [currencies, setCurrencies] = useState<Coin[]>([])
 
   useEffect(() => {
     const fetchCoins = async () => {
       try {
-        const getCoins = await axios.get('/api/coins', { 
-          params: {
-            referenceCurrencyUuid: 'yhjMzLPhuIDl',  //USD
-
-            'uuids[0]': 'Qwsogvtv82FCd',  // Bitcoin
-            'uuids[1]': 'razxDUgYGNAdQ',  // Ethereum
-            'uuids[2]': 'a91GCGd_u96cF',  // Dogecoin
-          }
-        })
+        const getCoins = await axios.get('/api/coins')
 
         if (Array.isArray(getCoins.data.data.coins)) {
-          console.log(getCoins.data.data.coins)
-          
-          setValues(getCoins.data.data.coins)
+          const filteredCoins = getCoins.data.data.coins.filter((coin: any) => {
+            return (
+              coin.symbol === 'BTC' || 
+              coin.symbol === 'ETH' || 
+              coin.symbol === 'DOGE'
+            )
+          })
+
+          setCurrencies(filteredCoins)
 
         } else {
             console.error('Received data is not an array')

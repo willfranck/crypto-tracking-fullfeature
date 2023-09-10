@@ -4,16 +4,19 @@ import axios from 'axios'
 
 export async function GET() {
   try {
-    const defaultOptions = {
+    const options = {
       method: 'GET',
       url: 'https://coinranking1.p.rapidapi.com/coins',
       headers: {
         'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
         'X-RapidAPI-Host': process.env.RAPIDAPI_HOST,
       },
+      params: {
+        referenceCurrencyUuid: 'yhjMzLPhuIDl',  //USD
+      }
     }
-    
-    const res = await axios.request(defaultOptions)
+
+    const res = await axios.request(options)
     const coinData = res.data
 
     return NextResponse.json(coinData, { status: 200 })
