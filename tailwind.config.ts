@@ -23,7 +23,7 @@ const config: Config = {
         90: '22.5rem',
       },
       height: {
-        hero: '50vh',
+        hero: '60vh',
       },
       minWidth: {
         ss: '21rem',
@@ -32,12 +32,13 @@ const config: Config = {
       maxWidth: {
         ss: '21rem',
         sm: '22.5rem',
+        page: '100rem',
       },
       screens: {
-        sm: '396px',
+        sm: '464px',
         md: '768px',
         lg: '984px',
-        xl: '1240px',
+        xl: '1400px',
       },
     },
   },

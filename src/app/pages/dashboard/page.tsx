@@ -16,11 +16,12 @@ export default function UserProfile() {
 
   } else if (session?.user) {
     return (
-      <main className='flex flex-col items-center xl:container min-h-full mx-auto'>
+      <main className='flex flex-col items-center w-full max-w-page min-h-full mx-auto'>
         <NavBar />
 
         <section className='flex flex-col md:flex-row'>
           <UserNav />
+
           <CryptoCardGrid />
         </section>
       </main>

@@ -49,7 +49,7 @@ export default function HeroCoins() {
 
 
   return (
-    <section className='w-full'>
+    <div className='xl:flex xl:items-center w-full'>
       {currencies &&
         currencies.map((coin) => (
           <CryptoCard
@@ -61,6 +61,6 @@ export default function HeroCoins() {
             change={coin.change}
           />
         ))}
-    </section>
+    </div>
   )
 }

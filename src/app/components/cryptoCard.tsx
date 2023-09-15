@@ -3,29 +3,30 @@ import Image from 'next/image'
 
 export default function CryptoCard(cryptoProps: any) {
   return (
-    <article className='flex justify-between w-full h-16 px-3 rounded-sm bg-slate-900 border-b border-solid border-slate-500' >
-      <div className='flex items-center max-h-16'>
-        <div className='w-9 mr-3'>
+    <div className='min-w-ss max-w-lg mx-auto my-10 px-3' >
+      <div className='flex justify-between items-center'>
+        <div className='flex items-center'>
           <Image 
             src={cryptoProps.icon}
             alt={cryptoProps.name}
             width={36}
             height={36}
+            className='mr-3'
           />
+          <span className='text-gray-300'>{cryptoProps.symbol}</span>
         </div>
-        <div className='w-36'>
-          <p className='truncate'>{cryptoProps.name}</p>
-          <span>{cryptoProps.symbol}</span>
-        </div>
+        
+        <h2 className='text-green-400'>${cryptoProps.price}</h2>
       </div>
 
-      <div className='flex flex-col items-end w-28'>
-        <h3 className='text-green-400'>${cryptoProps.price}</h3>
-        <div className='flex items-center'>
+      <div className='flex justify-between'>
+        <h2 className='truncate'>{cryptoProps.name}</h2>
+
+        <div className='flex items-center mt-1'>
           <p>{cryptoProps.change}%</p>
           <span className='ml-4 text-gray-300'>24h</span>
         </div>
       </div>
-    </article>
+    </div>
   )
 }

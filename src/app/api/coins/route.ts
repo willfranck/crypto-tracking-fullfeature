@@ -56,7 +56,8 @@ export async function GET() {
   // orderDirection: 'desc',
   //Allowed values: desc, asc
 
-  // search: '',  //String search
+  // search: '',
+  //String search
 
   // 'tags[]': '',
   //Allowed values: defi, stablecoin, nft, dex, exchange, staking, dao, meme, privacy

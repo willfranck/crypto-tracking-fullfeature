@@ -47,7 +47,7 @@ a {
 }
 
 ul {
-  list-style: square;
+  list-style: none;
   color: var(--color-text-light);
 }
 
