@@ -8,13 +8,15 @@ interface Coin {
   iconUrl: string,
   name: string,
   symbol: string,
+  tier: number,
   price: number,
   change: number,
 }
 
 
 export default function CryptoCardGrid() {
-  const [currencies, setValues] = useState<Coin[]>([])
+  const [currencies, setCurrencies] = useState<Coin[]>([])
+  const [coinSearch, setCoinSearch] = useState<string>('')
 
   useEffect(() => {
     const fetchCoins = async () => {
@@ -23,7 +25,9 @@ export default function CryptoCardGrid() {
         console.log(getCoins.data)
 
         if (Array.isArray(getCoins.data.data.coins)) {
-          setValues(getCoins.data.data.coins)
+          const filteredCoins = getCoins.data.data.coins.slice(0, 20)
+
+          setCurrencies(filteredCoins)
 
         } else {
             console.error('Received data is not an array')
@@ -36,32 +40,57 @@ export default function CryptoCardGrid() {
       }
     }
 
-    fetchCoins()
-  }, [])
+    if (coinSearch === '') {
+      fetchCoins()
+    }
+  }, [coinSearch])
+  
+
+  const handleCoinSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value
+    setCoinSearch(inputValue)
+  
+    const filteredCoins = currencies.filter((coin: any) => {
+      return (
+        coin.name.toLowerCase().includes(inputValue.toLowerCase()) ||
+        coin.symbol.toLowerCase().includes(inputValue.toLowerCase())
+      )
+    })
+
+    setCurrencies(filteredCoins)
+  }
 
   
   return (
-    <article className=''>
-      <form className='w-full'>
-        <label htmlFor='site-search'></label>
+    <article className='flex flex-col justify-start items-center w-full'>
+      <form className='w-full md:w-3/4 mb-8'>
+        <label htmlFor='site-search' className='text-sm font-medium leading-6 text-gray-400'
+        >
+          Find Coins...
+        </label>
         <input
           type='search'
-          placeholder='Find coins...'
+          placeholder='Name | Symbol'
+          value={coinSearch}
+          onChange={handleCoinSearch}
           className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
         ></input>
       </form>
 
-      {currencies &&
-        currencies.map((coin) => (
-          <CryptoCard
-            key={coin.uuid}
-            icon={coin.iconUrl}
-            name={coin.name}
-            symbol={coin.symbol}
-            price={Number(Math.round(100 * coin.price) / 100).toFixed(2)}
-            change={coin.change}
-          />
-        ))}
+      <div className='grid grid-cols-1 xl:grid-cols-2 gap-2 w-full rounded-2xl bg-slate-900'>
+        {currencies &&
+          currencies.map((coin) => (
+            <CryptoCard
+              key={coin.uuid}
+              icon={coin.iconUrl}
+              name={coin.name}
+              symbol={coin.symbol}
+              price={Number(Math.round(100 * coin.price) / 100).toFixed(2)}
+              change={coin.change}
+            />
+          ))
+        }
+      </div>
     </article>
   )
 }

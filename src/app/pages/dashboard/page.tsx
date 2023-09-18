@@ -19,7 +19,7 @@ export default function UserProfile() {
       <main className='flex flex-col items-center w-full max-w-page min-h-full mx-auto'>
         <NavBar />
 
-        <section className='flex flex-col md:flex-row'>
+        <section className='flex flex-col md:flex-row w-11/12 sm:w-3/4'>
           <UserNav />
 
           <CryptoCardGrid />

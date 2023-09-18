@@ -10,6 +10,7 @@
   --font-size-largest: 2.2rem;
   --font-size-larger: 1.8rem;
   --font-size-large: 1.4rem;
+  --font-size-normal: 1rem;
   --font-size-small: 0.875rem;
 
   --font-weight-bold: 600;
@@ -22,6 +23,37 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer components {
+  .hero-border > div {
+    border-bottom: 2px solid rgba(51, 65, 85, 1);
+  }
+
+  .hero-border > div:last-child {
+    border: none;
+  }
+
+  .hero-coins > div {
+    padding: 2rem 0;
+  }
+
+  .hero-coins > div > div > div > .saveCoinBtn {
+    display: none;
+  }
+  
+  .card-grid > div:hover {
+    background-color: indigo;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  @layer components {
+    .hero-border-lg > div {
+      border-right: 2px solid rgba(51, 65, 85, 1);
+      border-bottom: none;
+    }
   }
 }
 

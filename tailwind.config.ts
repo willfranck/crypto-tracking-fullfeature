@@ -23,22 +23,22 @@ const config: Config = {
         90: '22.5rem',
       },
       height: {
-        hero: '60vh',
+        hero: '70vh',
       },
       minWidth: {
         ss: '21rem',
-        sm: '22.5rem',
+        sm: '23rem',
       },
       maxWidth: {
         ss: '21rem',
-        sm: '22.5rem',
+        sm: '23rem',
         page: '100rem',
       },
       screens: {
         sm: '464px',
         md: '768px',
         lg: '984px',
-        xl: '1400px',
+        xl: '1360px',
       },
     },
   },
