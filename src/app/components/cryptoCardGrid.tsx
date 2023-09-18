@@ -22,7 +22,6 @@ export default function CryptoCardGrid() {
     const fetchCoins = async () => {
       try {
         const getCoins = await axios.get('/api/coins')
-        console.log(getCoins.data)
 
         if (Array.isArray(getCoins.data.data.coins)) {
           const filteredCoins = getCoins.data.data.coins.slice(0, 20)

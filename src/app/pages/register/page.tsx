@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { SigninPageBtn, GoogleSigninBtn } from '@components/navButtons'
+import { SigninPageBtn, GoogleSigninBtn } from '@components/navBarButtons'
 import axios from 'axios'
 
 
