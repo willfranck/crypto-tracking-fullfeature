@@ -27,8 +27,7 @@ export async function POST(req: NextRequest) {
         password: hashedPassword,
       })
 
-      const savedUser = await newUser.save()
-      console.log(savedUser)
+      await newUser.save()
 
       return NextResponse.json({ message: 'User created successfully' }, { status: 201 })
 

@@ -30,7 +30,7 @@ export const GoogleSigninBtn = () => {
   )
 }
 
-export const RegisterBtn = () => {
+export const RegisterPageBtn = () => {
   return (
     <Link
       href={'/pages/register'}

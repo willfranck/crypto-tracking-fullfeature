@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { RegisterBtn, GoogleSigninBtn } from '@components/navBarButtons'
+import { RegisterPageBtn, GoogleSigninBtn } from '@components/navButtons'
 import { signIn } from 'next-auth/react'
 
 
@@ -86,7 +86,7 @@ export default function SignInPage() {
             <div className='flex justify-center items-center w-full'>
               <label>New here? &ensp;</label>
 
-              <RegisterBtn />
+              <RegisterPageBtn />
             </div>
           </div>
         </form>

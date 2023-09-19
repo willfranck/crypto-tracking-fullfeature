@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
-import { SigninPageBtn } from '@components/navBarButtons'
+import { SigninPageBtn } from '@components/navButtons'
 import Image from 'next/image'
 import axios from 'axios'
 
