@@ -1,12 +1,20 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from 'next-auth/providers/google'
-import { connectToDb } from './mongodb'
-import { compare } from 'bcrypt'
+import { MongoDBAdapter } from '@auth/mongodb-adapter'
+import { MongoClient } from 'mongodb'
+import { connectToMongoDb } from '@lib/mongodb'
 import User from '@models/users'
+import { compare } from 'bcrypt'
 
+
+const clientPromise: Promise<MongoClient> = MongoClient.connect(
+  process.env.MONGODB_URI!
+)
 
 export const authOptions: NextAuthOptions = {
+  adapter: MongoDBAdapter(clientPromise),
+
   pages: {
     signIn: '/pages/signin',
     newUser: '/pages/register',
@@ -32,7 +40,7 @@ export const authOptions: NextAuthOptions = {
 
       async authorize(credentials: any) {
         try {
-          await connectToDb()
+          connectToMongoDb()
 
           const user = await User.findOne({ username: credentials.username })
 
@@ -41,6 +49,8 @@ export const authOptions: NextAuthOptions = {
               id: user._id,
               email: user.email,
               name: user.username,
+              image: user.image,
+              savedCoins: user.savedCoins,
             }
 
           } else {

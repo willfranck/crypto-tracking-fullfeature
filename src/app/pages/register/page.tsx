@@ -1,7 +1,9 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { SigninPageBtn, GoogleSigninBtn } from '@components/navBarButtons'
+import { signIn } from 'next-auth/react'
+import { SigninPageBtn } from '@components/navBarButtons'
+import Image from 'next/image'
 import axios from 'axios'
 
 
@@ -41,7 +43,7 @@ export default function SignUpPage() {
         <div className='relative'>
           {errorMessage && (
             <div>
-              <h2 className='absolute bottom-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-600 '>
+              <h2 className='absolute w-max bottom-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-600 '>
                 {errorMessage}
               </h2>
             </div>
@@ -118,7 +120,14 @@ export default function SignUpPage() {
       <hr className="w-full md:w-2/3 xl:w-1/2 h-10 mt-14 mb-6 text-center text-gray-400 border-t-1 border-gray-400 overflow-visible before:relative before:content-['or'] before:bottom-3.5 before:px-1 before:bg-black"></hr>
 
       <section className='mb-6'>
-        <GoogleSigninBtn />
+      <button
+      type='submit'
+      onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
+      className='flex justify-around items-center w-60 px-4 py-4 bg-white text-black font-semibold leading-6 rounded-md shadow-sm hover:bg-indigo-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
+    >
+      <Image src={'/google_logo.svg'} alt='Google Logo' width={32} height={32} />
+      <p>&ensp; Sign In with Google</p>
+    </button>
       </section>
     </main>
   )

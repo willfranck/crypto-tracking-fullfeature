@@ -5,7 +5,7 @@ const options = {
   dbName: 'userdb',
 }
 
-export async function connectToDb(): Promise<Connection> {
+export async function connectToMongoDb(): Promise<Connection> {
 
   mongoose.connect(process.env.MONGODB_URI!, options)
   const connection = mongoose.connection

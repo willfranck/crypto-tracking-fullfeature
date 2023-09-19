@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { connectToDb } from '@lib/mongodb'
+import { connectToMongoDb } from '@lib/mongodb'
 import bcrypt from 'bcrypt'
 import User from '@models/users'
 
@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     const { email, username, password } = userData
 
     try {
-      await connectToDb()
+      await connectToMongoDb()
 
       const existingUser = await User.findOne({ email })
       if (existingUser) {
