@@ -68,6 +68,7 @@ export default function CryptoCardGrid() {
           Find Coins...
         </label>
         <input
+          id='site-search'
           type='search'
           placeholder='Name | Symbol'
           value={coinSearch}

@@ -84,7 +84,7 @@ export default function SignInPage() {
             </button>
 
             <div className='flex justify-center items-center w-full'>
-              <label>New here? &ensp;</label>
+              <p>New here? &ensp;</p>
 
               <RegisterPageBtn />
             </div>
