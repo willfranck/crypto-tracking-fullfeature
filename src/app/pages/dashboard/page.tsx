@@ -61,9 +61,9 @@ export default function UserProfile() {
       <main className='flex flex-col items-center w-full max-w-page min-h-full mx-auto'>
         <NavBar />
 
-        <section className='flex flex-col md:flex-row w-11/12 sm:w-3/4'>
-          <aside className='md:w-60 min-h-full my-6 md:mr-6'>
-            <ul className='flex md:flex-col items-center w-full'>
+        <section className='flex flex-col flex-1 lg:flex-row items-center lg:items-start w-11/12 sm:w-5/6'>
+          <aside className='sticky top-0 flex justify-center items-start w-full lg:w-60 min-h-full my-6 md:mr-6 bg-black'>
+            <ul className='flex lg:flex-col justify-center items-center w-full'>
               <li className='flex justify-center items-center w-2/3 h-20 text-slate-400 border-b-2 border-slate-800'>
                 <h3>MENU</h3>
               </li>
@@ -89,7 +89,7 @@ export default function UserProfile() {
             </ul>
           </aside>
 
-          <article className='w-full max-w-lg xl:max-w-full h-full'>
+          <article className='flex justify-center lg:items-center flex-1 w-full xl:max-w-full'>
             {activeDatatype === 'saved-coins' ? (
                 <SavedCoins />
 

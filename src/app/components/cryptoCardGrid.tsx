@@ -61,8 +61,8 @@ export default function CryptoCardGrid() {
 
   
   return (
-    <div className='flex flex-col justify-start items-center w-full'>
-      <form className='w-full md:w-3/4 mb-8'>
+    <div className='flex flex-col justify-center items-center w-full'>
+      <form className='w-full xs:w-5/6 md:w-3/4 mb-8'>
         <label htmlFor='site-search' className='text-sm font-medium leading-6 text-gray-400'
         >
           Find Coins...
@@ -77,7 +77,7 @@ export default function CryptoCardGrid() {
         ></input>
       </form>
 
-      <div className='grid grid-cols-1 xl:grid-cols-2 gap-2 w-full rounded-2xl bg-slate-900'>
+      <div className='grid grid-cols-1 xl:grid-cols-2 gap-2 w-full max-w-lg xl:max-w-full rounded-2xl bg-slate-900'>
         {currencies &&
           currencies.map((coin) => (
             <CryptoCard

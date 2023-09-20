@@ -6,7 +6,7 @@ export function DashMenuBtns(btnProps: any) {
     <button
       datatype={btnProps.datatype}
       aria-label={btnProps.aria}
-      className={btnProps.active ? 'w-full text-white scale-110' : 'w-full text-slate-400'}
+      className={btnProps.active ? 'w-full text-center text-white scale-110' : 'w-full text-center text-slate-400'}
       onClick={btnProps.setActive}
     >
       {btnProps.label}
@@ -18,7 +18,7 @@ export const Homepage = () => {
   return (
     <Link 
       href={'/'}
-      className='w-full text-center'
+      className='flex justify-center items-center w-full h-full border-b-2 border-slate-800'
     >
       <p>Homepage</p>
     </Link>
