@@ -1,20 +1,17 @@
 'use client'
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import { signIn } from 'next-auth/react'
-import { SigninPageBtn } from '@components/navButtons'
-import Image from 'next/image'
+import { GoogleSigninBtn, SigninPageBtn } from '@components/navButtons'
 import axios from 'axios'
 
 
 export default function SignUpPage() {
-  const router = useRouter()
   const [submitting, setSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [user, setUser] = useState({
     email: '',
     username: '',
-    password: ''
+    password: '',
   })
 
   const handleSignUp = async (e: React.FormEvent) => {
@@ -25,7 +22,11 @@ export default function SignUpPage() {
 
       const res = await axios.post('/api/register', user)
       if (res.status === 201) {
-        router.push('/pages/dashboard')
+        await signIn('credentials', { 
+          username: user.username, 
+          password: user.password,
+          callbackUrl: 'http://localhost:3000/pages/dashboard',
+        })
       }
 
     } catch (error: any) {
@@ -120,14 +121,7 @@ export default function SignUpPage() {
       <hr className="w-full md:w-2/3 xl:w-1/2 h-10 mt-14 mb-6 text-center text-gray-400 border-t-1 border-gray-400 overflow-visible before:relative before:content-['or'] before:bottom-3.5 before:px-1 before:bg-black"></hr>
 
       <section className='mb-6'>
-      <button
-      type='submit'
-      onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
-      className='flex justify-around items-center w-60 px-4 py-4 bg-white text-black font-semibold leading-6 rounded-md shadow-sm hover:bg-indigo-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
-    >
-      <Image src={'/google_logo.svg'} alt='Google Logo' width={32} height={32} />
-      <p>&ensp; Sign In with Google</p>
-    </button>
+        <GoogleSigninBtn />
       </section>
     </main>
   )

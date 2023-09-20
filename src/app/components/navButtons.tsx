@@ -4,12 +4,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const SigninPageBtn = () => {
-  const { data: session } = useSession()
-
   return (
     <Link
       href={'/pages/signin'}
-      onClick={() => (!session ? signIn(undefined, { callbackUrl: 'http://localhost:3000/pages/dashboard' }) : null)}
       className='px-3 py-1.5 bg-slate-700 text-white text-sm font-semibold leading-6 rounded-md shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >
       Sign In
@@ -20,7 +17,6 @@ export const SigninPageBtn = () => {
 export const GoogleSigninBtn = () => {
   return (
     <button
-      type='submit'
       onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
       className='flex justify-around items-center w-60 px-4 py-4 bg-white text-black font-semibold leading-6 rounded-md shadow-sm hover:bg-indigo-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >

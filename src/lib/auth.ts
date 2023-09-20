@@ -8,16 +8,13 @@ import User from '@models/users'
 import { compare } from 'bcrypt'
 
 
-const clientPromise: Promise<MongoClient> = MongoClient.connect(
-  process.env.MONGODB_URI!
-)
+const clientPromise: Promise<MongoClient> = MongoClient.connect(process.env.MONGODB_URI!)
 
 export const authOptions: NextAuthOptions = {
   adapter: MongoDBAdapter(clientPromise),
 
   pages: {
     signIn: '/pages/signin',
-    newUser: '/pages/register',
   },
 
   session: {
@@ -26,7 +23,6 @@ export const authOptions: NextAuthOptions = {
 
   providers: [
     CredentialsProvider({
-      name: ' your Username',
       credentials: {
         username: {
           label: 'Username',
@@ -40,7 +36,7 @@ export const authOptions: NextAuthOptions = {
 
       async authorize(credentials: any) {
         try {
-          connectToMongoDb()
+          await connectToMongoDb()
 
           const user = await User.findOne({ username: credentials.username })
 
@@ -58,8 +54,8 @@ export const authOptions: NextAuthOptions = {
           }
 
         } catch (error: any) {
-          console.log(error.message)
-          return null
+            console.log(error.message)
+            return null
         }
       },
     }),

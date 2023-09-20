@@ -12,9 +12,8 @@ export async function POST(req: NextRequest) {
     try {
       await connectToMongoDb()
 
-      const existingUser = await User.findOne({ email })
+      const existingUser = await User.findOne({$or: [{ email }, { username }]})
       if (existingUser) {
-        console.log(existingUser.email + ' already exists')
         return NextResponse.json({ error: 'User already exists' }, { status: 409 })
       }
 
