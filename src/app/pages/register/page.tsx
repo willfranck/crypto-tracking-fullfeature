@@ -43,11 +43,9 @@ export default function SignUpPage() {
       <section className='w-80 sm:w-96'>
         <div className='relative'>
           {errorMessage && (
-            <div>
-              <h2 className='absolute w-max bottom-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-600 '>
-                {errorMessage}
-              </h2>
-            </div>
+            <h3 className='absolute w-max bottom-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-600 '>
+              {errorMessage}
+            </h3>
           )}
         </div>
 

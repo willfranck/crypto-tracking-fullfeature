@@ -18,7 +18,7 @@ export default function SignInPage() {
     try {
       setSubmitting(true)
 
-      signIn('credentials', {
+      await signIn('credentials', {
         username: user.username,
         password: user.password,
         callbackUrl: 'http://localhost:3000/pages/dashboard',
