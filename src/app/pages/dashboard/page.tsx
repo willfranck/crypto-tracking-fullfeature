@@ -64,7 +64,7 @@ export default function UserProfile() {
         <section className='flex flex-col md:flex-row w-11/12 sm:w-3/4'>
           <aside className='md:w-60 min-h-full my-6 md:mr-6'>
             <ul className='flex md:flex-col items-center w-full'>
-              <li className='flex justify-center items-center w-2/3 h-20 border-b-2 border-slate-800'>
+              <li className='flex justify-center items-center w-2/3 h-20 text-slate-400 border-b-2 border-slate-800'>
                 <h3>MENU</h3>
               </li>
 
@@ -83,7 +83,7 @@ export default function UserProfile() {
                 ))
               }
 
-              <li className='flex justify-center items-center w-2/3 h-20'>
+              <li className='flex justify-center items-center w-2/3 h-20 text-slate-400'>
                 <Homepage />
               </li>
             </ul>

@@ -6,7 +6,7 @@ export function DashMenuBtns(btnProps: any) {
     <button
       datatype={btnProps.datatype}
       aria-label={btnProps.aria}
-      className={btnProps.active ? 'w-full text-white' : 'w-full text-slate-400'}
+      className={btnProps.active ? 'w-full text-white scale-110' : 'w-full text-slate-400'}
       onClick={btnProps.setActive}
     >
       {btnProps.label}
