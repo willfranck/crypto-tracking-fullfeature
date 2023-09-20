@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
 import NavBar from '@components/navBar'
 import { MyCoins, Search, Homepage } from '@components/dashNavButtons'
+import SavedCoins from '@components/savedCoins'
 import CryptoCardGrid from '@components/cryptoCardGrid'
 
 
@@ -37,7 +38,10 @@ export default function UserProfile() {
             </ul>
           </aside>
 
-          <CryptoCardGrid />
+          <article>
+            <SavedCoins />
+            <CryptoCardGrid />  
+          </article>
         </section>
       </main>
     )

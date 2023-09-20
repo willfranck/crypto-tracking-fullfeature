@@ -4,8 +4,8 @@ import Link from 'next/link'
 export const MyCoins = () => {
   return (
     <button 
-      data-for='savedCoins'
-      aria-labelledby='View Saved Coins' 
+      datatype='saved-coins'
+      aria-labelledby='View Saved Coins'
       className='w-full h-16 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >
       Saved Coins
@@ -16,7 +16,7 @@ export const MyCoins = () => {
 export const Search = () => {
   return (
     <button 
-      data-for='searchCoins' 
+      datatype='search-coins' 
       aria-labelledby='Search for Coins' 
       className='w-full h-16 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >
