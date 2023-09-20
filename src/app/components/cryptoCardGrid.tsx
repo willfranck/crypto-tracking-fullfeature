@@ -24,7 +24,7 @@ export default function CryptoCardGrid() {
         const getCoins = await axios.get('/api/coins')
 
         if (Array.isArray(getCoins.data.data.coins)) {
-          const filteredCoins = getCoins.data.data.coins.slice(0, 20)
+          const filteredCoins = getCoins.data.data.coins.slice(0, 10)
 
           setCurrencies(filteredCoins)
 
@@ -44,7 +44,7 @@ export default function CryptoCardGrid() {
     }
   }, [coinSearch])
   
-
+  
   const handleCoinSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value
     setCoinSearch(inputValue)
@@ -61,7 +61,7 @@ export default function CryptoCardGrid() {
 
   
   return (
-    <article className='flex flex-col justify-start items-center w-full'>
+    <div className='flex flex-col justify-start items-center w-full'>
       <form className='w-full md:w-3/4 mb-8'>
         <label htmlFor='site-search' className='text-sm font-medium leading-6 text-gray-400'
         >
@@ -91,6 +91,6 @@ export default function CryptoCardGrid() {
           ))
         }
       </div>
-    </article>
+    </div>
   )
 }

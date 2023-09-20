@@ -48,7 +48,7 @@ export const SignoutBtn = () => {
   )
 }
 
-export const ProfileBtn = () => {
+export const ProfilePageBtn = () => {
   const { data: session } = useSession()
 
   return (

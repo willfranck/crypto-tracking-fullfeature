@@ -21,13 +21,13 @@
     ],
     "baseUrl": "./src/app",
     "paths": {
-      "@pages/*": ["./pages/*"],
+      "@api/*": ["./api/*"],
       "@components/*": ["./components/*"],
-      "@models/*": ["../models/*"],
-      "@helpers/*": ["../helpers/*"],
       "@img/*": ["../public/*"],
       "@lib/*": ["../lib/*"],
-      "@api/*": ["./api/*"]
+      "@models/*": ["../models/*"],
+      "@pages/*": ["./pages/*"],
+      "@utils/*": ["../utils/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
