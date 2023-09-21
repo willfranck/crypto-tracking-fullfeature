@@ -18,9 +18,9 @@ export const Homepage = () => {
   return (
     <Link 
       href={'/'}
-      className='flex justify-center items-center w-full h-full border-b-2 border-slate-800'
+      className='flex justify-center items-center w-full h-full'
     >
-      <p>Homepage</p>
+      <h3>HOME</h3>
     </Link>
   )
 }

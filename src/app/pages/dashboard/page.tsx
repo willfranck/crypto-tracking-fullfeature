@@ -62,15 +62,15 @@ export default function UserProfile() {
         <NavBar />
 
         <section className='flex flex-col flex-1 lg:flex-row items-center lg:items-start w-11/12 sm:w-5/6'>
-          <aside className='sticky top-0 flex justify-center items-start w-full lg:w-60 min-h-full my-6 md:mr-6 bg-black'>
+          <aside className='sticky top-0 flex justify-center items-start w-full lg:w-60 min-h-full my-6 md:px-6 bg-black border-b-2 lg:border-b-0 lg:border-r-2 border-slate-800'>
             <ul className='flex lg:flex-col justify-center items-center w-full'>
-              <li className='flex justify-center items-center w-2/3 h-20 text-slate-400 border-b-2 border-slate-800'>
+              <li className='flex justify-center items-center w-2/3 h-20 text-slate-400'>
                 <h3>MENU</h3>
               </li>
 
               {dashMenuBtns && 
                 dashMenuBtns.map((btnProps) => (
-                  <li className='flex justify-center items-center w-2/3 h-20 border-b-2 border-slate-800'>
+                  <li className='flex justify-center items-center w-2/3 h-20'>
                     <DashMenuBtns 
                       key={btnProps.key}
                       datatype={btnProps.datatype}
@@ -89,7 +89,7 @@ export default function UserProfile() {
             </ul>
           </aside>
 
-          <article className='flex justify-center lg:items-center flex-1 w-full xl:max-w-full'>
+          <article className='flex flex-1 w-full xl:max-w-full'>
             {activeDatatype === 'saved-coins' ? (
                 <SavedCoins />
 

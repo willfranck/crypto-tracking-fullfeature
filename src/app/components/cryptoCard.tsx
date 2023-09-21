@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function CryptoCard(cryptoProps: any) {
   return (
-    <div className='flex justify-center items-center w-full p-3' >
+    <div className='flex justify-center items-center p-3' >
       <div className='w-full max-w-sm'>
         <div className='flex justify-between items-center'>
           <div className='flex items-center h-9 overflow-hidden'>
@@ -17,11 +17,11 @@ export default function CryptoCard(cryptoProps: any) {
             <span className='text-gray-300'>{cryptoProps.symbol}</span>
           </div>
           
-          <h2 className='text-green-400'>${cryptoProps.price}</h2>
+          <h3 className='text-green-400'>${cryptoProps.price}</h3>
         </div>
         
         <div className='flex justify-between'>
-          <h2 className='w-52 truncate'>{cryptoProps.name}</h2>
+          <h3 className='w-52 truncate'>{cryptoProps.name}</h3>
 
           <div className='flex items-center mt-1'>
             <p>{cryptoProps.change}%</p>

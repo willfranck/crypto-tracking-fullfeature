@@ -3,7 +3,7 @@ export default {
     {
       key: 0,
       datatype: 'saved-coins',
-      label: 'Saved Coins',
+      label: 'My Coins',
       aria: 'View Saved Coins',
       active: true,
     },
