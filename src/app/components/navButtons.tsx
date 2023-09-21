@@ -3,6 +3,7 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+
 export const SigninPageBtn = () => {
   return (
     <Link
@@ -58,6 +59,17 @@ export const ProfilePageBtn = () => {
       className='px-3 py-1.5 bg-slate-700 text-white text-sm font-semibold leading-6 rounded-md shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >
       Dashboard
+    </Link>
+  )
+}
+
+export const Homepage = () => {
+  return (
+    <Link 
+      href={'/'}
+      className='flex justify-center items-center w-full h-full'
+    >
+      <h3>HOME</h3>
     </Link>
   )
 }

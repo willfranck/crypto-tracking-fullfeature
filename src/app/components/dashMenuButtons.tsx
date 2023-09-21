@@ -1,6 +1,3 @@
-import Link from 'next/link'
-
-
 export function DashMenuBtns(btnProps: any) {
   return (
     <button
@@ -11,16 +8,5 @@ export function DashMenuBtns(btnProps: any) {
     >
       {btnProps.label}
     </button>
-  )
-}
-
-export const Homepage = () => {
-  return (
-    <Link 
-      href={'/'}
-      className='flex justify-center items-center w-full h-full'
-    >
-      <h3>HOME</h3>
-    </Link>
   )
 }

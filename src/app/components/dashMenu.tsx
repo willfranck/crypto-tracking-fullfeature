@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import buttons from '@utils/buttons'
-import { DashMenuBtns, Homepage } from '@components/dashMenuButtons'
+import { DashMenuBtns } from '@components/dashMenuButtons'
+import { Homepage } from '@components/navButtons'
 
 interface MenuBtns {
   key: number,
