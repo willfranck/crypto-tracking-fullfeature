@@ -30,8 +30,8 @@ export default function CryptoCard(cryptoProps: any) {
         </div>
 
         <div className='flex justify-end w-full mt-1'>
-          <button className='saveCoinBtn flex items-center w-32 h-8 rounded-full text-2xl text-center bg-slate-500 hover:bg-indigo-500'>
-            <p className='w-9'>+</p>
+          <button className='saveCoinBtn flex items-center w-32 h-8 rounded-l-full text-2xl text-center bg-slate-500 hover:bg-indigo-500'>
+            <p className='w-9 pb-0.5'>+</p>
             <span>&ensp; Add coin</span>
           </button>
         </div>
