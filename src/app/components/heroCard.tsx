@@ -1,7 +1,8 @@
 import { titleFont } from '../../utils/fonts'
 import HeroCoins from './heroCoins'
 
-function HeroCard() {
+
+export default function HeroCard() {
   return (
     <section className='relative flex flex-col items-center w-full bg-hero bg-cover bg-center isolate before:-z-10 before:absolute before:content-[""] before:inset-0 before:bg-cover'>
       <article className='flex flex-col w-full space-y-10 px-8 py-20'>
@@ -37,5 +38,3 @@ function HeroCard() {
     </section>
   )
 }
-
-export default HeroCard
