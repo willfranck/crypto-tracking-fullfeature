@@ -48,7 +48,7 @@ export default function HeroCoins() {
 
 
   return (
-    <div className='hero-coins flex flex-col lg:flex-row justify-around items-center lg:space-x-12 px-6'>
+    <div className='hero-coins flex flex-col lg:flex-row justify-around items-center lg:space-x-12 px-6 py-8'>
       {currencies &&
         currencies.map((coin) => (
           <CryptoCard

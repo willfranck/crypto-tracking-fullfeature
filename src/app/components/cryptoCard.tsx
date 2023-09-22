@@ -55,10 +55,10 @@ export default function CryptoCard(cryptoProps: any) {
           type='submit'
           onClick={() => handleSaveCoin(cryptoProps.symbol)}
           disabled={savingCoin}
-          className='saveCoinBtn flex items-center w-32 h-8 rounded-l-full text-2xl text-center bg-slate-500 hover:bg-indigo-500'
+          className='saveCoinBtn flex items-center w-26 h-8 rounded-l-full text-2xl text-center bg-slate-500 hover:bg-indigo-500'
         >
-          <p className='w-9 pb-0.5'>+</p>
-          <span>&ensp; Add coin</span>
+          <p className='w-8 pb-0.5'>+</p>
+          <span>Add coin</span>
         </button>
       </div>
     </div>

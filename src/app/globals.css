@@ -27,18 +27,6 @@
 }
 
 @layer components {
-  .hero-border > div {
-    border-bottom: 2px solid rgba(51, 65, 85, 1);
-  }
-
-  .hero-border > div:last-child {
-    border: none;
-  }
-
-  .hero-coins > div {
-    padding: 2rem 0;
-  }
-
   .hero-coins > div > div > .saveCoinBtn {
     display: none;
   }
