@@ -32,7 +32,7 @@ export default function HeroCard() {
         </div>
       </article>
 
-      <article className='flex flex-col xl:flex-row w-11/12 xl:w-5/6 px-4 rounded-3xl bg-slate-900'>
+      <article className='flex flex-col xl:flex-row w-11/12 xl:w-5/6 px-4 translate-y-1/2 rounded-3xl bg-slate-900'>
         <HeroCoins />
       </article>
     </section>
