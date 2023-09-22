@@ -24,7 +24,7 @@ export default function CryptoCardGrid() {
         const getCoins = await axios.get('/api/coins')
 
         if (Array.isArray(getCoins.data.data.coins)) {
-          const filteredCoins = getCoins.data.data.coins.slice(0, 10)
+          const filteredCoins = getCoins.data.data.coins.slice(0, 20)
 
           setCurrencies(filteredCoins)
 
@@ -61,8 +61,8 @@ export default function CryptoCardGrid() {
 
   
   return (
-    <div className='flex flex-col justify-center items-center w-full'>
-      <form className='w-full xs:w-5/6 md:w-3/4 mb-8'>
+    <div className='flex flex-col justify-center items-center w-full ml-10'>
+      <form className='w-full xs:w-5/6 lg:w-3/4 mb-8'>
         <label htmlFor='site-search' className='text-sm font-medium leading-6 text-gray-400'
         >
           Find Coins...
@@ -77,17 +77,19 @@ export default function CryptoCardGrid() {
         ></input>
       </form>
 
-      <div className='grid grid-cols-1 xl:grid-cols-2 gap-2 w-full max-w-lg xl:max-w-full rounded-2xl bg-slate-900'>
+      <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 rounded-2xl bg-slate-900'>
         {currencies &&
           currencies.map((coin) => (
-            <CryptoCard
-              key={coin.uuid}
-              icon={coin.iconUrl}
-              name={coin.name}
-              symbol={coin.symbol}
-              price={Number(Math.round(100 * coin.price) / 100).toFixed(2)}
-              change={coin.change}
-            />
+            <div className='flex justify-center'>
+              <CryptoCard
+                key={coin.uuid}
+                icon={coin.iconUrl}
+                name={coin.name}
+                symbol={coin.symbol}
+                price={Number(Math.round(100 * coin.price) / 100).toFixed(2)}
+                change={coin.change}
+              />
+            </div>
           ))
         }
       </div>

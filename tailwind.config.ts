@@ -28,6 +28,7 @@ const config: Config = {
       minWidth: {
         ss: '21rem',
         sm: '23rem',
+        card_min: '18rem',
       },
       maxWidth: {
         ss: '21rem',
@@ -37,7 +38,7 @@ const config: Config = {
       screens: {
         sm: '464px',
         md: '768px',
-        lg: '984px',
+        lg: '1024px',
         xl: '1396px',
       },
     },

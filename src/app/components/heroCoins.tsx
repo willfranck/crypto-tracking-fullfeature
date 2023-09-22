@@ -26,8 +26,7 @@ export default function HeroCoins() {
           const filteredCoins = getCoins.data.data.coins.filter((coin: any) => {
             return (
               coin.symbol === 'BTC' || 
-              coin.symbol === 'ETH' || 
-              coin.symbol === 'DOGE'
+              coin.symbol === 'ETH' 
             )
           })
 
@@ -49,7 +48,7 @@ export default function HeroCoins() {
 
 
   return (
-    <div className='hero-coins w-5/6 lg:w-full lg:flex lg:justify-around lg:items-center m-auto'>
+    <div className='hero-coins flex flex-col lg:flex-row justify-around items-center lg:space-x-12 px-6'>
       {currencies &&
         currencies.map((coin) => (
           <CryptoCard
