@@ -44,21 +44,22 @@ export default function CryptoCardGrid() {
     }
   }, [coinSearch])
   
-  
-  const handleCoinSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = e.target.value
-    setCoinSearch(inputValue)
-  
-    const filteredCoins = currencies.filter((coin: any) => {
-      return (
-        coin.name.toLowerCase().includes(inputValue.toLowerCase()) ||
-        coin.symbol.toLowerCase().includes(inputValue.toLowerCase())
-      )
-    })
+  useEffect(() => {
+    const handleCoinSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const inputValue = e.target.value
+      setCoinSearch(inputValue)
+    
+      const filteredCoins = currencies.filter((coin: any) => {
+        return (
+          coin.name.toLowerCase().includes(inputValue.toLowerCase()) ||
+          coin.symbol.toLowerCase().includes(inputValue.toLowerCase())
+        )
+      })
 
-    setCurrencies(filteredCoins)
-  }
-
+      setCurrencies(filteredCoins)
+      handleCoinSearch(e)
+    }
+  }, [])
   
   return (
     <div className='flex flex-col justify-center items-center w-full ml-10'>
@@ -72,7 +73,7 @@ export default function CryptoCardGrid() {
           type='search'
           placeholder='Name | Symbol'
           value={coinSearch}
-          onChange={handleCoinSearch}
+          // onChange={handleCoinSearch}
           className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
         ></input>
       </form>
