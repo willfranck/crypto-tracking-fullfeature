@@ -26,6 +26,7 @@ export default function SignInPage() {
 
     } catch (error: any) {
         setSubmitting(false)
+        setErrorMessage('Username or Password incorrect')
       }
   }
 
