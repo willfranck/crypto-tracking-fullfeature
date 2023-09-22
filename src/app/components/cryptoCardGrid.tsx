@@ -16,6 +16,7 @@ interface Coin {
 
 export default function CryptoCardGrid() {
   const [currencies, setCurrencies] = useState<Coin[]>([])
+  const [slicedCurrencies, setSlicedCurrencies] = useState<Coin[]>([])
   const [coinSearch, setCoinSearch] = useState<string>('')
 
   useEffect(() => {
@@ -24,9 +25,10 @@ export default function CryptoCardGrid() {
         const getCoins = await axios.get('/api/coins')
 
         if (Array.isArray(getCoins.data.data.coins)) {
-          const filteredCoins = getCoins.data.data.coins.slice(0, 20)
+          setCurrencies(getCoins.data.data.coins)
 
-          setCurrencies(filteredCoins)
+          const sliceCoins = getCoins.data.data.coins.slice(0, 10)
+          setSlicedCurrencies(sliceCoins)
 
         } else {
             console.error('Received data is not an array')
@@ -39,27 +41,27 @@ export default function CryptoCardGrid() {
       }
     }
 
-    if (coinSearch === '') {
-      fetchCoins()
-    }
-  }, [coinSearch])
-  
-  useEffect(() => {
-    const handleCoinSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const inputValue = e.target.value
-      setCoinSearch(inputValue)
-    
-      const filteredCoins = currencies.filter((coin: any) => {
-        return (
-          coin.name.toLowerCase().includes(inputValue.toLowerCase()) ||
-          coin.symbol.toLowerCase().includes(inputValue.toLowerCase())
-        )
-      })
+    fetchCoins()
 
-      setCurrencies(filteredCoins)
-      handleCoinSearch(e)
-    }
   }, [])
+  
+  
+  const handleCoinSearch = (e: React.FormEvent<HTMLInputElement>) => {
+    const inputValue = e.currentTarget.value.toLowerCase()
+    setCoinSearch(inputValue)
+  
+    const searchCoins = inputValue ? 
+      currencies.filter((coin: any) => {
+        return (
+          coin.name.toLowerCase().includes(inputValue) ||
+          coin.symbol.toLowerCase().includes(inputValue)
+        )
+      }).slice(0, 10)
+    : currencies.slice(0, 10)
+
+    setSlicedCurrencies(searchCoins)
+  }
+
   
   return (
     <div className='flex flex-col justify-center items-center w-full ml-10'>
@@ -73,14 +75,14 @@ export default function CryptoCardGrid() {
           type='search'
           placeholder='Name | Symbol'
           value={coinSearch}
-          // onChange={handleCoinSearch}
+          onChange={handleCoinSearch}
           className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
         ></input>
       </form>
 
       <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 rounded-2xl bg-slate-900'>
-        {currencies &&
-          currencies.map((coin) => (
+        {slicedCurrencies &&
+          slicedCurrencies.map((coin) => (
             <div className='flex justify-center'>
               <CryptoCard
                 key={coin.uuid}
