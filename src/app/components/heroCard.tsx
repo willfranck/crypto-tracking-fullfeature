@@ -16,8 +16,8 @@ export default function HeroCard() {
 
         <div>
           <span>also implementing:&ensp;</span>
-          <p>Next Auth &ensp;|&ensp; Mongoose &ensp;|&ensp; Axios</p>
-          <p>RapidAPI &ensp;|&ensp; bcrypt &ensp;|&ensp; JSONwebtoken</p>
+          <p>RapidAPI &ensp;|&ensp; Axios &ensp;|&ensp; Mongoose</p>
+          <p>Next-Auth &ensp;|&ensp; bcrypt &ensp;|&ensp; JSONwebtoken</p>
           <p></p>
         </div>
 
