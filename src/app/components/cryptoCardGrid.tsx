@@ -102,9 +102,8 @@ export default function CryptoCardGrid() {
       <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full rounded-2xl bg-slate-900'>
         {slicedCurrencies &&
           slicedCurrencies.map((coin) => (
-            <div className='flex justify-center'>
+            <div className='flex justify-center' key={coin.uuid}>
               <CryptoCard
-                key={coin.uuid}
                 icon={coin.iconUrl}
                 name={coin.name}
                 symbol={coin.symbol}

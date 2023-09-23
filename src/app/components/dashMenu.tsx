@@ -46,15 +46,14 @@ export default function DashMenu({activeDatatypeChange}: DashMenuProps) {
   return (
     <aside className='sticky top-0 flex justify-center items-start w-full lg:w-40 min-h-full my-6 md:px-6 bg-black border-b-2 lg:border-b-0 lg:border-r-2 border-slate-800'>
       <ul className='flex lg:flex-col justify-center items-center w-full'>
-        <li className='flex justify-center items-center w-2/3 h-20 text-slate-400'>
+        <li className='flex justify-center items-center w-2/3 h-20 text-slate-400' key={100}>
           <h3>MENU</h3>
         </li>
 
         {dashMenuBtns && 
           dashMenuBtns.map((btnProps) => (
-            <li className='flex justify-center items-center w-2/3 h-20'>
+            <li className='flex justify-center items-center w-2/3 h-20' key={btnProps.key}>
               <DashMenuBtns 
-                key={btnProps.key}
                 datatype={btnProps.datatype}
                 label={btnProps.label}
                 aria={btnProps.aria}
@@ -65,7 +64,7 @@ export default function DashMenu({activeDatatypeChange}: DashMenuProps) {
           ))
         }
 
-        <li className='flex justify-center items-center w-2/3 h-20 text-slate-400'>
+        <li className='flex justify-center items-center w-2/3 h-20 text-slate-400' key={101}>
           <Homepage />
         </li>
       </ul>
