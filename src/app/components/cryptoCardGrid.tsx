@@ -64,23 +64,42 @@ export default function CryptoCardGrid() {
 
   
   return (
-    <div className='flex flex-col justify-center items-center w-full ml-10'>
-      <form className='w-full xs:w-5/6 lg:w-3/4 mb-8'>
-        <label htmlFor='site-search' className='text-sm font-medium leading-6 text-gray-400'
-        >
-          Find Coins...
-        </label>
-        <input
-          id='site-search'
-          type='search'
-          placeholder='Name | Symbol'
-          value={coinSearch}
-          onChange={handleCoinSearch}
-          className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-        ></input>
-      </form>
+    <div className='flex flex-col justify-start items-center w-full lg:ml-10'>
+      <div className='flex justify-center w-full'>
+        <form className='w-full xs:w-5/6 lg:w-3/4 mb-8'>
+          <label htmlFor='site-search' className='text-sm font-medium leading-6 text-gray-400'>
+            Find Coins...
+          </label>
+          <input
+            id='site-search'
+            type='search'
+            placeholder='Name | Symbol'
+            value={coinSearch}
+            onChange={handleCoinSearch}
+            className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+          ></input>
+        </form>
 
-      <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 rounded-2xl bg-slate-900'>
+        <form className='flex flex-col w-26 ml-6'>
+          <label 
+            htmlFor='Max Results' 
+            className='text-sm font-medium leading-6 text-gray-400'
+          >
+            Max
+          </label>
+          <select 
+            name='Max Results'
+            className='w-full rounded-md border-0 px-3 py-1 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+          >
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+            <option value={50}>50</option>
+            <option value={100}>100</option>
+          </select>
+        </form>
+      </div>
+    
+      <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full rounded-2xl bg-slate-900'>
         {slicedCurrencies &&
           slicedCurrencies.map((coin) => (
             <div className='flex justify-center'>
