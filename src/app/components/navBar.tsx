@@ -9,7 +9,7 @@ export default function NavBar() {
   const { data: session } = useSession()
 
   return (
-    <nav className='w-full h-28 px-8 py-4'>
+    <nav className='w-full px-8 py-4'>
       {session ? (
         <div className='flex justify-between items-center'>
           <div className='rounded-full overflow-hidden'>
@@ -17,13 +17,13 @@ export default function NavBar() {
               <Image 
                 src={'/crypto_logo.jpg'}
                 alt='Crypto site logo'
-                width={50}
-                height={50}
+                width={44}
+                height={44}
               />
             </Link>
           </div>
 
-          <div className='flex flex-col text-center w-26 space-y-1'>
+          <div className='flex justify-center items-center space-x-4'>
             <ProfilePageBtn />
             <SignoutBtn />
           </div>
@@ -36,12 +36,12 @@ export default function NavBar() {
             <Image 
               src={'/crypto_logo.jpg'}
               alt='Crypto site logo'
-              width={50}
-              height={50}
+              width={44}
+              height={44}
             />
           </div>
 
-          <div className='flex flex-col text-center w-26 space-y-1'>
+          <div className='flex justify-center items-center space-x-4'>
             <RegisterPageBtn />
             <SigninPageBtn />
           </div>

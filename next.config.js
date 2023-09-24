@@ -20,11 +20,23 @@ const nextConfig = {
   },
 
   images: {
-    domains: ['cdn.coinranking.com'],
+    domains: ['cdn.coinranking.com', 'lh3.googleusercontent.com', 'localhost'],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'cdn.coinranking.com',
+        port: '',
+        pathname: '/components/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        port: '',
+        pathname: '/components/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost:3000',
         port: '',
         pathname: '/components/**',
       },
