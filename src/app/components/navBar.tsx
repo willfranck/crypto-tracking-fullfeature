@@ -9,16 +9,17 @@ export default function NavBar() {
   const { data: session } = useSession()
 
   return (
-    <nav className='w-full px-8 py-4'>
+    <nav className='w-full p-4'>
       {session ? (
         <div className='flex justify-between items-center'>
-          <div className='rounded-full overflow-hidden'>
+          <div className='flex items-center'>
             <Link href={'/'}>
               <Image 
                 src={'/crypto_logo.jpg'}
                 alt='Crypto site logo'
                 width={44}
                 height={44}
+                className='rounded-full overflow-hidden'
               />
             </Link>
           </div>
@@ -32,13 +33,16 @@ export default function NavBar() {
       ) : (
 
         <div className='flex justify-between items-center'>
-          <div className='rounded-full overflow-hidden'>
-            <Image 
-              src={'/crypto_logo.jpg'}
-              alt='Crypto site logo'
-              width={44}
-              height={44}
-            />
+          <div className='flex items-center'>
+            <Link href={'/'}>
+              <Image 
+                src={'/crypto_logo.jpg'}
+                alt='Crypto site logo'
+                width={44}
+                height={44}
+                className='rounded-full overflow-hidden'
+              />
+            </Link>
           </div>
 
           <div className='flex justify-center items-center space-x-4'>
