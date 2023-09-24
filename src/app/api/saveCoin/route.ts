@@ -7,7 +7,6 @@ import mongoose from 'mongoose'
 export async function PATCH(req: NextRequest) {
   if (req.method === 'PATCH') {
     const {symbol} = await req.json()
-    console.log(symbol)
     
     try {
       const session = await getServerSession()
