@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import CryptoCard from './cryptoCard'
 
+
 interface Coin {
   uuid: string,
   iconUrl: string,
@@ -12,7 +13,6 @@ interface Coin {
   price: number,
   change: number,
 }
-
 
 export default function HeroCoins() {
   const [currencies, setCurrencies] = useState<Coin[]>([])

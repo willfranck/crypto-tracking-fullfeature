@@ -3,6 +3,7 @@ import buttons from '@utils/buttons'
 import { DashMenuBtns } from '@components/dashMenuButtons'
 import { Homepage } from '@components/navButtons'
 
+
 interface MenuBtns {
   key: number,
   datatype: string,
@@ -14,7 +15,6 @@ interface MenuBtns {
 interface DashMenuProps {
   activeDatatypeChange: (datatype: string) => void,
 }
-
 
 export default function DashMenu({activeDatatypeChange}: DashMenuProps) {
   const [dashMenuBtns, setDashMenuBtns] = useState<MenuBtns[]>([])
