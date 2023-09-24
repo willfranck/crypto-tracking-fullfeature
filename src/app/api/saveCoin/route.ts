@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth'
 import { NextRequest, NextResponse } from 'next/server'
 import { connectToMongoDb } from '@lib/mongodb'
-import User from '@models/users'
+import mongoose from 'mongoose'
 
 
 export async function PATCH(req: NextRequest) {
@@ -17,23 +17,27 @@ export async function PATCH(req: NextRequest) {
       }
 
       await connectToMongoDb()
-      
-      const user = await User.findOne({ email: session.user.email })
-      console.log(user)
-      
 
+      const db = mongoose.connection
+      const users = db.collection('users')
+      
+      const user = await users.findOne({ email: session.user.email })
+      
       if (!user) {
         return NextResponse.json({ message: 'User not found' }, { status: 404 })
       }
 
-      user.savedCoins.push(symbol)
-
-      await user.save()
+      if (!user.savedCoins.includes(symbol)) {
+        await users.updateOne(
+          {email: session.user.email},
+          {$push: {savedCoins: symbol}}
+        )
+      }
 
       return NextResponse.json({ message: 'SavedCoins updated successfully' }, { status: 200 })
 
     } catch (error: any) {
-        return NextResponse.json({ message: error.message }, { status: 500 })
+        return NextResponse.json({ message: error }, { status: 500 })
     }
 
   } else {
