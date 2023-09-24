@@ -5,17 +5,17 @@ import HeroCoins from './heroCoins'
 export default function HeroCard() {
   return (
     <section className='relative flex flex-col items-center w-full bg-hero bg-cover bg-center isolate before:-z-10 before:absolute before:content-[""] before:inset-0 before:bg-cover'>
-      <article className='flex flex-col w-full space-y-10 px-8 py-20'>
-        <h1 className={titleFont.className + ''}>Today's Crypto Prices</h1>
+      <article className='flex flex-col w-full space-y-10 px-8 pt-20 pb-10'>
+        <h1 className={titleFont.className}>Today's Crypto Prices</h1>
 
         <div>
-          <span>a Full Stack demo built with:</span>
+          <span className='text-gray-400'>a Full Stack demo built with:</span>
           <p>NextJS &ensp;|&ensp; ReactJS &ensp;|&ensp; MongoDB</p>
           <p>TypeScript &ensp;|&ensp; Tailwind CSS</p>
         </div>
 
         <div>
-          <span>also implementing:&ensp;</span>
+          <span className='text-gray-400'>also implementing:&ensp;</span>
           <p>RapidAPI &ensp;|&ensp; Axios &ensp;|&ensp; Mongoose</p>
           <p>Next-Auth &ensp;|&ensp; bcrypt &ensp;|&ensp; JSONwebtoken</p>
           <p></p>

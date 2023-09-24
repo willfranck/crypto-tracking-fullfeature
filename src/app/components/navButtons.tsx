@@ -8,7 +8,7 @@ export const SigninPageBtn = () => {
   return (
     <Link
       href={'/pages/signin'}
-      className='h-full px-3 py-1.5 text-white text-sm font-semibold leading-6 rounded-md shadow-sm hover:text-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
+      className='px-3 py-1.5 text-gray-400 text-sm font-semibold leading-6 rounded-md shadow-sm hover:text-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >
       Sign In
     </Link>
@@ -31,7 +31,7 @@ export const RegisterPageBtn = () => {
   return (
     <Link
       href={'/pages/register'}
-      className='h-full px-3 py-1.5 text-white text-sm font-semibold leading-6 rounded-md shadow-sm hover:text-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
+      className='px-3 py-1.5 text-gray-400 text-sm font-semibold leading-6 rounded-md shadow-sm hover:text-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >
       Register
     </Link>
@@ -42,7 +42,7 @@ export const SignoutBtn = () => {
   return (
     <button
       onClick={() => signOut({ callbackUrl: 'http://localhost:3000' })}
-      className='h-full px-3 py-1.5 text-white text-sm font-semibold leading-6 rounded-md shadow-sm hover:text-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
+      className='px-3 py-1.5 text-gray-400 text-sm font-semibold leading-6 rounded-md shadow-sm hover:text-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >
       Sign Out
     </button>

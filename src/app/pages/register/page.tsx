@@ -108,7 +108,7 @@ export default function SignUpPage() {
             </button>
 
             <div className='flex justify-center items-center w-full'>
-              <p>Already Signed Up? &ensp;</p>
+              <span>Already Signed Up? &ensp;</span>
 
               <SigninPageBtn />
             </div>
