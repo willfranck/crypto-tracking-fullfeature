@@ -1,5 +1,6 @@
 'use client'
 import { useSession } from 'next-auth/react'
+import Link from 'next/link'
 import Image from 'next/image'
 import { ProfilePageBtn, SigninPageBtn, SignoutBtn, RegisterPageBtn } from '@components/navButtons'
 
@@ -12,12 +13,14 @@ export default function NavBar() {
       {session ? (
         <div className='flex justify-between items-center'>
           <div className='rounded-full overflow-hidden'>
-            <Image 
-              src={'/crypto_logo.jpg'}
-              alt='Crypto site logo'
-              width={50}
-              height={50}
-            />
+            <Link href={'/'}>
+              <Image 
+                src={'/crypto_logo.jpg'}
+                alt='Crypto site logo'
+                width={50}
+                height={50}
+              />
+            </Link>
           </div>
 
           <div className='flex flex-col text-center w-26 space-y-1'>

@@ -12,6 +12,7 @@ export default function SignUpPage() {
     email: '',
     username: '',
     password: '',
+    image: '',
   })
 
   const handleSignUp = async (e: React.FormEvent) => {
@@ -95,6 +96,21 @@ export default function SignUpPage() {
               value={user.password}
               placeholder=' Must be at least 6 digits'
               onChange={(e) => setUser({ ...user, password: e.target.value })}
+              className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+            ></input>
+          </div>
+
+          <div className='hidden'>
+            <label htmlFor='image' className='text-sm font-medium leading-6 text-gray-400'>
+              Image
+            </label>
+            <input
+              id='image'
+              type='text'
+              required
+              value={user.image}
+              autoComplete='on'
+              onChange={(e) => setUser({ ...user, username: e.target.value })}
               className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
             ></input>
           </div>

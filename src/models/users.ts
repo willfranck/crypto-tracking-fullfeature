@@ -24,6 +24,7 @@ const userSchema = new mongoose.Schema({
 
   savedCoins: [{
     type: String,
+    default: undefined,
   }],
 })
 
