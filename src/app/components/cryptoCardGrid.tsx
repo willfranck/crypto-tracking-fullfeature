@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import CryptoCard from './cryptoCard'
 
+
 interface Coin {
   uuid: string,
   iconUrl: string,
@@ -13,11 +14,11 @@ interface Coin {
   change: number,
 }
 
-
 export default function CryptoCardGrid() {
   const [currencies, setCurrencies] = useState<Coin[]>([])
   const [slicedCurrencies, setSlicedCurrencies] = useState<Coin[]>([])
   const [coinSearch, setCoinSearch] = useState<string>('')
+  const [maxResults, setMaxResults] = useState<number>(10)
 
   useEffect(() => {
     const fetchCoins = async () => {
@@ -27,7 +28,7 @@ export default function CryptoCardGrid() {
         if (Array.isArray(getCoins.data.data.coins)) {
           setCurrencies(getCoins.data.data.coins)
 
-          const sliceCoins = getCoins.data.data.coins.slice(0, 10)
+          const sliceCoins = getCoins.data.data.coins.slice(0, maxResults)
           setSlicedCurrencies(sliceCoins)
 
         } else {
@@ -42,24 +43,23 @@ export default function CryptoCardGrid() {
     }
 
     fetchCoins()
-
   }, [])
-  
-  
-  const handleCoinSearch = (e: React.FormEvent<HTMLInputElement>) => {
-    const inputValue = e.currentTarget.value.toLowerCase()
-    setCoinSearch(inputValue)
-  
-    const searchCoins = inputValue ? 
-      currencies.filter((coin: any) => {
-        return (
-          coin.name.toLowerCase().includes(inputValue) ||
-          coin.symbol.toLowerCase().includes(inputValue)
-        )
-      }).slice(0, 10)
-    : currencies.slice(0, 10)
 
-    setSlicedCurrencies(searchCoins)
+  useEffect(() => {
+    const filteredCoins = currencies.filter((coin) =>
+      coin.name.toLowerCase().includes(coinSearch.toLowerCase()) ||
+      coin.symbol.toLowerCase().includes(coinSearch.toLowerCase())
+    );
+
+    const sliceCoins = filteredCoins.slice(0, maxResults);
+    
+    setSlicedCurrencies(sliceCoins);
+  }, [currencies, coinSearch, maxResults]);
+
+
+  const handleCoinSearch = (e: React.FormEvent<HTMLInputElement>) => {
+    const inputValue = e.currentTarget.value.toLowerCase();
+    setCoinSearch(inputValue);
   }
 
   
@@ -80,7 +80,7 @@ export default function CryptoCardGrid() {
           ></input>
         </form>
 
-        <form className='flex flex-col w-26 ml-6'>
+        <form className='flex flex-col ml-6'>
           <label 
             htmlFor='Max Results' 
             className='text-sm font-medium leading-6 text-gray-400'
@@ -89,6 +89,8 @@ export default function CryptoCardGrid() {
           </label>
           <select 
             name='Max Results'
+            value={maxResults}
+            onChange={(e) => setMaxResults(Number(e.target.value))}
             className='w-full rounded-md border-0 px-3 py-1 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
           >
             <option value={10}>10</option>
