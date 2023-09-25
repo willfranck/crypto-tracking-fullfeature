@@ -65,8 +65,8 @@ export default function CryptoCardGrid() {
   
   return (
     <div className='flex flex-col justify-start items-center w-full lg:ml-10'>
-      <div className='flex justify-center w-full'>
-        <form className='w-full xs:w-5/6 lg:w-3/4 mb-8'>
+      <div className='flex justify-center w-full mb-8'>
+        <form className='flex-1'>
           <label htmlFor='site-search' className='text-sm font-medium leading-6 text-gray-400'>
             Find Coins...
           </label>
@@ -80,7 +80,7 @@ export default function CryptoCardGrid() {
           ></input>
         </form>
 
-        <form className='flex flex-col ml-6'>
+        <form className='flex flex-col ml-6 w-20'>
           <label 
             htmlFor='Max Results' 
             className='text-sm font-medium leading-6 text-gray-400'
@@ -101,22 +101,22 @@ export default function CryptoCardGrid() {
         </form>
       </div>
     
-      <div className='flex justify-center items-center'>
-      <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full rounded-2xl bg-slate-900'>
-        {slicedCurrencies &&
-          slicedCurrencies.map((coin) => (
-            <div className='flex justify-center' key={coin.uuid}>
-              <CryptoCard
-                icon={coin.iconUrl}
-                name={coin.name}
-                symbol={coin.symbol}
-                price={Number(Math.round(100 * coin.price) / 100).toFixed(2)}
-                change={coin.change}
-              />
-            </div>
-          ))
-        }
-      </div>
+      <div className='flex justify-center items-center w-full'>
+        <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full rounded-2xl bg-slate-900'>
+          {slicedCurrencies &&
+            slicedCurrencies.map((coin) => (
+              <div className='flex justify-center w-full' key={coin.uuid}>
+                <CryptoCard
+                  icon={coin.iconUrl}
+                  name={coin.name}
+                  symbol={coin.symbol}
+                  price={Number(Math.round(100 * coin.price) / 100).toFixed(2)}
+                  change={coin.change}
+                />
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
   )

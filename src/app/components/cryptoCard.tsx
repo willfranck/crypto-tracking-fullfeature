@@ -41,7 +41,7 @@ export default function CryptoCard(cryptoProps: any) {
       </div>
       
       <div className='flex justify-between w-full'>
-        <h3 className='truncate'>{cryptoProps.name}</h3>
+        <h3 className='w-full truncate'>{cryptoProps.name}</h3>
 
         <div className='flex items-center mt-1 ml-4'>
           <p>{cryptoProps.change}%</p>
