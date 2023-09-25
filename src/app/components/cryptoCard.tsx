@@ -15,7 +15,7 @@ export default function CryptoCard(cryptoProps: any) {
         console.log(`Coin ${symbol} saved successfully`)
 
       } catch (error: any) {
-        console.error(`Error saving coin ${symbol}:`, error.message)
+          console.error(`Error saving coin ${symbol}:`, error.message)
       
       } finally {
         setSavingCoin(false)
