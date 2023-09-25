@@ -25,8 +25,8 @@ export default function NavBar() {
           </div>
 
           <div className='flex justify-center items-center space-x-4'>
-            <ProfilePageBtn />
             <SignoutBtn />
+            <ProfilePageBtn />
           </div>
         </div>
 
