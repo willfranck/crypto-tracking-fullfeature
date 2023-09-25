@@ -1,26 +1,38 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Image from 'next/image'
 
 
 export default function CryptoCard(cryptoProps: any) {
-    const [savingCoin, setSavingCoin] = useState(false);
-  
-    const handleSaveCoin = async (symbol: string) => {
-      try {
-        setSavingCoin(true)
-  
-        await axios.patch('/api/saveCoin', { symbol })
-  
-        console.log(`Coin ${symbol} saved successfully`)
+  const [savingCoin, setSavingCoin] = useState(false)
+  const [userSavedCoins, setUserSavedCoins] = useState([])
 
-      } catch (error: any) {
-          console.error(`Error saving coin ${symbol}:`, error.message)
-      
-      } finally {
-        setSavingCoin(false)
+  useEffect(() => {
+    const fetchUserCoins = async () => {
+      const getUserCoins = await axios.get('/api/getSavedCoins')
+
+      if (Array.isArray(getUserCoins.data.savedCoins)) {
+        const userCoins = getUserCoins.data.savedCoins
+        setUserSavedCoins(userCoins)
       }
     }
+
+    fetchUserCoins()
+  }, [])
+
+  const handleSaveCoin = async (symbol: string) => {
+    try {
+      setSavingCoin(true)
+
+      await axios.patch('/api/saveCoin', { symbol })
+
+    } catch (error: any) {
+        console.error(`Error saving coin ${symbol}:`, error.message)
+    
+    } finally {
+        setSavingCoin(false)
+    }
+  }
 
 
   return (
@@ -49,18 +61,33 @@ export default function CryptoCard(cryptoProps: any) {
         </div>
       </div>
 
-      <div className='flex justify-end w-full mt-1'>
-        <button 
-          key={cryptoProps.symbol}
-          type='submit'
-          onClick={() => handleSaveCoin(cryptoProps.symbol)}
-          disabled={savingCoin}
-          className='saveCoinBtn flex items-center w-26 h-8 rounded-l-full text-2xl text-center bg-slate-500 hover:bg-indigo-500'
-        >
-          <p className='w-8 pb-0.5'>+</p>
-          <span>Add coin</span>
-        </button>
-      </div>
+      {cryptoProps.symbol != userSavedCoins ? (
+        <div className='flex justify-end w-full mt-1'>
+          <button 
+            key={cryptoProps.symbol}
+            type='submit'
+            onClick={() => handleSaveCoin(cryptoProps.symbol)}
+            disabled={savingCoin}
+            className='saveCoinBtn flex items-center w-24 h-8 rounded-l-full text-2xl text-center bg-slate-500 hover:bg-indigo-500'
+          >
+            <p className='w-8 pb-0.5'>+</p>
+            <span className='ml-2.5'>Save</span>
+          </button>
+        </div>
+      ) : (
+        <div className='flex justify-end w-full mt-1'>
+          <button 
+            key={cryptoProps.symbol}
+            type='submit'
+            onClick={() => handleSaveCoin(cryptoProps.symbol)}
+            disabled={savingCoin}
+            className='saveCoinBtn flex items-center w-24 h-8 rounded-l-full text-2xl text-center bg-red-500 hover:bg-indigo-500'
+          >
+            <p className='w-8'>-</p>
+            <span>Remove</span>
+          </button>
+        </div>
+      )}
     </div>
   )
 }
