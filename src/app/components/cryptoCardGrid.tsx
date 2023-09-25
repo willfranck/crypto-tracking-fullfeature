@@ -100,6 +100,10 @@ export default function CryptoCardGrid() {
           </select>
         </form>
       </div>
+
+      <div>
+        <p className='text-sm font-medium leading-6 text-gray-400'>sorted by Market Cap</p>
+      </div>
     
       <div className='flex justify-center items-center w-full'>
         <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full lg:w-auto rounded-2xl bg-slate-900'>
