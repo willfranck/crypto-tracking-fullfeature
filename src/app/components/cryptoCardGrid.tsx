@@ -19,6 +19,8 @@ export default function CryptoCardGrid() {
   const [slicedCurrencies, setSlicedCurrencies] = useState<Coin[]>([])
   const [coinSearch, setCoinSearch] = useState<string>('')
   const [maxResults, setMaxResults] = useState<number>(10)
+  const [userSavedCoins, setUserSavedCoins] = useState<string[]>([])
+
 
   useEffect(() => {
     const fetchCoins = async () => {
@@ -61,6 +63,24 @@ export default function CryptoCardGrid() {
     const inputValue = e.currentTarget.value.toLowerCase();
     setCoinSearch(inputValue);
   }
+
+  useEffect(() => {
+    const fetchUserSavedCoins = async () => {
+      try {
+        const getUserSavedCoins = await axios.get('/api/getSavedCoins')
+
+        if (Array.isArray(getUserSavedCoins.data.savedCoins)) {
+          const userCoins = getUserSavedCoins.data.savedCoins
+          setUserSavedCoins(userCoins)
+        }
+
+      } catch (error: any) {
+          console.error(error)
+      }
+    }
+
+      fetchUserSavedCoins()
+  }, [userSavedCoins])
 
   
   return (
@@ -116,6 +136,7 @@ export default function CryptoCardGrid() {
                   symbol={coin.symbol}
                   price={Number(Math.round(100 * coin.price) / 100).toFixed(2)}
                   change={coin.change}
+                  isCoinSaved={userSavedCoins.includes(coin.symbol)? true : false}
                 />
               </div>
             ))

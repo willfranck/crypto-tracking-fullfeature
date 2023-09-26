@@ -14,8 +14,8 @@ interface Coin {
 }
 
 export default function SavedCoins() {
-  const [userSavedCoins, setUserSavedCoins] = useState([])
   const [slicedUserCoins, setSlicedUserCoins] = useState<Coin[]>([])
+  const [userSavedCoins, setUserSavedCoins] = useState<string[]>([])
   const [isFetchingSavedCoins, setIsFetchingSavedCoins] = useState(false)
 
   useEffect(() => {
@@ -71,8 +71,6 @@ export default function SavedCoins() {
           <p className='mt-10 text-sm font-medium leading-6 text-gray-400'>sorted by Market Cap</p>
         </div>
 
-        {/* <hr className="w-11/12 h-10 text-gray-400 border-t-1 border-gray-400"></hr> */}
-
         <div className='flex justify-center items-center w-full'>
           <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full lg:w-auto rounded-2xl bg-slate-900'>
             {slicedUserCoins &&
@@ -84,6 +82,7 @@ export default function SavedCoins() {
                     symbol={coin.symbol}
                     price={Number(Math.round(100 * coin.price) / 100).toFixed(2)}
                     change={coin.change}
+                    isCoinSaved={userSavedCoins.includes(coin.symbol)? true : false}
                   />
                 </div>
               ))

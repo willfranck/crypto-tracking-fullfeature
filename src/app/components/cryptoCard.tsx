@@ -5,22 +5,8 @@ import Image from 'next/image'
 
 export default function CryptoCard(cryptoProps: any) {
   const [savingCoin, setSavingCoin] = useState(false)
-  const [userSavedCoins, setUserSavedCoins] = useState([])
 
-  useEffect(() => {
-    const fetchUserCoins = async () => {
-      const getUserCoins = await axios.get('/api/getSavedCoins')
-
-      if (Array.isArray(getUserCoins.data.savedCoins)) {
-        const userCoins = getUserCoins.data.savedCoins
-        setUserSavedCoins(userCoins)
-      }
-    }
-
-    fetchUserCoins()
-  }, [])
-
-  const handleSaveCoin = async (symbol: string) => {
+  const handleSavingCoin = async (symbol: string) => {
     try {
       setSavingCoin(true)
 
@@ -61,12 +47,12 @@ export default function CryptoCard(cryptoProps: any) {
         </div>
       </div>
 
-      {cryptoProps.symbol != userSavedCoins ? (
+      {!cryptoProps.isCoinSaved ? (
         <div className='flex justify-end w-full mt-1'>
           <button 
             key={cryptoProps.symbol}
             type='submit'
-            onClick={() => handleSaveCoin(cryptoProps.symbol)}
+            onClick={() => handleSavingCoin(cryptoProps.symbol)}
             disabled={savingCoin}
             className='saveCoinBtn flex items-center w-24 h-8 rounded-l-full text-2xl text-center bg-slate-500 hover:bg-indigo-500'
           >
@@ -74,12 +60,12 @@ export default function CryptoCard(cryptoProps: any) {
             <span className='ml-2.5'>Save</span>
           </button>
         </div>
-      ) : (
+        ) : (
         <div className='flex justify-end w-full mt-1'>
           <button 
             key={cryptoProps.symbol}
             type='submit'
-            onClick={() => handleSaveCoin(cryptoProps.symbol)}
+            onClick={() => handleSavingCoin(cryptoProps.symbol)}
             disabled={savingCoin}
             className='saveCoinBtn flex items-center w-24 h-8 rounded-l-full text-2xl text-center bg-red-500 hover:bg-indigo-500'
           >
@@ -87,7 +73,8 @@ export default function CryptoCard(cryptoProps: any) {
             <span>Remove</span>
           </button>
         </div>
-      )}
+        )
+      }
     </div>
   )
 }

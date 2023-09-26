@@ -14,5 +14,5 @@ export default {
       aria: 'Search for Coins',
       active: false,
     },
-  ]
+  ],
 }
