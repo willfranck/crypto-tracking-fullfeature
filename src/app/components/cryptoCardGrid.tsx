@@ -91,7 +91,7 @@ export default function CryptoCardGrid() {
       try {
         setSavingCoin(true)
         
-        await axios.patch('/api/saveCoin', { symbol })
+        await axios.patch('/api/updateSavedCoins', { symbol })
 
         setIsFetchingSavedCoins(true)
         
@@ -107,7 +107,7 @@ export default function CryptoCardGrid() {
       try {
         setRemovingCoin(true)
         
-        await axios.patch('/api/removeCoin', { symbol })
+        await axios.patch('/api/updateSavedCoins', { symbol })
 
         setIsFetchingSavedCoins(true)
 

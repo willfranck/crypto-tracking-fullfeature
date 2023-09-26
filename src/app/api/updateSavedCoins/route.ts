@@ -26,7 +26,12 @@ export async function PATCH(req: NextRequest) {
         return NextResponse.json({ message: 'User not found' }, { status: 404 })
       }
 
-      if (user.savedCoins.includes(symbol)) {
+      if (!user.savedCoins.includes(symbol)) {
+        await users.updateOne(
+          {email: session.user.email},
+          {$push: {savedCoins: symbol}}
+        )
+      } else if (user.savedCoins.includes(symbol)) {
         await users.updateOne(
           {email: session.user.email},
           {$pull: {savedCoins: symbol}}
