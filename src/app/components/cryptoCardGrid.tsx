@@ -20,6 +20,9 @@ export default function CryptoCardGrid() {
   const [coinSearch, setCoinSearch] = useState<string>('')
   const [maxResults, setMaxResults] = useState<number>(10)
   const [userSavedCoins, setUserSavedCoins] = useState<string[]>([])
+  const [savingCoin, setSavingCoin] = useState(false)
+  const [removingCoin, setRemovingCoin] = useState(false)
+  const [isFetchingSavedCoins, setIsFetchingSavedCoins] = useState(false)
 
 
   useEffect(() => {
@@ -37,15 +40,35 @@ export default function CryptoCardGrid() {
             console.error('Received data is not an array')
         }
 
-        return getCoins
-
       } catch (error: any) {
           console.error(error)
+      
+      }
+    }
+    
+    fetchCoins()
+  }, [])
+
+  useEffect(() => {
+    const fetchUserSavedCoins = async () => {
+      try {
+        const getUserSavedCoins = await axios.get('/api/getSavedCoins')
+
+        if (Array.isArray(getUserSavedCoins.data.savedCoins)) {
+          const userCoins = getUserSavedCoins.data.savedCoins
+          setUserSavedCoins(userCoins)
+        }
+      
+      } catch (error: any) {
+          console.error('Received data is not an array')
+      
+      } finally {
+          setIsFetchingSavedCoins(false)
       }
     }
 
-    fetchCoins()
-  }, [])
+    fetchUserSavedCoins()
+  }, [isFetchingSavedCoins])
 
   useEffect(() => {
     const filteredCoins = currencies.filter((coin) =>
@@ -59,28 +82,44 @@ export default function CryptoCardGrid() {
   }, [currencies, coinSearch, maxResults]);
 
 
-  const handleCoinSearch = (e: React.FormEvent<HTMLInputElement>) => {
+  function handleCoinSearch(e: React.FormEvent<HTMLInputElement>) {
     const inputValue = e.currentTarget.value.toLowerCase();
     setCoinSearch(inputValue);
   }
 
-  useEffect(() => {
-    const fetchUserSavedCoins = async () => {
+  async function handleSubmit(symbol: string) {
+    if (!userSavedCoins.includes(symbol)) {
       try {
-        const getUserSavedCoins = await axios.get('/api/getSavedCoins')
+        setSavingCoin(true)
+        
+        await axios.patch('/api/saveCoin', { symbol })
 
-        if (Array.isArray(getUserSavedCoins.data.savedCoins)) {
-          const userCoins = getUserSavedCoins.data.savedCoins
-          setUserSavedCoins(userCoins)
-        }
+        setIsFetchingSavedCoins(true)
+        
+      } catch (error: any) {
+          console.error(`Error saving coin ${symbol}:`, error.message)
+      
+      } finally {
+          setSavingCoin(false)
+      
+      }
+
+    } else if (userSavedCoins.includes(symbol)) {
+      try {
+        setRemovingCoin(true)
+        
+        await axios.patch('/api/removeCoin', { symbol })
+
+        setIsFetchingSavedCoins(true)
 
       } catch (error: any) {
-          console.error(error)
+          console.error(`Error removing coin ${symbol}:`, error.message)
+      
+      } finally {
+          setRemovingCoin(false)
       }
     }
-
-      fetchUserSavedCoins()
-  }, [userSavedCoins])
+  }  
 
   
   return (
@@ -136,7 +175,9 @@ export default function CryptoCardGrid() {
                   symbol={coin.symbol}
                   price={Number(Math.round(100 * coin.price) / 100).toFixed(2)}
                   change={coin.change}
-                  isCoinSaved={userSavedCoins.includes(coin.symbol)? true : false}
+                  isSavedCoin={userSavedCoins.includes(coin.symbol)? true : false}
+                  handleSubmit={() => handleSubmit(coin.symbol)}
+                  disabled={savingCoin || removingCoin}
                 />
               </div>
             ))

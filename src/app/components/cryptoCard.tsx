@@ -1,26 +1,7 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
 import Image from 'next/image'
 
 
 export default function CryptoCard(cryptoProps: any) {
-  const [savingCoin, setSavingCoin] = useState(false)
-
-  const handleSavingCoin = async (symbol: string) => {
-    try {
-      setSavingCoin(true)
-
-      await axios.patch('/api/saveCoin', { symbol })
-
-    } catch (error: any) {
-        console.error(`Error saving coin ${symbol}:`, error.message)
-    
-    } finally {
-        setSavingCoin(false)
-    }
-  }
-
-
   return (
     <div className='flex flex-col justify-center items-center self-center p-3 w-full min-w-card_min max-w-sm' >
       <div className='flex justify-between items-center w-full'>
@@ -47,13 +28,13 @@ export default function CryptoCard(cryptoProps: any) {
         </div>
       </div>
 
-      {!cryptoProps.isCoinSaved ? (
+      {!cryptoProps.isSavedCoin ? (
         <div className='flex justify-end w-full mt-1'>
           <button 
             key={cryptoProps.symbol}
             type='submit'
-            onClick={() => handleSavingCoin(cryptoProps.symbol)}
-            disabled={savingCoin}
+            onClick={cryptoProps.handleSubmit}
+            disabled={cryptoProps.disabled}
             className='saveCoinBtn flex items-center w-24 h-8 rounded-l-full text-2xl text-center bg-slate-500 hover:bg-indigo-500'
           >
             <p className='w-8 pb-0.5'>+</p>
@@ -65,8 +46,8 @@ export default function CryptoCard(cryptoProps: any) {
           <button 
             key={cryptoProps.symbol}
             type='submit'
-            onClick={() => handleSavingCoin(cryptoProps.symbol)}
-            disabled={savingCoin}
+            onClick={cryptoProps.handleSubmit}
+            disabled={cryptoProps.disabled}
             className='saveCoinBtn flex items-center w-24 h-8 rounded-l-full text-2xl text-center bg-red-500 hover:bg-indigo-500'
           >
             <p className='w-8'>-</p>

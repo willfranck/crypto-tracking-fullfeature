@@ -16,17 +16,17 @@ interface Coin {
 export default function SavedCoins() {
   const [slicedUserCoins, setSlicedUserCoins] = useState<Coin[]>([])
   const [userSavedCoins, setUserSavedCoins] = useState<string[]>([])
+  const [savingCoin, setSavingCoin] = useState(false)
+  const [removingCoin, setRemovingCoin] = useState(false)
   const [isFetchingSavedCoins, setIsFetchingSavedCoins] = useState(false)
 
   useEffect(() => {
-    const fetchUserCoins = async () => {
+    const fetchUserSavedCoins = async () => {
       try {
-        setIsFetchingSavedCoins(true)
+        const getUserSavedCoins = await axios.get('/api/getSavedCoins')
 
-        const getUserCoins = await axios.get('/api/getSavedCoins')
-
-        if (Array.isArray(getUserCoins.data.savedCoins)) {
-          const userCoins = getUserCoins.data.savedCoins
+        if (Array.isArray(getUserSavedCoins.data.savedCoins)) {
+          const userCoins = getUserSavedCoins.data.savedCoins
           setUserSavedCoins(userCoins)
 
           const getCoins = await axios.get('/api/coins')
@@ -50,10 +50,42 @@ export default function SavedCoins() {
       }
     }
 
-    if (!isFetchingSavedCoins) {
-      fetchUserCoins()
+    fetchUserSavedCoins()
+  }, [isFetchingSavedCoins])
+
+  async function handleSubmit(symbol: string) {
+    if (!userSavedCoins.includes(symbol)) {
+      try {
+        setSavingCoin(true)
+        
+        await axios.patch('/api/saveCoin', { symbol })
+
+        setIsFetchingSavedCoins(true)
+        
+      } catch (error: any) {
+          console.error(`Error saving coin ${symbol}:`, error.message)
+      
+      } finally {
+          setSavingCoin(false)
+      
+      }
+
+    } else if (userSavedCoins.includes(symbol)) {
+      try {
+        setRemovingCoin(true)
+        
+        await axios.patch('/api/removeCoin', { symbol })
+
+        setIsFetchingSavedCoins(true)
+
+      } catch (error: any) {
+          console.error(`Error removing coin ${symbol}:`, error.message)
+      
+      } finally {
+          setRemovingCoin(false)
+      }
     }
-  }, [userSavedCoins])
+  }
 
 
   if (userSavedCoins.length === 0) {
@@ -82,7 +114,9 @@ export default function SavedCoins() {
                     symbol={coin.symbol}
                     price={Number(Math.round(100 * coin.price) / 100).toFixed(2)}
                     change={coin.change}
-                    isCoinSaved={userSavedCoins.includes(coin.symbol)? true : false}
+                    isSavedCoin={userSavedCoins.includes(coin.symbol)? true : false}
+                    handleSubmit={() => handleSubmit(coin.symbol)}
+                    disabled={savingCoin || removingCoin}
                   />
                 </div>
               ))
