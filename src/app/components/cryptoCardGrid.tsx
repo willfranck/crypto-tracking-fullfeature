@@ -14,11 +14,12 @@ export default function CryptoCardGrid() {
     const fetchCoinData = async () => {
       try {
         const getCoins = await axios.get('/api/coins')
+        const coinData = getCoins.data.data.coins
 
-        if (Array.isArray(getCoins.data.data.coins)) {
-          setCurrencies(getCoins.data.data.coins)
+        if (Array.isArray(coinData)) {
+          setCurrencies(coinData)
 
-          const sliceCoins = getCoins.data.data.coins.slice(0, maxResults)
+          const sliceCoins = coinData.slice(0, maxResults)
           setSlicedCurrencies(sliceCoins)
 
           const getUserSavedCoins = await axios.get('/api/getSavedCoins')
@@ -39,13 +40,6 @@ export default function CryptoCardGrid() {
     }
     fetchCoinData()
   }, [])
-
-  useEffect(() => {
-    const updateCoinButtons = async () => {
-      console.log('Hello')
-    }
-    updateCoinButtons()
-  }, [userSavedCoins])
 
   useEffect(() => {
     const filteredCoins = currencies.filter((coin) =>
@@ -120,6 +114,7 @@ export default function CryptoCardGrid() {
                   price={coin.price}
                   change={coin.change}
                   savedCoins={userSavedCoins}
+                  updateSavedCoins={setUserSavedCoins}
                   disabled={coin.disabled}
                 />
               </div>

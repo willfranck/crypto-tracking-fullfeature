@@ -12,9 +12,10 @@ export default function HeroCoins() {
     const fetchCoins = async () => {
       try {
         const getCoins = await axios.get('/api/coins')
+        const coinData = getCoins.data.data.coins
 
-        if (Array.isArray(getCoins.data.data.coins)) {
-          const filteredCoins = getCoins.data.data.coins.filter((coin: any) => {
+        if (Array.isArray(coinData)) {
+          const filteredCoins = coinData.filter((coin: Coin) => {
             return (
               coin.symbol === 'BTC' || 
               coin.symbol === 'ETH' 
@@ -50,6 +51,7 @@ export default function HeroCoins() {
             price={coin.price}
             change={coin.change}
             savedCoins={coin.savedCoins}
+            updateSavedCoins={coin.updateSavedCoins}
             disabled={coin.disabled}
           />
         ))}

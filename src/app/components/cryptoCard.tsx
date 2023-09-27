@@ -11,42 +11,28 @@ export interface Coin {
   price: number,
   change: number,
   savedCoins: string[],
+  updateSavedCoins: (updatedCoins: string[]) => void,
   disabled: boolean,
 }
 
 export default function CryptoCard(cryptoProps: Coin) {
-  const [savingCoin, setSavingCoin] = useState(false)
-  const [removingCoin, setRemovingCoin] = useState(false)
-
+  const [updatingUserCoins, setUpdatingUserCoins] = useState(false)
   const userSavedCoins = cryptoProps.savedCoins || []
 
   async function handleSubmit(symbol: string) {
-    if (!cryptoProps.savedCoins.includes(symbol)) {
-      try {
-        setSavingCoin(true)
-        
-        await axios.patch('/api/updateSavedCoins', { symbol })
-
-      } catch (error: any) {
-          console.error(`Error saving coin ${symbol}:`, error.message)
+    try {
+      setUpdatingUserCoins(true)
       
-      } finally {
-          setSavingCoin(false)
-      
-      }
+      await axios.patch('/api/updateSavedCoins', { symbol })
 
-    } else if (cryptoProps.savedCoins.includes(symbol)) {
-      try {
-        setRemovingCoin(true)
-        
-        await axios.patch('/api/updateSavedCoins', { symbol })
+      const updatedCoins = await axios.get('/api/getSavedCoins')
+      cryptoProps.updateSavedCoins(updatedCoins.data.savedCoins)
 
-      } catch (error: any) {
-          console.error(`Error removing coin ${symbol}:`, error.message)
-      
-      } finally {
-          setRemovingCoin(false)
-      }
+    } catch (error: any) {
+        console.error(`Error saving coin ${symbol}:`, error.message)
+    
+    } finally {
+        setUpdatingUserCoins(false)
     }
   }
 
@@ -83,7 +69,7 @@ export default function CryptoCard(cryptoProps: Coin) {
             key={cryptoProps.symbol}
             type='submit'
             onClick={() => handleSubmit(cryptoProps.symbol)}
-            disabled={savingCoin || removingCoin}
+            disabled={updatingUserCoins}
             className='saveCoinBtn flex items-center w-24 h-8 rounded-l-full text-2xl text-center bg-slate-500 hover:bg-indigo-500'
           >
             <p className='w-8 pb-0.5'>+</p>
@@ -96,7 +82,7 @@ export default function CryptoCard(cryptoProps: Coin) {
             key={cryptoProps.symbol}
             type='submit'
             onClick={() => handleSubmit(cryptoProps.symbol)}
-            disabled={savingCoin || removingCoin}
+            disabled={updatingUserCoins}
             className='saveCoinBtn flex items-center w-24 h-8 rounded-l-full text-2xl text-center bg-red-500 hover:bg-indigo-500'
           >
             <p className='w-8'>-</p>

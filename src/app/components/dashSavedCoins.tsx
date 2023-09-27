@@ -4,26 +4,28 @@ import CryptoCard, { Coin } from './cryptoCard'
 
 
 export default function SavedCoins() {
+  const [currencies, setCurrencies] = useState<Coin[]>([])
+  const [filteredCoins, setFilteredCoins] = useState<Coin[]>([])
   const [userSavedCoins, setUserSavedCoins] = useState<string[]>([])
-  const [slicedUserCoins, setSlicedUserCoins] = useState<Coin[]>([])
+  const [updatedSavedCoins, setUpdatedSavedCoins] = useState<string[]>(userSavedCoins)
 
   useEffect(() => {
-    const fetchUserSavedCoins = async () => {
+    const fetchCoinData = async () => {
       try {
+        const getCoins = await axios.get('/api/coins')
+        const coinData = getCoins.data.data.coins
+        
         const getUserSavedCoins = await axios.get('/api/getSavedCoins')
+        const userCoins = getUserSavedCoins.data.savedCoins
+        setUserSavedCoins(userCoins)
+        
+        if (Array.isArray(coinData)) {
+          setCurrencies(coinData)
 
-        if (getUserSavedCoins.data.savedCoins) {
-          const userCoins = getUserSavedCoins.data.savedCoins
-          setUserSavedCoins(userCoins)
-
-          const getCoins = await axios.get('/api/coins')
-
-          if (Array.isArray(getCoins.data.data.coins)) {
-            const sliceCoins = getCoins.data.data.coins.filter((coin: any) => {
-              return userCoins.includes(coin.symbol)
-            })
-            setSlicedUserCoins(sliceCoins)
-          }
+          const filterCoins = coinData.filter((coin: Coin) => {
+            return userCoins.includes(coin.symbol)
+          })
+          setFilteredCoins(filterCoins)
 
         } else {
             console.error('Received data is not an array')
@@ -33,10 +35,17 @@ export default function SavedCoins() {
           console.error(error)
       }
     }
-    fetchUserSavedCoins()
+    fetchCoinData()
   }, [])
 
- 
+  useEffect(() => {
+    const updatedFilter = currencies.filter((coin: Coin) => {
+      return updatedSavedCoins.includes(coin.symbol)
+    })
+    setFilteredCoins(updatedFilter)
+  }, [updatedSavedCoins])
+
+
   if (userSavedCoins.length === 0) {
     return (
       <div className='flex flex-col flex-1 justify-center items-center text-center w-full h-80 space-y-4'>
@@ -54,8 +63,8 @@ export default function SavedCoins() {
 
         <div className='flex justify-center items-center w-full'>
           <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full lg:w-auto rounded-2xl bg-slate-900'>
-            {slicedUserCoins &&
-              slicedUserCoins.map((coin) => (
+            {filteredCoins &&
+              filteredCoins.map((coin) => (
                 <div className='flex justify-center w-full' key={coin.uuid}>
                   <CryptoCard
                     uuid={coin.uuid}
@@ -65,6 +74,7 @@ export default function SavedCoins() {
                     price={Number(Math.round(100 * coin.price) / 100)}
                     change={coin.change}
                     savedCoins={userSavedCoins}
+                    updateSavedCoins={setUpdatedSavedCoins}
                     disabled={coin.disabled}
                   />
                 </div>
