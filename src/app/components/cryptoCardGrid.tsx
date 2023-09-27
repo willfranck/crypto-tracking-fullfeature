@@ -1,31 +1,17 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import CryptoCard from './cryptoCard'
+import CryptoCard, { Coin } from './cryptoCard'
 
-
-interface Coin {
-  uuid: string,
-  iconUrl: string,
-  name: string,
-  symbol: string,
-  tier: number,
-  price: number,
-  change: number,
-}
 
 export default function CryptoCardGrid() {
   const [currencies, setCurrencies] = useState<Coin[]>([])
   const [slicedCurrencies, setSlicedCurrencies] = useState<Coin[]>([])
+  const [userSavedCoins, setUserSavedCoins] = useState<string[]>([])
   const [coinSearch, setCoinSearch] = useState<string>('')
   const [maxResults, setMaxResults] = useState<number>(10)
-  const [userSavedCoins, setUserSavedCoins] = useState<string[]>([])
-  const [savingCoin, setSavingCoin] = useState(false)
-  const [removingCoin, setRemovingCoin] = useState(false)
-  const [isFetchingSavedCoins, setIsFetchingSavedCoins] = useState(false)
-
 
   useEffect(() => {
-    const fetchCoins = async () => {
+    const fetchCoinData = async () => {
       try {
         const getCoins = await axios.get('/api/coins')
 
@@ -34,6 +20,13 @@ export default function CryptoCardGrid() {
 
           const sliceCoins = getCoins.data.data.coins.slice(0, maxResults)
           setSlicedCurrencies(sliceCoins)
+
+          const getUserSavedCoins = await axios.get('/api/getSavedCoins')
+
+          if (getUserSavedCoins.data.savedCoins) {
+            const userCoins = getUserSavedCoins.data.savedCoins
+            setUserSavedCoins(userCoins)
+          }
 
         } else {
             console.error('Received data is not an array')
@@ -44,30 +37,15 @@ export default function CryptoCardGrid() {
       
       }
     }
-    
-    fetchCoins()
+    fetchCoinData()
   }, [])
 
   useEffect(() => {
-    const fetchUserSavedCoins = async () => {
-      try {
-        const getUserSavedCoins = await axios.get('/api/getSavedCoins')
-
-        if (Array.isArray(getUserSavedCoins.data.savedCoins)) {
-          const userCoins = getUserSavedCoins.data.savedCoins
-          setUserSavedCoins(userCoins)
-        }
-      
-      } catch (error: any) {
-          console.error('Received data is not an array')
-      
-      } finally {
-          setIsFetchingSavedCoins(false)
-      }
+    const updateCoinButtons = async () => {
+      console.log('Hello')
     }
-
-    fetchUserSavedCoins()
-  }, [isFetchingSavedCoins])
+    updateCoinButtons()
+  }, [userSavedCoins])
 
   useEffect(() => {
     const filteredCoins = currencies.filter((coin) =>
@@ -85,40 +63,6 @@ export default function CryptoCardGrid() {
     const inputValue = e.currentTarget.value.toLowerCase();
     setCoinSearch(inputValue);
   }
-
-  async function handleSubmit(symbol: string) {
-    if (!userSavedCoins.includes(symbol)) {
-      try {
-        setSavingCoin(true)
-        
-        await axios.patch('/api/updateSavedCoins', { symbol })
-
-        setIsFetchingSavedCoins(true)
-        
-      } catch (error: any) {
-          console.error(`Error saving coin ${symbol}:`, error.message)
-      
-      } finally {
-          setSavingCoin(false)
-      
-      }
-
-    } else if (userSavedCoins.includes(symbol)) {
-      try {
-        setRemovingCoin(true)
-        
-        await axios.patch('/api/updateSavedCoins', { symbol })
-
-        setIsFetchingSavedCoins(true)
-
-      } catch (error: any) {
-          console.error(`Error removing coin ${symbol}:`, error.message)
-      
-      } finally {
-          setRemovingCoin(false)
-      }
-    }
-  }  
 
   
   return (
@@ -169,14 +113,14 @@ export default function CryptoCardGrid() {
             slicedCurrencies.map((coin) => (
               <div className='flex justify-center w-full' key={coin.uuid}>
                 <CryptoCard
-                  icon={coin.iconUrl}
+                  uuid={coin.uuid}
+                  iconUrl={coin.iconUrl}
                   name={coin.name}
                   symbol={coin.symbol}
-                  price={Number(Math.round(100 * coin.price) / 100).toFixed(2)}
+                  price={coin.price}
                   change={coin.change}
-                  isSavedCoin={userSavedCoins.includes(coin.symbol)? true : false}
-                  handleSubmit={() => handleSubmit(coin.symbol)}
-                  disabled={savingCoin || removingCoin}
+                  savedCoins={userSavedCoins}
+                  disabled={coin.disabled}
                 />
               </div>
             ))

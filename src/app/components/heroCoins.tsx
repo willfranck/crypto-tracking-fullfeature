@@ -2,17 +2,8 @@
 import { NextResponse } from 'next/server'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import CryptoCard from './cryptoCard'
+import CryptoCard, { Coin } from './cryptoCard'
 
-
-interface Coin {
-  uuid: string,
-  iconUrl: string,
-  name: string,
-  symbol: string,
-  price: number,
-  change: number,
-}
 
 export default function HeroCoins() {
   const [currencies, setCurrencies] = useState<Coin[]>([])
@@ -42,7 +33,6 @@ export default function HeroCoins() {
           console.error(error)
       }
     }
-
     fetchCoins()
   }, [])
 
@@ -53,11 +43,14 @@ export default function HeroCoins() {
         currencies.map((coin) => (
           <CryptoCard
             key={coin.uuid}
-            icon={coin.iconUrl}
+            uuid={coin.uuid}
+            iconUrl={coin.iconUrl}
             name={coin.name}
             symbol={coin.symbol}
-            price={Number(Math.round(100 * coin.price) / 100).toFixed(2)}
+            price={coin.price}
             change={coin.change}
+            savedCoins={coin.savedCoins}
+            disabled={coin.disabled}
           />
         ))}
     </div>
