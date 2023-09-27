@@ -72,7 +72,7 @@ export const Homepage = () => {
   return (
     <Link 
       href={'/'}
-      className='flex justify-center items-center w-full h-full'
+      className='flex justify-center items-center w-full'
     >
       <h3>HOME</h3>
     </Link>
