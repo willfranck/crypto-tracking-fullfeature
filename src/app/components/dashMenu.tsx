@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Homepage } from '@components/navButtons'
 
 
@@ -47,7 +47,6 @@ export default function DashMenu({activeDatatypeChange}: DashMenuProps) {
             </button>
           </li>
         ))}
-
           
         <li className='flex justify-center items-center h-20 text-slate-400'>
           <Homepage />
