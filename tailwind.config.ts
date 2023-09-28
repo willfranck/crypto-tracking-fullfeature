@@ -28,7 +28,7 @@ const config: Config = {
       minWidth: {
         ss: '21rem',
         sm: '23rem',
-        card_min: '18rem',
+        cardMin: '18rem',
       },
       maxWidth: {
         ss: '21rem',

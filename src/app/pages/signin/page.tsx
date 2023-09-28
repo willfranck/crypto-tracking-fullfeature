@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
-import { RegisterPageBtn, GoogleSigninBtn } from '@components/navButtons'
 import { signIn } from 'next-auth/react'
+import { RegisterPageBtn, GoogleSigninBtn } from '@components/navButtons'
 
 
 export default function SignInPage() {

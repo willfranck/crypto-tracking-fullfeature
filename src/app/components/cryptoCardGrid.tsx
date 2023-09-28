@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import CryptoCard, { Coin } from './cryptoCard'
+import CryptoCard, { Coin } from '@components/cryptoCard'
 
 
 export default function CryptoCardGrid() {
@@ -60,7 +60,7 @@ export default function CryptoCardGrid() {
 
   
   return (
-    <div className='flex flex-col justify-start items-center w-full lg:ml-10'>
+    <div className='flex flex-col justify-start items-center w-full lg:pl-10'>
       <div className='flex justify-center w-full lg:w-11/12 mb-8'>
         <form className='flex-1'>
           <label htmlFor='site-search' className='text-sm font-medium leading-6 text-gray-400'>
@@ -101,8 +101,8 @@ export default function CryptoCardGrid() {
         <p className='text-sm font-medium leading-6 text-gray-400'>sorted by Market Cap</p>
       </div>
     
-      <div className='flex justify-center items-center w-full'>
-        <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full lg:w-auto rounded-2xl bg-slate-900'>
+      <div className='flex justify-center items-start w-full'>
+        <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full lg:w-auto'>
           {slicedCurrencies &&
             slicedCurrencies.map((coin) => (
               <div className='flex justify-center w-full' key={coin.uuid}>

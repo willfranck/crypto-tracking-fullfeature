@@ -38,7 +38,7 @@ export default function CryptoCard(cryptoProps: Coin) {
 
 
   return (
-    <div className='flex flex-col justify-center items-center self-center p-3 w-full min-w-card_min max-w-sm' >
+    <div className='flex flex-col justify-center items-center self-center p-3 w-full min-w-cardMin max-w-sm' >
       <div className='flex justify-between items-center w-full'>
         <div className='flex items-center h-9 overflow-hidden'>
           <Image 

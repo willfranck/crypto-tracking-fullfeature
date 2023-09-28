@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import CryptoCard, { Coin } from './cryptoCard'
+import CryptoCard, { Coin } from '@components/cryptoCard'
 
 
 export default function HeroCoins() {

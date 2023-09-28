@@ -22,7 +22,7 @@ export default function UserProfile() {
 
   } else if (session?.user) {
     return (
-      <main className='flex flex-col items-center w-full max-w-page min-h-full mx-auto'>
+      <main className='flex flex-col items-center w-full max-w-page mx-auto'>
         <NavBar />
 
         <section className='flex flex-col flex-1 lg:flex-row items-center lg:items-start w-11/12 sm:w-5/6'>
@@ -30,7 +30,7 @@ export default function UserProfile() {
             activeDatatypeChange={handleActiveDatatypeChange}
           />
 
-          <article className='flex flex-1 w-full xl:max-w-full'>
+          <article className='flex flex-1 w-full'>
             {activeDatatype === 'saved-coins' ? (
               <SavedCoins />
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import CryptoCard, { Coin } from './cryptoCard'
+import CryptoCard, { Coin } from '@components/cryptoCard'
 
 
 export default function SavedCoins() {
@@ -62,7 +62,7 @@ export default function SavedCoins() {
         </div>
 
         <div className='flex justify-center items-center w-full'>
-          <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full lg:w-auto rounded-2xl bg-slate-900'>
+          <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full lg:w-auto'>
             {filteredCoins &&
               filteredCoins.map((coin) => (
                 <div className='flex justify-center w-full' key={coin.uuid}>
