@@ -60,7 +60,7 @@ export default function CryptoCardGrid() {
 
   
   return (
-    <div className='flex flex-col justify-start items-center w-full lg:pl-10'>
+    <article className='flex flex-col justify-start items-center w-full lg:pl-10'>
       <div className='sticky top-[82px] lg:top-0 flex justify-center w-full pt-6 pb-8 px-4 bg-black'>
         <form className='flex-1'>
           <label htmlFor='site-search' className='text-sm font-medium leading-6 text-gray-400'>
@@ -122,6 +122,6 @@ export default function CryptoCardGrid() {
           }
         </div>
       </div>
-    </div>
+    </article>
   )
 }

@@ -30,16 +30,14 @@ export default function UserProfile() {
             activeDatatypeChange={handleActiveDatatypeChange}
           />
 
-          <article className='flex flex-1 w-full'>
-            {activeDatatype === 'saved-coins' ? (
-              <SavedCoins />
+          {activeDatatype === 'saved-coins' ? (
+            <SavedCoins />
 
-              ) : activeDatatype === 'search-coins' ? (
-                <CryptoCardGrid />
+            ) : activeDatatype === 'search-coins' ? (
+              <CryptoCardGrid />
 
-              ) : null
-            }
-          </article>
+            ) : null
+          }
         </section>
       </main>
     )

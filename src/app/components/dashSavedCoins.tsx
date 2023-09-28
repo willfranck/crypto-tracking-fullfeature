@@ -48,15 +48,15 @@ export default function SavedCoins() {
 
   if (userSavedCoins.length === 0) {
     return (
-      <div className='flex flex-col flex-1 justify-center items-center text-center w-full h-80 space-y-4'>
+      <article className='flex flex-col flex-1 justify-center items-center text-center w-full h-80 space-y-4'>
         <h3>Looking pretty empty here...</h3>
         <span>Search and add some coins</span>
-      </div>
+      </article>
     )
 
   } else {
     return (
-      <div className='flex flex-col justify-start items-center w-full lg:ml-10'>
+      <article className='flex flex-col justify-start items-center w-full lg:ml-10'>
         <div>
           <p className='mt-10 text-sm font-medium leading-6 text-gray-400'>sorted by Market Cap</p>
         </div>
@@ -82,7 +82,7 @@ export default function SavedCoins() {
             }
           </div>
         </div>
-      </div>
+      </article>
     )
   }
 }
