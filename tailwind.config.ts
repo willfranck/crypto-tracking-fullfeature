@@ -13,6 +13,9 @@ const config: Config = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         hero: 'url(/crypto_graph.jpg)',
       },
+      colors: {
+        current: 'currentColor',
+      },
       backgroundColor: {
         cover: 'rgba(0, 0, 0, 0.5)'
       },
