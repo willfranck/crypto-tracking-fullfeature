@@ -35,9 +35,8 @@ export default function DashMenu({activeDatatypeChange}: DashMenuProps) {
         </li>
 
         {buttons.map((button: BtnProps) => (
-          <li className='flex justify-center items-center h-20'>
+          <li className='flex justify-center items-center h-20' key={button.key}>
             <button
-              key={button.key}
               datatype={button.datatype}
               aria-label={button.aria}
               onClick={() => handleActiveBtn(button.datatype)}
