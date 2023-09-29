@@ -4,7 +4,7 @@ import HeroCoins from './heroCoins'
 
 export default function HeroCard() {
   return (
-    <section className='relative flex flex-col items-center w-full bg-hero bg-cover bg-center isolate before:-z-10 before:absolute before:content-[""] before:inset-0 before:bg-cover'>
+    <section className='relative flex flex-col items-center w-full bg-hero bg-cover bg-center isolate before:-z-10 before:absolute before:content-[""] before:inset-0 before:bg-tint'>
       <article className='flex flex-col w-full space-y-10 px-8 pt-20 pb-10'>
         <h1 className={titleFont.className}>Today's Crypto Prices</h1>
 

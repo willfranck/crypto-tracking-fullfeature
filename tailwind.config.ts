@@ -12,9 +12,10 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         hero: 'url(/crypto_graph.jpg)',
+        dash: 'url(/blockchain.jpg)',
       },
       backgroundColor: {
-        cover: 'rgba(0, 0, 0, 0.5)'
+        tint: 'rgba(0, 0, 0, 0.7)'
       },
       width: {
         22: '5.5rem',
@@ -24,6 +25,9 @@ const config: Config = {
       },
       height: {
         hero: '70vh',
+      },
+      maxHeight: {
+        cardGrid: '46.5rem',
       },
       minWidth: {
         ss: '21rem',

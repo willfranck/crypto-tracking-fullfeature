@@ -61,7 +61,7 @@ export default function CryptoCardGrid() {
   
   return (
     <article className='flex flex-col justify-start items-center w-full lg:pl-10'>
-      <div className='sticky top-[82px] lg:top-0 flex justify-center w-full pt-6 pb-8 px-4 bg-black'>
+      <div className='sticky top-[58px] lg:top-0 flex justify-center w-full pt-6 pb-8 px-4 bg-black'>
         <form className='flex-1'>
           <label htmlFor='site-search' className='text-sm font-medium leading-6 text-gray-400'>
             Find Coins...
@@ -102,7 +102,7 @@ export default function CryptoCardGrid() {
       </div>
     
       <div className='flex justify-center items-start w-full'>
-        <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full lg:w-auto'>
+        <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full lg:max-h-cardGrid py-4 rounded-xl bg-tint overflow-y-auto'>
           {slicedCurrencies &&
             slicedCurrencies.map((coin) => (
               <div className='flex justify-center w-full' key={coin.uuid}>

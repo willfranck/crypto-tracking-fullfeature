@@ -32,7 +32,7 @@ export default function DashMenu({activeDatatypeChange}: DashMenuProps) {
 
   return (
     <aside className='sticky top-0 flex justify-center items-center w-full lg:w-32 lg:min-w-max lg:h-80 mt-6 md:px-6 bg-black border-b-2 lg:border-b-0 lg:border-r-2 border-slate-800'>
-      <ul className='flex lg:flex-col justify-around items-center min-h-full lg:h-20'>
+      <ul className='flex lg:flex-col justify-around items-center w-full h-14 lg:h-full'>
         {buttons.map((button: BtnProps) => (
           <li className='flex justify-center items-center' key={button.key}>
             <button
