@@ -2,6 +2,8 @@
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHouse } from '@fortawesome/free-solid-svg-icons/faHouse'
 
 
 export const SigninPageBtn = () => {
@@ -72,9 +74,9 @@ export const Homepage = () => {
   return (
     <Link 
       href={'/'}
-      className='flex justify-center items-center w-full'
+      className='flex justify-center items-center w-8 h-8'
     >
-      <h3>HOME</h3>
+      <FontAwesomeIcon icon={faHouse} size='xl' />
     </Link>
   )
 }

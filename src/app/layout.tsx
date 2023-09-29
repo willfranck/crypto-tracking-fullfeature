@@ -1,8 +1,11 @@
 import { NextAuthProvider } from './providers'
 import type { Metadata } from 'next'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 import { textFont } from '../utils/fonts'
 import './globals.css'
 
+library.add(fas)
 
 export const metadata: Metadata = {
   title: 'Crypto Prices',
