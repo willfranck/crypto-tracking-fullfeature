@@ -38,6 +38,7 @@ const config: Config = {
         ss: '21rem',
         sm: '23rem',
         page: '100rem',
+        infoCard: '23rem',
       },
       screens: {
         sm: '464px',
