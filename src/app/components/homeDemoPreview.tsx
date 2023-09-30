@@ -1,0 +1,106 @@
+import Image from 'next/image'
+
+export default function Preview() {
+  return (
+    <article className='flex flex-col justify-center items-center w-full py-14 space-y-14 bg-slate-900'>
+      <div className='flex flex-col lg:flex-row justify-center items-center md:w-5/6 md:h-[600px]'>
+        <div className='w-full max-w-md space-y-4 px-6 py-4 self-end lg:self-center text-right'>
+          <h3>Create an account with your credentials or Google OAuth</h3>
+          <span className='inline-block max-w-xs text-gray-400'>
+            Register and Sign In pages are custom made.<br></br>
+            Next-Auth is configured to store user info in MongoDB and create a session token
+          </span>
+        </div>
+      
+        <div className='mx-4 rounded-2xl overflow-hidden'>
+          <Image 
+            src={'/page_register.png'}
+            alt='Screenshot of Register Page'
+            width={550}
+            height={300}
+          />
+        </div>
+      </div>
+
+      <div className='md:isolate flex flex-col-reverse lg:flex-row justify-center lg:items-center md:w-5/6 md:h-[600px]'>
+        <div className='md:relative w-full lg:w-[780px] md:h-[450px] lg:h-[600px]'>
+          <div className='md:absolute md:top-0 md:left-0 mx-4 rounded-2xl overflow-hidden'>
+            <Image 
+              src={'/page_dash_saved_empty.png'}
+              alt='Screenshot of Empty Saved Coins Page'
+              width={550}
+              height={372}
+            />
+          </div>
+          <div className='md:absolute md:bottom-0 md:right-0 lg:left-36 mx-4 mt-4 rounded-2xl overflow-hidden'>
+            <Image 
+              src={'/page_dash_saved.png'}
+              alt='Screenshot of Saved Coins Page'
+              width={550}
+              height={372}
+            />
+          </div>
+        </div>
+
+        <div className='w-full max-w-md space-y-4 p-4 px-6 py-4'>
+          <h3>Arrive at your dashboard</h3>
+          <span className='inline-block max-w-sm text-gray-400'>
+            It will look a bit barren at first.<br></br>
+            Head over to the search tab to browse and bookmark some coins
+          </span>
+        </div>
+      </div>
+
+      <div className='flex flex-col lg:flex-row justify-center items-center md:w-5/6 lg:h-[600px]'>
+        <div className='w-full max-w-md space-y-4 px-6 py-4 self-end lg:self-center text-right'>
+          <h3>Search for currencies</h3>
+          <span className='inline-block max-w-sm text-gray-400'>
+            Search the top coins on the market.<br></br>
+            Add or remove as many as you like.<br></br>
+            Keep track of saved coins in the bookmarks tab
+          </span>
+        </div>
+
+        <div className='mx-4 rounded-2xl overflow-hidden'>
+          <Image 
+            src={'/page_dash_search.png'}
+            alt='Screenshot of Dashboard Search Page'
+            width={550}
+            height={300}
+          />
+        </div>
+      </div>
+
+      <div className='md:isolate flex flex-col-reverse lg:flex-row justify-center lg:items-center md:w-5/6 lg:h-[600px]'>
+        <div className='md:relative flex flex-col items-center w-full lg:w-[650px] md:h-[510px] lg:h-[600px]'>
+          <div className='md:absolute md:top-0 md:left-0 w-[225px] mx-4 rounded-2xl overflow-hidden'>
+            <Image 
+              src={'/page_dash_mobile.png'}
+              alt='Screenshot of site on a phone'
+              width={225}
+              height={477}
+            />
+            <span className='inline-block w-full text-center text-gray-400 bg-black'>Mobile</span>
+          </div>
+          <div className='md:absolute md:bottom-0 md:right-0 w-[340px] md:mx-4 mt-4 rounded-2xl overflow-hidden'>
+            <span className='inline-block w-full text-center text-gray-400 bg-black'>Tablet</span>
+            <Image 
+              src={'/page_dash_tablet.png'}
+              alt='Screenshot of site on a tablet'
+              width={340}
+              height={505}
+            />
+          </div>
+        </div>
+
+        <div className='w-full max-w-md space-y-4 p-4 px-6 py-4'>
+          <h3>Responsive Design</h3>
+          <span className='inline-block max-w-sm text-gray-400'>
+            Most content is enjoyed on mobile or tablet devices.<br></br>
+            Screens of all sizes can enjoy this demo
+          </span>
+        </div>
+      </div>
+    </article>
+  )
+}

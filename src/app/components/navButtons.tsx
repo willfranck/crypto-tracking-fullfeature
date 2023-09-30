@@ -23,7 +23,12 @@ export const GoogleSigninBtn = () => {
       onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
       className='flex justify-around items-center w-60 px-4 py-4 bg-white text-black font-semibold leading-6 rounded-md shadow-sm hover:bg-indigo-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >
-      <Image src={'/google_logo.svg'} alt='Google Logo' width={32} height={32} />
+      <Image 
+        src={'/google_logo.svg'} 
+        alt='Google Logo' 
+        width={32} 
+        height={32} 
+      />
       <p>&ensp; Sign In with Google</p>
     </button>
   )
