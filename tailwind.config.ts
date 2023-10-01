@@ -16,7 +16,7 @@ const config: Config = {
       },
       backgroundColor: {
         tintBlack: 'rgba(0, 0, 0, 0.6)',
-        tintGray: 'rgba(156, 163, 175, 0.3)',
+        tintGray: 'rgba(156, 163, 175, 0.1)',
       },
       width: {
         22: '5.5rem',
