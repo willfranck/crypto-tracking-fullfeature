@@ -1,6 +1,5 @@
 import NavBar from '@components/navBar'
 import HeroCard from '@components/homeHeroCard'
-import DemoInfo from '@components/homeDemoInfo'
 import Preview from '@components/homeDemoPreview'
 
 
@@ -9,7 +8,6 @@ export default function Home() {
     <main className='flex flex-col flex-1 items-center w-full max-w-page min-h-screen mx-auto'>
       <NavBar />
       <HeroCard />
-      <DemoInfo />
       <Preview />
     </main>
   )

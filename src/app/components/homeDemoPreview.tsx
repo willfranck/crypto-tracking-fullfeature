@@ -23,7 +23,7 @@ export default function Preview() {
       </div>
 
       <div className='md:isolate flex flex-col-reverse lg:flex-row justify-center lg:items-center md:w-5/6 md:h-[600px]'>
-        <div className='md:relative w-full lg:w-[780px] md:h-[450px] lg:h-[600px]'>
+        <div className='md:relative w-full lg:w-[780px] md:h-[500px] lg:h-[600px]'>
           <div className='md:absolute md:top-0 md:left-0 mx-4 rounded-2xl overflow-hidden'>
             <Image 
               src={'/page_dash_saved_empty.png'}
@@ -45,8 +45,11 @@ export default function Preview() {
         <div className='max-w-md space-y-4 p-4 px-6 py-4'>
           <h3>Arrive at your dashboard</h3>
           <span className='inline-block max-w-sm text-gray-400'>
-            It will look a bit barren at first.<br></br>
-            Head over to the search tab to browse and bookmark some coins
+            It'll look a bit barren at first.<br></br>
+            Head over to the search tab to browse and bookmark some currencies.<br></br>
+            Keep track of the currencies saved back in this tab.<br></br>
+            Conditionally rendered components are based on coins saved.<br></br>
+            useState & useEffect modify the elements and components live in conjunction with internal API routes
           </span>
         </div>
       </div>
@@ -57,7 +60,10 @@ export default function Preview() {
           <span className='inline-block max-w-sm text-gray-400'>
             Search the top coins on the market.<br></br>
             Add or remove as many as you like.<br></br>
-            Keep track of saved coins in the bookmarks tab
+            Top 10 coins is the default.<br></br>
+            Can be set to 20, 50, or 100 coins.<br></br>
+            RapidAPI currencies are stored in their own state.<br></br>
+            React hooks manage the changes made without mutating the original API data
           </span>
         </div>
 
@@ -88,15 +94,15 @@ export default function Preview() {
               src={'/page_dash_tablet.png'}
               alt='Screenshot of site on a tablet'
               width={340}
-              height={505}
+              height={490}
             />
           </div>
         </div>
 
         <div className='max-w-md space-y-4 p-4 px-6 py-4'>
-          <h3>Responsive Design</h3>
+          <h3><span className='text-gray-400'>also:&ensp;</span>It's Responsive</h3>
           <span className='inline-block max-w-sm text-gray-400'>
-            Most content is enjoyed on mobile or tablet devices.<br></br>
+            Most content is viewed on mobile or tablet devices.<br></br>
             Screens of all sizes can enjoy this demo
           </span>
         </div>
