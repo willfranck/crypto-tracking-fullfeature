@@ -1,6 +1,7 @@
 import NavBar from '@components/navBar'
 import HeroCard from '@components/homeHeroCard'
 import Preview from '@components/homeDemoPreview'
+import Footer from '@components/footer'
 
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <NavBar />
       <HeroCard />
       <Preview />
+      <Footer />
     </main>
   )
 }

@@ -1,6 +1,6 @@
 import HeroCoins from '@components/homeHeroCoins'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSquareGithub } from '@fortawesome/free-brands-svg-icons/faSquareGithub' 
+import { faGithubSquare } from '@fortawesome/free-brands-svg-icons' 
 import Link from 'next/link'
 import { manrope } from '@utils/fonts'
 
@@ -28,9 +28,7 @@ export default function HeroCard() {
           className='flex justify-center items-center w-72 h-16 p-4 text-gray-400 hover:text-white'
         >
           <span className=''>view the full code on Github:&emsp;</span>
-          <div className='w-8'>
-            <FontAwesomeIcon icon={faSquareGithub} size='2xl' />
-          </div>
+          <FontAwesomeIcon icon={faGithubSquare} className='w-8 h-8' />
         </Link>
       </article>
 
