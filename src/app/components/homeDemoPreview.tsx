@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Preview() {
   return (
-    <article className='flex flex-col justify-center items-center w-full py-14 space-y-14 bg-slate-900'>
+    <article className='flex flex-col justify-center items-center w-full pt-14 pb-28 space-y-14 bg-slate-900'>
       <div className='flex flex-col lg:flex-row justify-center items-center md:w-5/6 md:h-[600px]'>
         <div className='max-w-md space-y-4 px-6 py-4 self-end lg:self-center text-right'>
           <h3>Create an account with your credentials or Google OAuth</h3>
@@ -48,7 +48,7 @@ export default function Preview() {
             It'll look a bit barren at first.<br></br>
             Head over to the search tab to browse and bookmark some currencies.<br></br>
             Keep track of the currencies saved back in this tab.<br></br>
-            Conditionally rendered components are based on coins saved.<br></br>
+            Conditionally rendered components are based on saved currencies.<br></br>
             useState & useEffect modify the elements and components live in conjunction with internal API routes
           </span>
         </div>
