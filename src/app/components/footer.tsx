@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithubSquare } from '@fortawesome/free-brands-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
+
 export default function Footer() {
   return (
     <footer className='flex justify-center w-full p-10'>
-      <div className='flex justify-around items-center w-1/3'>
+      <div className='flex flex-col md:flex-row justify-around md:items-center space-y-4 md:space-y-0 md:space-x-8'>
         <span className='text-gray-400'>check me out on:</span>
 
         <Link 

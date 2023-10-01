@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+
 export default function Preview() {
   return (
     <article className='flex flex-col justify-center items-center w-full pt-14 pb-28 space-y-14 bg-slate-900'>

@@ -4,6 +4,7 @@ import { faGithubSquare } from '@fortawesome/free-brands-svg-icons'
 import Link from 'next/link'
 import { manrope } from '@utils/fonts'
 
+
 export default function HeroCard() {
   return (
     <section className='relative flex flex-col items-center w-full bg-hero bg-cover bg-center isolate before:-z-10 before:absolute before:content-[""] before:inset-0 before:bg-tintBlack'>

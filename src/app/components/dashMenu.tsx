@@ -5,6 +5,7 @@ import { IconDefinition } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons/faMagnifyingGlass'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons/faBookmark'
 
+
 interface DashMenuProps {
   activeDatatypeChange: (datatype: string) => void,
 }
@@ -40,8 +41,8 @@ export default function DashMenu({activeDatatypeChange}: DashMenuProps) {
               aria-label={button.aria}
               onClick={() => handleActiveBtn(button.datatype)}
               className={activeBtn === button.datatype ? 
-                'w-8 h-8 text-center text-white scale-110 hover:text-indigo-500' 
-                : 'w-8 h-8 text-center text-slate-400 hover:text-indigo-500'}
+                'w-8 h-8 text-white scale-110 hover:text-indigo-500' 
+                : 'w-8 h-8 text-slate-400 hover:text-indigo-500'}
             >
               <FontAwesomeIcon icon={button.icon} size='xl' />
             </button>

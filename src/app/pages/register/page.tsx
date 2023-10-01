@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react'
 import { signIn } from 'next-auth/react'
-import { GoogleSigninBtn, SigninPageBtn } from '@components/navButtons'
 import axios from 'axios'
+import { GoogleSigninBtn, SigninPageBtn } from '@components/navButtons'
 
 
 export default function SignUpPage() {
