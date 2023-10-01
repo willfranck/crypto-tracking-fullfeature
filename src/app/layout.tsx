@@ -9,7 +9,7 @@ import './globals.css'
 library.add(fas, fab)
 
 export const metadata: Metadata = {
-  title: 'Crypto Prices',
+  title: 'Crypto Tracker',
   description: 'Live up-to-date crypto price tracking',
 }
 
