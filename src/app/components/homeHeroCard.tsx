@@ -28,13 +28,11 @@ export default function HeroCard() {
           className='flex justify-center items-center w-72 h-16 p-4 text-gray-400 hover:text-white'
         >
           <span className=''>view the full code on Github:&emsp;</span>
-          <div className='w-10'>
-            <FontAwesomeIcon icon={faSquareGithub} />
-          </div>
+          <FontAwesomeIcon icon={faSquareGithub} size='2xl' />
         </Link>
       </article>
 
-      <article className='translate-y-1/2 w-11/12 md:w-5/6 px-4 rounded-3xl bg-slate-900'>
+      <article className='translate-y-1/2 w-11/12 md:w-5/6 px-4 rounded-3xl bg-black'>
         <HeroCoins />
       </article>
 

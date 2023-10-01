@@ -15,7 +15,7 @@ const config: Config = {
         dash: 'url(/blockchain.jpg)',
       },
       backgroundColor: {
-        tintBlack: 'rgba(0, 0, 0, 0.5)',
+        tintBlack: 'rgba(0, 0, 0, 0.6)',
         tintGray: 'rgba(156, 163, 175, 0.3)',
       },
       width: {

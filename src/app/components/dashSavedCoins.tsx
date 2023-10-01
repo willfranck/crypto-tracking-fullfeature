@@ -63,7 +63,7 @@ export default function SavedCoins() {
         </div>
 
         <div className='flex justify-center items-center w-full'>
-          <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full lg:max-h-cardGrid py-4 rounded-xl bg-tint overflow-y-auto'>
+          <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full lg:max-h-cardGrid py-4 rounded-xl bg-tintBlack overflow-y-auto'>
             {filteredCoins &&
               filteredCoins.map((coin) => (
                 <div className='flex justify-center w-full' key={coin.uuid}>
