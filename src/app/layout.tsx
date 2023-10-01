@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { textFont } from '../utils/fonts'
+import { poppins } from '../utils/fonts'
 import './globals.css'
 
 library.add(fas, fab)
@@ -19,9 +19,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className='h-full'>
+    <html lang="en">
       <body 
-        className={textFont.className + ' h-full'}
+        className={poppins.className + ' h-full'}
         suppressHydrationWarning={true}
       >
         <NextAuthProvider>

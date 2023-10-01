@@ -1,14 +1,14 @@
-import { titleFont } from '@utils/fonts'
 import HeroCoins from '@components/homeHeroCoins'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquareGithub } from '@fortawesome/free-brands-svg-icons/faSquareGithub' 
 import Link from 'next/link'
+import { manrope } from '@utils/fonts'
 
 export default function HeroCard() {
   return (
     <section className='relative flex flex-col items-center w-full bg-hero bg-cover bg-center isolate before:-z-10 before:absolute before:content-[""] before:inset-0 before:bg-tintBlack'>
       <article className='flex flex-col w-full space-y-10 px-8 pt-20'>
-        <h1 className={titleFont.className}>Today's Crypto Prices</h1>
+        <h1 className='italic'>Crypto Prices</h1>
 
         <div>
           <span className='text-gray-400'>a Full Stack demo built with:</span>
@@ -45,8 +45,8 @@ export default function HeroCard() {
           <p>Thanks so much for checking it out!&ensp;All feedback is appreciated</p>
         </div>
 
-        <ul className='flex flex-col justify-center list-disc w-5/6 max-w-infoCard space-y-4 pt-6 pl-10 md:pt-0 border-white border-t-2 md:border-l-2 md:border-t-0'>
-          <h2><li>Create an account</li></h2>
+        <ul className={manrope.className + ' flex flex-col justify-center list-disc w-5/6 max-w-infoCard space-y-4 pt-6 pl-10 md:pl-12 md:pt-0 border-white border-t-2 md:border-l-2 md:border-t-0'}>
+          <h2><li>Create account</li></h2>
           <h2><li>Search currencies</li></h2>
           <h2><li>Bookmark favorites</li></h2>
         </ul>
