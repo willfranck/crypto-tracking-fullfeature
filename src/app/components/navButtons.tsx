@@ -9,7 +9,7 @@ import { faHouse } from '@fortawesome/free-solid-svg-icons/faHouse'
 export const SigninPageBtn = () => {
   return (
     <Link
-      href={'/pages/signin'}
+      href={'/signin'}
       className='px-3 py-1.5 text-gray-400 text-sm font-semibold leading-6 rounded-md shadow-sm hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >
       Sign In
@@ -20,7 +20,7 @@ export const SigninPageBtn = () => {
 export const GoogleSigninBtn = () => {
   return (
     <button
-      onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/pages/dashboard' })}
+      onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/dashboard' })}
       className='flex justify-around items-center w-60 px-4 py-4 bg-white text-black font-semibold leading-6 rounded-md shadow-sm hover:bg-indigo-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >
       <Image 
@@ -37,7 +37,7 @@ export const GoogleSigninBtn = () => {
 export const RegisterPageBtn = () => {
   return (
     <Link
-      href={'/pages/register'}
+      href={'/register'}
       className='px-3 py-1.5 text-gray-400 text-sm font-semibold leading-6 rounded-md shadow-sm hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >
       Register
@@ -61,8 +61,8 @@ export const ProfilePageBtn = () => {
 
   return (
     <Link
-      href={'/pages/dashboard'}
-      onClick={() => (!session ? signIn(undefined, { callbackUrl: 'http://localhost:3000/pages/dashboard' }) : null)}
+      href={'/dashboard'}
+      onClick={() => (!session ? signIn(undefined, { callbackUrl: 'http://localhost:3000/dashboard' }) : null)}
       className='w-6 h-6 flex justify-center items-center rounded-full overflow-hidden'
     >
       <Image 
