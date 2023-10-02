@@ -7,6 +7,7 @@ const nextConfig = {
         source: '/api/:path*',
         headers: [
           { key: 'Access-Control-Allow-Credentials', value: 'true' },
+          { key: 'Access-Control-Allow-Origin', value: 'https://nextcryptotracker.vercel.app/' },
           { key: 'Access-Control-Allow-Origin', value: 'http://localhost:3000' },
           { key: 'Access-Control-Allow-Methods', value: 'GET,DELETE,PATCH,POST,PUT' },
           {
@@ -20,7 +21,7 @@ const nextConfig = {
   },
 
   images: {
-    domains: ['cdn.coinranking.com', 'lh3.googleusercontent.com', 'localhost'],
+    domains: ['cdn.coinranking.com', 'lh3.googleusercontent.com', 'nextcryptotracker.vercel.app', 'localhost'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -31,6 +32,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'lh3.googleusercontent.com',
+        port: '',
+        pathname: '/components/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'nextcryptotracker.vercel.app',
         port: '',
         pathname: '/components/**',
       },
