@@ -15,7 +15,7 @@ export default function NavBar() {
           <div className='flex items-center'>
             <Link href={'/'}>
               <Image 
-                src={'/crypto_logo.jpg'}
+                src={'/crypto_logo.webp'}
                 alt='Crypto site logo'
                 width={44}
                 height={44}
@@ -36,7 +36,7 @@ export default function NavBar() {
           <div className='flex items-center'>
             <Link href={'/'}>
               <Image 
-                src={'/crypto_logo.jpg'}
+                src={'/crypto_logo.webp'}
                 alt='Crypto site logo'
                 width={44}
                 height={44}

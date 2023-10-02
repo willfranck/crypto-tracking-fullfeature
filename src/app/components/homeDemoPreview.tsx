@@ -15,7 +15,7 @@ export default function Preview() {
       
         <div className='mx-4 rounded-2xl overflow-hidden'>
           <Image 
-            src={'/page_register.png'}
+            src={'/page_register.webp'}
             alt='Screenshot of Register Page'
             width={550}
             height={300}
@@ -27,7 +27,7 @@ export default function Preview() {
         <div className='md:relative w-full lg:w-[780px] md:h-[500px] lg:h-[600px]'>
           <div className='md:absolute md:top-0 md:left-0 mx-4 rounded-2xl overflow-hidden'>
             <Image 
-              src={'/page_dash_saved_empty.png'}
+              src={'/page_dash_saved_empty.webp'}
               alt='Screenshot of Empty Saved Coins Page'
               width={550}
               height={372}
@@ -35,7 +35,7 @@ export default function Preview() {
           </div>
           <div className='md:absolute md:bottom-0 md:right-0 mx-4 mt-4 rounded-2xl overflow-hidden'>
             <Image 
-              src={'/page_dash_saved.png'}
+              src={'/page_dash_saved.webp'}
               alt='Screenshot of Saved Coins Page'
               width={550}
               height={372}
@@ -70,7 +70,7 @@ export default function Preview() {
 
         <div className='mx-4 rounded-2xl overflow-hidden'>
           <Image 
-            src={'/page_dash_search.png'}
+            src={'/page_dash_search.webp'}
             alt='Screenshot of Dashboard Search Page'
             width={550}
             height={300}
@@ -82,7 +82,7 @@ export default function Preview() {
         <div className='md:relative flex flex-col items-center w-full lg:w-[650px] md:h-[600px]'>
           <div className='md:absolute md:top-0 md:left-0 w-[225px] mx-4 rounded-2xl overflow-hidden'>
             <Image 
-              src={'/page_dash_mobile.png'}
+              src={'/page_dash_mobile.webp'}
               alt='Screenshot of site on a phone'
               width={225}
               height={477}
@@ -92,7 +92,7 @@ export default function Preview() {
           <div className='md:absolute md:bottom-0 md:right-0 w-[340px] md:mx-4 mt-4 rounded-2xl overflow-hidden'>
             <span className='inline-block w-full text-center text-gray-400 bg-black'>Tablet</span>
             <Image 
-              src={'/page_dash_tablet.png'}
+              src={'/page_dash_tablet.webp'}
               alt='Screenshot of site on a tablet'
               width={340}
               height={490}

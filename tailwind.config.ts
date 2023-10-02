@@ -11,8 +11,8 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        hero: 'url(/crypto_graph.jpg)',
-        dash: 'url(/blockchain.jpg)',
+        hero: 'url(/crypto_graph.webp)',
+        dash: 'url(/blockchain.webp)',
       },
       backgroundColor: {
         tintBlack: 'rgba(0, 0, 0, 0.6)',
