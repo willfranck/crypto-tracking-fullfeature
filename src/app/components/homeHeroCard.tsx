@@ -44,10 +44,10 @@ export default function HeroCard() {
           <p>Thanks so much for checking it out!&ensp;All feedback is appreciated</p>
         </div>
 
-        <ul className={manrope.className + ' flex flex-col justify-center list-disc w-5/6 max-w-infoCard space-y-4 pt-6 pl-10 md:pl-12 md:pt-0 border-white border-t-2 md:border-l-2 md:border-t-0'}>
-          <h2><li>Create account</li></h2>
-          <h2><li>Search currencies</li></h2>
-          <h2><li>Bookmark favorites</li></h2>
+        <ul className={manrope.className + ' flex flex-col justify-center list-decimal w-5/6 max-w-infoCard space-y-4 pt-6 pl-10 md:pl-12 md:pt-0 border-white border-t-2 md:border-l-2 md:border-t-0'}>
+          <li><h2>Create account</h2></li>
+          <li><h2>Search currencies</h2></li>
+          <li><h2>Bookmark favorites</h2></li>
         </ul>
       </aside>
     </section>
