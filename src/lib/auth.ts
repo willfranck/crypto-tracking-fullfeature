@@ -14,7 +14,7 @@ export const authOptions: NextAuthOptions = {
   adapter: MongoDBAdapter(clientPromise),
 
   pages: {
-    signIn: '/pages/signin',
+    signIn: '/signin',
   },
 
   session: {
