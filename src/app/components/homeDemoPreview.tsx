@@ -46,7 +46,7 @@ export default function Preview() {
         <div className='max-w-md space-y-4 p-4 px-6 py-4'>
           <h3>Arrive at your dashboard</h3>
           <span className='inline-block max-w-sm text-gray-400'>
-            - It'll look a bit barren at first<br></br>
+            - It&apos;ll look a bit barren at first<br></br>
             - Head over to the search tab to browse and bookmark some currencies<br></br>
             - Keep track of the currencies saved back in this tab<br></br>
             - Conditionally rendered components are based on saved currencies<br></br>
@@ -101,7 +101,7 @@ export default function Preview() {
         </div>
 
         <div className='max-w-md space-y-4 p-4 px-6 py-4'>
-          <h3><span className='text-gray-400'>also:&ensp;</span>It's Responsive</h3>
+          <h3><span className='text-gray-400'>also:&ensp;</span>It&apos;s Responsive</h3>
           <span className='inline-block max-w-sm text-gray-400'>
             - Most content is viewed on mobile or tablet devices<br></br>
             - Screens of all sizes can enjoy this demo

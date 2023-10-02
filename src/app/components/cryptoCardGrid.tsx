@@ -16,36 +16,41 @@ export default function CryptoCardGrid() {
         const getCoins = await axios.get('/api/coins')
         const coinData = getCoins.data.data.coins
 
+        const getUserSavedCoins = await axios.get('/api/getSavedCoins')
+        const userCoins = getUserSavedCoins.data.savedCoins
+        setUserSavedCoins(userCoins)
+
         if (Array.isArray(coinData)) {
           setCurrencies(coinData)
-
-          const sliceCoins = coinData.slice(0, maxResults)
-          setSlicedCurrencies(sliceCoins)
-
-          const getUserSavedCoins = await axios.get('/api/getSavedCoins')
-
-          if (getUserSavedCoins.data.savedCoins) {
-            const userCoins = getUserSavedCoins.data.savedCoins
-            setUserSavedCoins(userCoins)
-          }
 
         } else {
             console.error('Received data is not an array')
         }
-
       } catch (error: any) {
           console.error(error)
-      
       }
     }
     fetchCoinData()
   }, [])
 
   useEffect(() => {
+    const sliceCoinData = async () => {
+      try {
+        const sliceCoins = currencies.slice(0, maxResults)
+        setSlicedCurrencies(sliceCoins)
+
+      } catch (error: any) {
+          console.log(error)
+      }
+    }
+    sliceCoinData()
+  }, [currencies, maxResults])
+
+  useEffect(() => {
     const filteredCoins = currencies.filter((coin) =>
       coin.name.toLowerCase().includes(coinSearch.toLowerCase()) ||
       coin.symbol.toLowerCase().includes(coinSearch.toLowerCase())
-    );
+    )
 
     const sliceCoins = filteredCoins.slice(0, maxResults);
     

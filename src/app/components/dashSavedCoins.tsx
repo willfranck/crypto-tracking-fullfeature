@@ -7,7 +7,6 @@ export default function SavedCoins() {
   const [currencies, setCurrencies] = useState<Coin[]>([])
   const [filteredCoins, setFilteredCoins] = useState<Coin[]>([])
   const [userSavedCoins, setUserSavedCoins] = useState<string[]>([])
-  const [updatedSavedCoins, setUpdatedSavedCoins] = useState<string[]>(userSavedCoins)
 
   useEffect(() => {
     const fetchCoinData = async () => {
@@ -40,11 +39,11 @@ export default function SavedCoins() {
 
   useEffect(() => {
     const updatedFilter = currencies.filter((coin: Coin) => {
-      return updatedSavedCoins.includes(coin.symbol)
+      return userSavedCoins.includes(coin.symbol)
     })
     setFilteredCoins(updatedFilter)
-    setUserSavedCoins(updatedSavedCoins)
-  }, [updatedSavedCoins])
+    setUserSavedCoins(userSavedCoins)
+  }, [userSavedCoins, currencies])
 
 
   if (userSavedCoins.length === 0) {
@@ -75,7 +74,7 @@ export default function SavedCoins() {
                     price={Number(Math.round(100 * coin.price) / 100)}
                     change={coin.change}
                     savedCoins={userSavedCoins}
-                    updateSavedCoins={setUpdatedSavedCoins}
+                    updateSavedCoins={setUserSavedCoins}
                     disabled={coin.disabled}
                   />
                 </div>

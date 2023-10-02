@@ -40,7 +40,7 @@ export default function HeroCard() {
       <aside className='flex flex-col md:flex-row justify-center items-center w-full pt-36 pb-14 bg-tintGray'>
         <div className='p-8 space-y-2 md:text-right'>
           <p>This demo was made to showcase my ability to adapt and learn new frameworks & libraries</p>
-          <p>It's the first project I've done using using NextJS, TypeScript, and Tailwind CSS</p>
+          <p>It&apos;s the first project I&apos;ve done using using NextJS, TypeScript, and Tailwind CSS</p>
           <p>Thanks so much for checking it out!&ensp;All feedback is appreciated</p>
         </div>
 
