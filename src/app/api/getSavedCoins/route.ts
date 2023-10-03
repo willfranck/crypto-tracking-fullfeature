@@ -1,7 +1,6 @@
 import { getServerSession } from 'next-auth'
 import { NextRequest, NextResponse } from 'next/server'
 import { connectToMongoDb } from '@lib/mongodb'
-import mongoose from 'mongoose'
 
 
 export async function GET(req: NextRequest) {
@@ -13,11 +12,10 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({ message: 'Unauthorized' }, { status: 401 })
       }
 
-      await connectToMongoDb()
+      const {collection} = await connectToMongoDb()
 
-      const db = mongoose.connection
-      const users = db.collection('users')
-      
+      const users = collection
+            
       const user = await users.findOne({ email: session.user.email })
       
       if (!user) {
