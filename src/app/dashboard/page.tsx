@@ -18,7 +18,7 @@ export default function UserProfile() {
 
 
   if (!session && status === 'unauthenticated') {
-    redirect('/pages/signin')
+    redirect('/signin')
 
   } else if (session?.user) {
     return (
