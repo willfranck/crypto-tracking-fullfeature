@@ -47,7 +47,7 @@ export const RegisterPageBtn = () => {
 export const SignoutBtn = () => {
   return (
     <button
-      onClick={() => signOut({ callbackUrl: 'https://nextcryptotracker.vercel.app/' })}
+      onClick={() => signOut({ callbackUrl: 'https://nextcryptotracker.vercel.app' })}
       className='px-3 py-1.5 text-gray-400 text-sm font-semibold leading-6 rounded-md shadow-sm hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >
       Sign Out
