@@ -25,7 +25,7 @@ export default function SignUpPage() {
         await signIn('credentials', { 
           username: user.username, 
           password: user.password,
-          callbackUrl: 'http://localhost:3000/pages/dashboard',
+          callbackUrl: 'https://nextcryptotracker.vercel.app/dashboard',
         })
       }
 
