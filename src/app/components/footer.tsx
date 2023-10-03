@@ -6,7 +6,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 export default function Footer() {
   return (
-    <footer className='flex justify-center w-full p-10'>
+    <footer className='flex justify-center w-full p-10 bg-black'>
       <div className='flex flex-col md:flex-row justify-around md:items-center space-y-4 md:space-y-0 md:space-x-8'>
         <span className='text-gray-400'>check me out on:</span>
 

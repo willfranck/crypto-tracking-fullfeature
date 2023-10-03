@@ -9,7 +9,7 @@ export default function NavBar() {
   const { data: session } = useSession()
 
   return (
-    <nav className='w-full p-4'>
+    <nav className='w-full p-4 bg-black'>
       {session ? (
         <div className='flex justify-between items-center'>
           <div className='flex items-center'>
