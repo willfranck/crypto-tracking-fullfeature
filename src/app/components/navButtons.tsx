@@ -20,7 +20,7 @@ export const SigninPageBtn = () => {
 export const GoogleSigninBtn = () => {
   return (
     <button
-      onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/dashboard' })}
+      onClick={() => signIn('google', { callbackUrl: 'https://nextcryptotracker.vercel.app/dashboard' })}
       className='flex justify-around items-center w-60 px-4 py-4 bg-white text-black font-semibold leading-6 rounded-md shadow-sm hover:bg-indigo-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >
       <Image 
@@ -48,7 +48,7 @@ export const RegisterPageBtn = () => {
 export const SignoutBtn = () => {
   return (
     <button
-      onClick={() => signOut({ callbackUrl: 'http://localhost:3000' })}
+      onClick={() => signOut({ callbackUrl: 'https://nextcryptotracker.vercel.app/' })}
       className='px-3 py-1.5 text-gray-400 text-sm font-semibold leading-6 rounded-md shadow-sm hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
     >
       Sign Out
@@ -62,7 +62,7 @@ export const ProfilePageBtn = () => {
   return (
     <Link
       href={'/dashboard'}
-      onClick={() => (!session ? signIn(undefined, { callbackUrl: 'http://localhost:3000/dashboard' }) : null)}
+      onClick={() => (!session ? signIn(undefined, { callbackUrl: 'https://nextcryptotracker.vercel.app/dashboard' }) : null)}
       className='w-6 h-6 flex justify-center items-center rounded-full overflow-hidden'
     >
       <Image 
