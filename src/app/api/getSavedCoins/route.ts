@@ -14,9 +14,7 @@ export async function GET(req: NextRequest) {
 
       const {collection} = await connectToMongoDb()
 
-      const users = collection
-            
-      const user = await users.findOne({ email: session.user.email })
+      const user = await collection.findOne({ email: session.user.email })
       
       if (!user) {
         return NextResponse.json({ message: 'User not found' }, { status: 404 })

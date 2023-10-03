@@ -21,8 +21,18 @@ export default function DashMenu({activeDatatypeChange}: DashMenuProps) {
   const [activeBtn, setActiveBtn] = useState('saved-coins')
 
   const buttons = [
-    {key: 0, datatype: 'saved-coins', icon: faBookmark, aria: 'Saved Coins'},
-    {key: 1, datatype: 'search-coins', icon: faMagnifyingGlass, aria: 'Search Coins'},
+    {
+      key: 0, 
+      datatype: 'saved-coins', 
+      icon: faBookmark, 
+      aria: 'Saved Coins'
+    },
+    {
+      key: 1, 
+      datatype: 'search-coins', 
+      icon: faMagnifyingGlass, 
+      aria: 'Search Coins'
+    },
   ]
 
   function handleActiveBtn(datatype: string) {
@@ -41,8 +51,8 @@ export default function DashMenu({activeDatatypeChange}: DashMenuProps) {
               aria-label={button.aria}
               onClick={() => handleActiveBtn(button.datatype)}
               className={activeBtn === button.datatype ? 
-                'w-8 h-8 text-white scale-110 hover:text-indigo-500' 
-                : 'w-8 h-8 text-slate-400 hover:text-indigo-500'}
+                'w-8 h-8 text-white scale-110 hover:text-indigo-500' :
+                'w-8 h-8 text-slate-400 hover:text-indigo-500'}
             >
               <FontAwesomeIcon icon={button.icon} size='xl' />
             </button>

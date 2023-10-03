@@ -16,21 +16,19 @@ export async function PATCH(req: NextRequest) {
 
       const {collection} = await connectToMongoDb()
 
-      const users = collection
-      
-      const user = await users.findOne({ email: session.user.email })
+      const user = await collection.findOne({ email: session.user.email })
       
       if (!user) {
         return NextResponse.json({ message: 'User not found' }, { status: 404 })
       }
 
       if (!user.savedCoins.includes(symbol)) {
-        await users.updateOne(
+        await collection.updateOne(
           {email: session.user.email},
           {$push: {savedCoins: symbol}}
         )
       } else if (user.savedCoins.includes(symbol)) {
-        await users.updateOne(
+        await collection.updateOne(
           {email: session.user.email},
           {$pull: {savedCoins: symbol}}
         )
