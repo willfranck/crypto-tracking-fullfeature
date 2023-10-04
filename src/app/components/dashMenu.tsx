@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Homepage } from '@components/navButtons'
+import { HomepageBtn } from '@components/navButtons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons/faMagnifyingGlass'
@@ -60,7 +60,7 @@ export default function DashMenu({activeDatatypeChange}: DashMenuProps) {
         ))}
           
         <li className='flex justify-center items-center text-slate-400 hover:text-indigo-500'>
-          <Homepage />
+          <HomepageBtn />
         </li>
       </ul>
     </aside>

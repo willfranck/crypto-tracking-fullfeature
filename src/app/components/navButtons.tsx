@@ -74,7 +74,7 @@ export const ProfilePageBtn = () => {
   )
 }
 
-export const Homepage = () => {
+export const HomepageBtn = () => {
   return (
     <Link 
       href={'/'}
