@@ -13,7 +13,7 @@ export async function GET() {
       },
       params: {
         referenceCurrencyUuid: 'yhjMzLPhuIDl',  //USD
-        limit: 100,
+        limit: 200,
       }
     }
 
