@@ -73,7 +73,7 @@ export default function CryptoCardGrid() {
           </label>
           <input
             id='site-search'
-            type='search'
+            type='text'
             placeholder='Name | Symbol'
             value={coinSearch}
             onChange={handleCoinSearch}
