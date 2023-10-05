@@ -20,8 +20,8 @@ export default function CryptoCard(cryptoProps: Coin) {
   const [updatingUserCoins, setUpdatingUserCoins] = useState(false)
   const userSavedCoins = cryptoProps.savedCoins || []
 
-  const dynamicRounding = (price: number) => {
-    if(Math.abs(price as number) < 1) {
+  const dynamicRounding = (price: any) => {
+    if(Math.abs(price) < 1) {
       const decimalPlaces = Math.max(2, Math.ceil(Math.log10(1 / Math.abs(price))))
       return price.toFixed(decimalPlaces)
     
