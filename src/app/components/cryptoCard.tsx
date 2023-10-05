@@ -22,10 +22,12 @@ export default function CryptoCard(cryptoProps: Coin) {
 
   const dynamicRounding = (price: number) => {
     if (Math.abs(price) < 1) {
-      const decimalPlaces = Math.max(2, Math.ceil(Math.log10(1 / Math.abs(price))));
-      return decimalPlaces
+      const decimalPrice = Math.max(2, Math.ceil(Math.log10(1 / Math.abs(price))))
+      console.log(decimalPrice)
+      
+      return decimalPrice
     } else {
-      return 2;
+      return price;
     }
   }
 
@@ -61,7 +63,7 @@ export default function CryptoCard(cryptoProps: Coin) {
           <span className='text-gray-300'>{cryptoProps.symbol}</span>
         </div>
         
-        <h3 className='text-green-400'>${Number(cryptoProps.price).toFixed(dynamicRounding(cryptoProps.price))}</h3>
+        <h3 className='text-green-400'>${Number(dynamicRounding(cryptoProps.price)).toFixed(2)}</h3>
         {/* <h3 className='text-green-400'>${(Math.round(100 * cryptoProps.price) / 100).toFixed(dynamicRounding)}</h3> */}
       </div>
       
