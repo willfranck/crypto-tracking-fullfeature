@@ -53,9 +53,9 @@ export default function CryptoCard(cryptoProps: Coin) {
         </div>
         
         <h3 className='text-green-400'>$
-          {cryptoProps.price > 1 ?
+          {cryptoProps.price > 0.009 ?
             (Math.round(100 * cryptoProps.price) / 100).toFixed(2) :
-            Number(cryptoProps.price).toFixed(10)
+            (Math.round(1e9 * cryptoProps.price) / 1e9).toFixed(9)
           }
         </h3>
       </div>
