@@ -22,10 +22,11 @@ export default function CryptoCard(cryptoProps: Coin) {
 
   const dynamicRounding = (price: number) => {
     if (Math.abs(price) < 1) {
-      const decimalPrice = Math.max(2, Math.ceil(Math.log10(1 / Math.abs(price))))
-      console.log(decimalPrice)
+      const decimalPlaces = Math.max(3, Math.ceil(Math.log10(1 / Math.abs(price))))
+      const roundedDecimalPrice = parseFloat(price.toFixed(decimalPlaces))
+      console.log(roundedDecimalPrice)
       
-      return decimalPrice
+      return roundedDecimalPrice
     } else {
       return price;
     }
