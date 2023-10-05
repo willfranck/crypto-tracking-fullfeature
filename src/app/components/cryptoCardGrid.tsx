@@ -63,6 +63,11 @@ export default function CryptoCardGrid() {
     setCoinSearch(inputValue);
   }
 
+  function handleKeyboardClose() {
+    const activeElement = document.activeElement as HTMLElement
+    activeElement.blur()
+  }
+
   
   return (
     <article className='flex flex-col justify-start items-center w-full lg:pl-10'>
@@ -73,11 +78,11 @@ export default function CryptoCardGrid() {
           </label>
           <input
             name='site-search'
-            type='text'
-            enterKeyHint='done'
+            type='search'
             placeholder='Name | Symbol'
             value={coinSearch}
             onChange={handleCoinSearch}
+            onBlur={handleKeyboardClose}
             className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
           ></input>
         </form>
