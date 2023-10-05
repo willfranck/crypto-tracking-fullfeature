@@ -20,16 +20,6 @@ export default function CryptoCard(cryptoProps: Coin) {
   const [updatingUserCoins, setUpdatingUserCoins] = useState(false)
   const userSavedCoins = cryptoProps.savedCoins || []
 
-  const dynamicRounding = (price: number):string | number => {
-    if(Math.abs(price) < 1) {
-      const decimalPlaces = Math.max(2, Math.ceil(Math.log10(1 / Math.abs(price))))
-      return price.toFixed(decimalPlaces)
-    
-    } else {
-        return price.toFixed(2)
-    }
-  }
-
   async function handleSubmit(symbol: string) {
     try {
       setUpdatingUserCoins(true)
@@ -62,7 +52,7 @@ export default function CryptoCard(cryptoProps: Coin) {
           <span className='text-gray-300'>{cryptoProps.symbol}</span>
         </div>
         
-        <h3 className='text-green-400'>${dynamicRounding(cryptoProps.price)}</h3>
+        <h3 className='text-green-400'>${(Math.round(100 * cryptoProps.price) / 100).toFixed(2)}</h3>
       </div>
       
       <div className='flex justify-between w-full'>
