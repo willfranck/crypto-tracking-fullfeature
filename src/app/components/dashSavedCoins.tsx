@@ -71,7 +71,7 @@ export default function SavedCoins() {
                     iconUrl={coin.iconUrl}
                     name={coin.name}
                     symbol={coin.symbol}
-                    price={Number(Math.round(100 * coin.price) / 100)}
+                    price={coin.price}
                     change={coin.change}
                     savedCoins={userSavedCoins}
                     updateSavedCoins={setUserSavedCoins}
