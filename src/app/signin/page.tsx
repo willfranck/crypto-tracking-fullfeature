@@ -52,7 +52,7 @@ export default function SignInPage() {
               Username
             </label>
             <input
-              id='username'
+              name='username'
               type='text'
               required
               value={user.username}
@@ -67,7 +67,7 @@ export default function SignInPage() {
               Password
             </label>
             <input
-              id='password'
+              name='password'
               type='password'
               required
               value={user.password}

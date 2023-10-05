@@ -59,7 +59,7 @@ export default function SignUpPage() {
               Email
             </label>
             <input
-              id='email'
+              name='email'
               type='text'
               required
               value={user.email}
@@ -74,7 +74,7 @@ export default function SignUpPage() {
               Username
             </label>
             <input
-              id='username'
+              name='username'
               type='text'
               required
               value={user.username}
