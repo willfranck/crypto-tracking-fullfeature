@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, KeyboardEventHandler, KeyboardEvent } from 'react'
 import axios from 'axios'
 import CryptoCard, { Coin } from '@components/cryptoCard'
 
@@ -63,21 +63,31 @@ export default function CryptoCardGrid() {
     setCoinSearch(inputValue);
   }
 
+  function dismissKeyboard(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter") {
+      e.currentTarget.blur()
+    }
+  }
+
   
   return (
     <article className='flex flex-col justify-start items-center w-full lg:pl-10'>
       <div className='sticky top-[58px] lg:top-0 flex justify-center w-full pt-6 pb-8 px-4 bg-black'>
-        <form onSubmit={(e) => e.preventDefault()} className='flex-1'>
+        <form 
+          onSubmit={(e) => e.preventDefault()} 
+          className='flex-1'
+        >
           <label htmlFor='site-search' className='text-sm font-medium leading-6 text-gray-400'>
             Find Coins...
           </label>
           <input
             name='site-search'
-            type='search'
+            type='text'
+            enterKeyHint='search'
             placeholder='Name | Symbol'
             value={coinSearch}
             onChange={handleCoinSearch}
-            onKeyUp={(e) => e.target.blur()}
+            onKeyUp={dismissKeyboard}
             className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
           ></input>
         </form>
