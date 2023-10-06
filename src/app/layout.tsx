@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import { NextAuthProvider } from './providers'
 import type { Metadata } from 'next'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -26,6 +27,7 @@ export default function RootLayout({
       >
         <NextAuthProvider>
           {children}
+          <Analytics />
         </NextAuthProvider>
       </body>
     </html>
