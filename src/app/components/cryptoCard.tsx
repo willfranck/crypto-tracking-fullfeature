@@ -74,6 +74,7 @@ export default function CryptoCard(cryptoProps: Coin) {
           <button 
             key={cryptoProps.symbol}
             type='submit'
+            aria-label='Save Coin'
             onClick={() => handleSubmit(cryptoProps.symbol)}
             disabled={updatingUserCoins}
             className='saveCoinBtn flex items-center w-24 h-8 rounded-l-full text-2xl text-center bg-slate-500 hover:bg-indigo-500'
@@ -87,6 +88,7 @@ export default function CryptoCard(cryptoProps: Coin) {
           <button 
             key={cryptoProps.symbol}
             type='submit'
+            aria-label='Remove Coin'
             onClick={() => handleSubmit(cryptoProps.symbol)}
             disabled={updatingUserCoins}
             className='saveCoinBtn flex items-center w-24 h-8 rounded-l-full text-2xl text-center bg-red-500 hover:bg-indigo-500'
