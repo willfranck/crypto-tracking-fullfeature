@@ -55,12 +55,12 @@ export default function CryptoCardGrid() {
     const sliceCoins = filteredCoins.slice(0, maxResults);
     
     setSlicedCurrencies(sliceCoins);
-  }, [currencies, coinSearch, maxResults]);
+  }, [currencies, coinSearch, maxResults])
 
 
   function handleCoinSearch(e: React.FormEvent<HTMLInputElement>) {
-    const inputValue = e.currentTarget.value.toLowerCase();
-    setCoinSearch(inputValue);
+    const inputValue = e.currentTarget.value
+    setCoinSearch(inputValue)
   }
 
   function dismissKeyboard(e: React.KeyboardEvent<HTMLInputElement>) {
