@@ -13,15 +13,14 @@ export default function HeroCard() {
 
         <div>
           <span className='text-gray-400'>a Full Stack demo built with:</span>
-          <p>NextJS &ensp;|&ensp; ReactJS &ensp;|&ensp; MongoDB</p>
-          <p>TypeScript &ensp;|&ensp; Tailwind CSS</p>
+          <p>NextJS &ensp;|&ensp; ReactJS &ensp;|&ensp; TypeScript</p>
+          <p>Tailwind CSS &ensp;|&ensp; Next-Auth &ensp;|&ensp; MongoDB</p>
         </div>
 
         <div>
           <span className='text-gray-400'>also implementing:&ensp;</span>
           <p>RapidAPI &ensp;|&ensp; Axios &ensp;|&ensp; Mongoose</p>
-          <p>Next-Auth &ensp;|&ensp; bcrypt &ensp;|&ensp; JSONwebtoken</p>
-          <p></p>
+          <p>bcrypt &ensp;|&ensp; JSONwebtoken</p>
         </div>
 
         <Link
