@@ -4,8 +4,8 @@ import GoogleProvider from 'next-auth/providers/google'
 import { MongoDBAdapter } from '@auth/mongodb-adapter'
 import { MongoClient } from 'mongodb'
 import { connectToMongoDb } from '@lib/mongodb'
-import User from '@models/users'
 import { compare } from 'bcrypt'
+import User from '@models/users'
 
 
 const clientPromise: Promise<MongoClient> = MongoClient.connect(process.env.MONGODB_URI!)

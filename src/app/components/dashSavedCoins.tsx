@@ -12,10 +12,10 @@ export default function SavedCoins() {
     const fetchCoinData = async () => {
       try {
         const getCoins = await axios.get('/api/coins')
-        const coinData = getCoins.data.data.coins
+        const coinData = getCoins.data
         
         const getUserSavedCoins = await axios.get('/api/getSavedCoins')
-        const userCoins = getUserSavedCoins.data.savedCoins
+        const userCoins = getUserSavedCoins.data
         setUserSavedCoins(userCoins)
         
         if (Array.isArray(coinData)) {

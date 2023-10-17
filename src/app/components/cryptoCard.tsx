@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { inter } from '@utils/fonts'
 
 
-export interface Coin {
+export type Coin = {
   uuid: string,
   iconUrl: string,
   name: string,
@@ -27,7 +27,7 @@ export default function CryptoCard(cryptoProps: Coin) {
       await axios.patch('/api/updateSavedCoins', { symbol })
 
       const updatedCoins = await axios.get('/api/getSavedCoins')
-      cryptoProps.updateSavedCoins(updatedCoins.data.savedCoins)
+      cryptoProps.updateSavedCoins(updatedCoins.data)
 
     } catch (error: any) {
         console.error(`Error saving coin ${symbol}:`, error.message)
