@@ -12,7 +12,7 @@ export default function HeroCoins() {
     const fetchCoins = async () => {
       try {
         const getCoins = await axios.get('/api/coins')
-        const coinData = getCoins.data.data.coins
+        const coinData = getCoins.data
 
         if (Array.isArray(coinData)) {
           const filteredCoins = coinData.filter((coin: Coin) => {
