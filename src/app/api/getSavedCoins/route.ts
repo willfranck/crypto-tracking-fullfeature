@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({ message: 'User not found' }, { status: 404 })
       }
 
-      const savedCoins = user.data.savedCoins
+      const savedCoins = user.savedCoins
 
       return NextResponse.json({ savedCoins }, { status: 200 })
 
