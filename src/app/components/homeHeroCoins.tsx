@@ -7,6 +7,7 @@ import CryptoCard, { Coin } from '@components/cryptoCard'
 
 export default function HeroCoins() {
   const [currencies, setCurrencies] = useState<Coin[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchCoins = async () => {
@@ -32,29 +33,41 @@ export default function HeroCoins() {
 
       } catch (error: any) {
           console.error(error)
+      
+      } finally {
+          setLoading(false)
       }
+
     }
     fetchCoins()
   }, [])
 
 
   return (
-    <div className='hero-coins flex flex-col lg:flex-row justify-around items-center lg:space-x-12 px-6 py-8'>
-      {currencies &&
-        currencies.map((coin) => (
-          <CryptoCard
-            key={coin.uuid}
-            uuid={coin.uuid}
-            iconUrl={coin.iconUrl}
-            name={coin.name}
-            symbol={coin.symbol}
-            price={coin.price}
-            change={coin.change}
-            savedCoins={coin.savedCoins}
-            updateSavedCoins={coin.updateSavedCoins}
-            disabled={coin.disabled}
-          />
-        ))}
-    </div>
+    <>
+      {loading ? (
+        <div className='flex justify-center items-center w-full h-full'>
+          <h3>Loading...</h3>
+        </div>
+      ) : (
+        <div className='hero-coins flex flex-col lg:flex-row justify-around items-center lg:space-x-12 px-6 py-8'>
+          {currencies &&
+            currencies.map((coin) => (
+              <CryptoCard
+                key={coin.uuid}
+                uuid={coin.uuid}
+                iconUrl={coin.iconUrl}
+                name={coin.name}
+                symbol={coin.symbol}
+                price={coin.price}
+                change={coin.change}
+                savedCoins={coin.savedCoins}
+                updateSavedCoins={coin.updateSavedCoins}
+                disabled={coin.disabled}
+              />
+            ))}
+        </div>
+      )}
+    </>
   )
 }
