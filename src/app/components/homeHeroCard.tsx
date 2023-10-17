@@ -32,7 +32,7 @@ export default function HeroCard() {
         </Link>
       </article>
 
-      <article className='translate-y-1/2 w-11/12 md:w-5/6 h-[260px] lg:h-[160px] px-4 rounded-3xl bg-black'>
+      <article className='translate-y-1/2 w-11/12 md:w-5/6 h-[259px] lg:h-[161px] px-4 rounded-3xl bg-black'>
         <HeroCoins />
       </article>
 

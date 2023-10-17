@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import CryptoCard, { Coin } from '@components/cryptoCard'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function CryptoCardGrid() {
@@ -123,7 +125,7 @@ export default function CryptoCardGrid() {
 
       {loading ? (      
         <div className='flex flex-col justify-center items-center w-full h-80 space-y-4'>
-          <h3>Loading...</h3>
+          <FontAwesomeIcon icon={faSpinner} size='2xl' spin className='w-12 h-12' />
         </div>
       ) : (
         <div className='flex justify-center items-start w-full'>

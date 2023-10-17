@@ -3,6 +3,8 @@ import { NextResponse } from 'next/server'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import CryptoCard, { Coin } from '@components/cryptoCard'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function HeroCoins() {
@@ -47,7 +49,7 @@ export default function HeroCoins() {
     <>
       {loading ? (
         <div className='flex justify-center items-center w-full h-full'>
-          <h3>Loading...</h3>
+          <FontAwesomeIcon icon={faSpinner} size='2xl' spin className='w-12 h-12' />
         </div>
       ) : (
         <div className='hero-coins flex flex-col lg:flex-row justify-around items-center lg:space-x-12 px-6 py-8'>
