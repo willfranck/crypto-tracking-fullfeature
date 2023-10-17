@@ -17,7 +17,7 @@ export default function CryptoCardGrid() {
         const coinData = getCoins.data
 
         const getUserSavedCoins = await axios.get('/api/getSavedCoins')
-        const userCoins = getUserSavedCoins.data.savedCoins
+        const userCoins = getUserSavedCoins.data
         setUserSavedCoins(userCoins)
 
         if (Array.isArray(coinData)) {

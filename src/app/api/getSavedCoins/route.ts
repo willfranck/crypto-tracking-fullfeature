@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
 
       const savedCoins = user.savedCoins
 
-      return NextResponse.json({ savedCoins }, { status: 200 })
+      return NextResponse.json(savedCoins, { status: 200 })
 
     } catch (error: any) {
         return NextResponse.json({ message: error }, { status: 500 })
