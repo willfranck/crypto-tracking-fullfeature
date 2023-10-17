@@ -7,6 +7,7 @@ export default function SavedCoins() {
   const [currencies, setCurrencies] = useState<Coin[]>([])
   const [filteredCoins, setFilteredCoins] = useState<Coin[]>([])
   const [userSavedCoins, setUserSavedCoins] = useState<string[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchCoinData = async () => {
@@ -32,6 +33,9 @@ export default function SavedCoins() {
 
       } catch (error: any) {
           console.error(error)
+      
+      } finally {
+          setLoading(false)
       }
     }
     fetchCoinData()
@@ -46,7 +50,14 @@ export default function SavedCoins() {
   }, [userSavedCoins, currencies])
 
 
-  if (userSavedCoins.length === 0) {
+  if (loading) {
+    return (
+      <article className='flex flex-col justify-center items-center w-full h-80 space-y-4'>
+        <h3>Loading...</h3>
+      </article>
+    )
+
+  } else if (userSavedCoins.length === 0) {
     return (
       <article className='flex flex-col justify-center items-center w-full h-80 space-y-4'>
         <h3>Looking pretty empty here...</h3>
