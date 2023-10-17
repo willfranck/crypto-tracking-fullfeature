@@ -9,6 +9,7 @@ export default function CryptoCardGrid() {
   const [userSavedCoins, setUserSavedCoins] = useState<string[]>([])
   const [coinSearch, setCoinSearch] = useState<string>('')
   const [maxResults, setMaxResults] = useState<number>(10)
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchCoinData = async () => {
@@ -28,6 +29,9 @@ export default function CryptoCardGrid() {
         }
       } catch (error: any) {
           console.error(error)
+      
+      } finally {
+          setLoading(false)
       }
     }
     fetchCoinData()
@@ -116,28 +120,34 @@ export default function CryptoCardGrid() {
       <div>
         <p className='text-sm font-medium leading-6 text-gray-400'>sorted by Market Cap</p>
       </div>
-    
-      <div className='flex justify-center items-start w-full'>
-        <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full md:w-auto lg:max-h-cardGrid py-4 rounded-xl bg-tintBlack overflow-y-auto'>
-          {slicedCurrencies &&
-            slicedCurrencies.map((coin) => (
-              <div className='flex justify-center w-full' key={coin.uuid}>
-                <CryptoCard
-                  uuid={coin.uuid}
-                  iconUrl={coin.iconUrl}
-                  name={coin.name}
-                  symbol={coin.symbol}
-                  price={coin.price}
-                  change={coin.change}
-                  savedCoins={userSavedCoins}
-                  updateSavedCoins={setUserSavedCoins}
-                  disabled={coin.disabled}
-                />
-              </div>
-            ))
-          }
+
+      {loading ? (      
+        <div className='flex flex-col justify-center items-center w-full h-80 space-y-4'>
+          <h3>Loading...</h3>
         </div>
-      </div>
+      ) : (
+        <div className='flex justify-center items-start w-full'>
+          <div className='grid grid-cols-1 md:grid-cols-[minmax(256px,512px)_minmax(256px,512px)] gap-x-8 gap-y-4 w-full md:w-auto lg:max-h-cardGrid py-4 rounded-xl bg-tintBlack overflow-y-auto'>
+            {slicedCurrencies &&
+              slicedCurrencies.map((coin) => (
+                <div className='flex justify-center w-full' key={coin.uuid}>
+                  <CryptoCard
+                    uuid={coin.uuid}
+                    iconUrl={coin.iconUrl}
+                    name={coin.name}
+                    symbol={coin.symbol}
+                    price={coin.price}
+                    change={coin.change}
+                    savedCoins={userSavedCoins}
+                    updateSavedCoins={setUserSavedCoins}
+                    disabled={coin.disabled}
+                  />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      )}
     </article>
   )
 }
