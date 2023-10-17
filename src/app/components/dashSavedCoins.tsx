@@ -15,8 +15,6 @@ export default function SavedCoins() {
         const coinData = getCoins.data
         
         const getUserSavedCoins = await axios.get('/api/getSavedCoins')
-        console.log(getUserSavedCoins.data)
-        
         const userCoins = getUserSavedCoins.data
         setUserSavedCoins(userCoins)
         
