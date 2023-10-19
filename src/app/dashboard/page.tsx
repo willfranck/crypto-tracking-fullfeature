@@ -1,8 +1,17 @@
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@lib/auth'
+import { redirect } from 'next/navigation'
 import NavBar from '@components/navBar'
 import ClientComponents from '@components/dashClientComponents'
 
 
 export default function UserProfile() {
+  const session = getServerSession(authOptions)
+
+  if (!session) {
+    redirect('/signin')
+  }
+
   return (
     <main className='relative flex flex-col items-center w-full max-w-page min-h-screen mx-auto bg-dash bg-fixed bg-top isolate before:absolute before:content-{""} before:inset-0 before:bg-tintBlack before:-z-10'>
       <NavBar />
