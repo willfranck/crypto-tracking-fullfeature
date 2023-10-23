@@ -13,14 +13,14 @@ export default function ClientComponents() {
 
   useEffect(() => {
     if(!session) {
-      redirect('/')
+      redirect('/signin')
     }
   }, [session])
 
   const handleActiveDatatypeChange = (datatype: string) => {
     setActiveDatatype(datatype)
   }
-  
+
 
   return (
     <>
