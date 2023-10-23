@@ -11,24 +11,22 @@ export default function UserProfile() {
 
   useEffect(() => {
     const interval = setInterval(() => session, 1000 * 62)
-
-    if(!session) {
-      redirect('/signin')
-    }
-
     return clearInterval(interval)
   }, [session])
 
 
+  if(!session) {
+    redirect('/signin')
+ 
+  } else {
+    return (
+      <main className='relative flex flex-col items-center w-full max-w-page min-h-screen mx-auto bg-dash bg-fixed bg-top isolate before:absolute before:content-{""} before:inset-0 before:bg-tintBlack before:-z-10'>
+        <NavBar />
 
-  
-  return (
-    <main className='relative flex flex-col items-center w-full max-w-page min-h-screen mx-auto bg-dash bg-fixed bg-top isolate before:absolute before:content-{""} before:inset-0 before:bg-tintBlack before:-z-10'>
-      <NavBar />
-
-      <section className='flex flex-col flex-1 lg:flex-row items-center lg:items-start w-11/12 sm:w-5/6'>
-        <ClientComponents />
-      </section>
-    </main>
-  )
+        <section className='flex flex-col flex-1 lg:flex-row items-center lg:items-start w-11/12 sm:w-5/6'>
+          <ClientComponents />
+        </section>
+      </main>
+    )
+  }
 }
