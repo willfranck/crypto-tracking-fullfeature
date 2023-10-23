@@ -8,7 +8,7 @@ export default function UserProfile() {
   const { data: session } = useSession()
 
   if(!session) {
-    redirect('/signin')
+    return redirect('/signin')
   } 
   
   return (
