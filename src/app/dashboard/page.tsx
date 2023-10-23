@@ -5,7 +5,7 @@ import ClientComponents from '@components/dashClientComponents'
 
 
 export default function UserProfile() {
-  const { data: session } = useSession({required: true})
+  const { data: session } = useSession()
 
   if(!session) {
     redirect('/signin')
