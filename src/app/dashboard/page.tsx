@@ -10,7 +10,7 @@ export default function UserProfile() {
   const { data: session, status } = useSession()
 
   useEffect(() => {
-    const interval = setInterval(() => session, 1000 * 60)
+    const interval = setInterval(() => session, 1000 * 62)
 
     if(!session && status === 'unauthenticated') {
       redirect('/signin')
