@@ -13,7 +13,7 @@ export default function UserProfile() {
     const interval = setInterval(() => session, 1000 * 60)
 
     if(!session && status === 'unauthenticated') {
-      return redirect('/signin')
+      redirect('/signin')
     }
 
     return clearInterval(interval)
