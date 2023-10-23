@@ -7,17 +7,17 @@ import ClientComponents from '@components/dashClientComponents'
 
 
 export default function UserProfile() {
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
 
   useEffect(() => {
     const interval = setInterval(() => session, 1000 * 62)
 
-    if(!session && status === 'unauthenticated') {
+    if(!session) {
       redirect('/signin')
     }
 
     return clearInterval(interval)
-  }, [session, status])
+  }, [session])
 
 
 
