@@ -11,12 +11,15 @@ export default function UserProfile() {
 
   useEffect(() => {
     const interval = setInterval(() => session, 1000 * 60)
-    return clearInterval(interval)
-  }, [session])
 
-  if(!session && status === 'unauthenticated') {
-    return redirect('/signin')
-  }
+    if(!session && status === 'unauthenticated') {
+      return redirect('/signin')
+    }
+
+    return clearInterval(interval)
+  }, [session, status])
+
+
 
   
   return (
