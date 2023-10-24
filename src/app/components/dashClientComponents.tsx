@@ -1,21 +1,12 @@
 'use client'
-import { getSession } from 'next-auth/react'
-import { useState, useEffect } from 'react'
-import { redirect } from 'next/navigation'
+import { useState } from 'react'
 import DashMenu from '@components/dashMenu'
 import SavedCoins from '@components/dashSavedCoins'
 import CryptoCardGrid from '@components/cryptoCardGrid'
 
 
-export default function ClientComponents() {
-  const session = getSession()
+export default function DashClientComponents() {
   const [activeDatatype, setActiveDatatype] = useState<string>('saved-coins')
-
-  useEffect(() => {
-    if(!session) {
-      redirect('/signin')
-    }
-  }, [session])
 
   const handleActiveDatatypeChange = (datatype: string) => {
     setActiveDatatype(datatype)
