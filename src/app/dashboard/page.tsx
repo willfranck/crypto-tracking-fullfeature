@@ -11,14 +11,15 @@ export default function UserProfile() {
 
   useEffect(() => {
     const interval = setInterval(() => session, 1000 * 62)
-    return clearInterval(interval)
+
+    if(!session) {
+      redirect('/signin')
+    }
+
+    return () => clearInterval(interval)
   }, [session])
 
-  if(!session) {
-    redirect('/signin')
-  }
 
-  
   return (
     <main className='relative flex flex-col items-center w-full max-w-page min-h-screen mx-auto bg-dash bg-fixed bg-top isolate before:absolute before:content-{""} before:inset-0 before:bg-tintBlack before:-z-10'>
       <NavBar />
