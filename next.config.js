@@ -3,6 +3,7 @@ const nextConfig = {
   async headers() {
     return [
       {
+        // matching all API routes
         source: '/api/:path*',
         headers: [
           { key: 'Access-Control-Allow-Credentials', value: 'true' },
@@ -20,15 +21,17 @@ const nextConfig = {
 
   images: {
     remotePatterns: [
-      'cdn.coinranking.com',
-      'lh3.googleusercontent.com',
-    ].map((hostname) => [
       {
         protocol: 'https',
-        hostname,
+        hostname: 'cdn.coinranking.com',
         port: '',
-      }
-    ]),
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        port: '',
+      },
+    ],
     dangerouslyAllowSVG: true,
   },
 }
