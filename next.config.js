@@ -3,7 +3,6 @@ const nextConfig = {
   async headers() {
     return [
       {
-        // matching all API routes
         source: '/api/:path*',
         headers: [
           { key: 'Access-Control-Allow-Credentials', value: 'true' },
@@ -20,27 +19,16 @@ const nextConfig = {
   },
 
   images: {
-    domains: ['cdn.coinranking.com', 'lh3.googleusercontent.com', 'nextcryptotracker.vercel.app'],
     remotePatterns: [
+      'cdn.coinranking.com',
+      'lh3.googleusercontent.com',
+    ].map((hostname) => [
       {
         protocol: 'https',
-        hostname: 'cdn.coinranking.com',
+        hostname,
         port: '',
-        pathname: '/components/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'lh3.googleusercontent.com',
-        port: '',
-        pathname: '/components/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'nextcryptotracker.vercel.app',
-        port: '',
-        pathname: '/components/**',
-      },
-    ],
+      }
+    ]),
     dangerouslyAllowSVG: true,
   },
 }
