@@ -44,6 +44,7 @@ export default function UserProfile() {
             ) : null
           }
         </section>
+        
       <pre>{JSON.stringify(session, null, 2)}</pre>
     </main>
   )
