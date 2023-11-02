@@ -8,7 +8,7 @@ import CryptoCardGrid from '@components/cryptoCardGrid'
 
 
 export default function UserProfile() {
-  const { data: session } = useSession()
+  const { data: session, update } = useSession()
   const [activeDatatype, setActiveDatatype] = useState<string>('saved-coins')
 
   const handleActiveDatatypeChange = (datatype: string) => {
@@ -16,14 +16,14 @@ export default function UserProfile() {
   }
 
   useEffect(() => {
-    const fetchSession = setInterval(() => session, 1000 * 60)
+    const fetchSession = setInterval(() => update(), 1000 * 60)
 
     if (!session) {
       signOut()
     }
 
     return () => clearInterval(fetchSession)
-  }, [session])
+  }, [session, update])
 
 
   return (
