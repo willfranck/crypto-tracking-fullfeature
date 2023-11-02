@@ -18,12 +18,12 @@ export default function UserProfile() {
   useEffect(() => {
     const fetchSession = setInterval(() => update(), 1000 * 60)
 
-    if (status === 'unauthenticated') {
+    if (!session && status === 'unauthenticated') {
       signOut()
     }
 
     return () => clearInterval(fetchSession)
-  }, [update, status])
+  }, [session, status, update])
 
 
   return (
@@ -44,8 +44,6 @@ export default function UserProfile() {
             ) : null
           }
         </section>
-        
-      <pre>{JSON.stringify(session, null, 2)}</pre>
     </main>
   )
 }
