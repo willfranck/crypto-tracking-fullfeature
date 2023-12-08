@@ -66,13 +66,13 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
       authorization: {
         params: {
-          scope: 'profile',
+          scope: 'openid email profile',
         },
       },
 
       profile(profile) {
         return {
-          id: profile.email,
+          id: profile._id,
           email: profile.email,
           username: profile.name,
           image: profile.picture,
