@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
 
   image: {
     type: String,
-    default: 'https://nextcryptotracker.vercel.app/user.svg'
+    default: '/user.svg',
   },
 
   savedCoins: [{
