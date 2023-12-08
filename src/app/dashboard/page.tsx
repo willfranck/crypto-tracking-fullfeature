@@ -1,6 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
-import { useSession, signOut } from 'next-auth/react'
+import { useState } from 'react'
 import NavBar from '@components/navBar'
 import DashMenu from '@components/dashMenu'
 import SavedCoins from '@components/dashSavedCoins'
@@ -8,22 +7,11 @@ import CryptoCardGrid from '@components/cryptoCardGrid'
 
 
 export default function UserProfile() {
-  const { data: session, status, update } = useSession()
   const [activeDatatype, setActiveDatatype] = useState<string>('saved-coins')
 
   const handleActiveDatatypeChange = (datatype: string) => {
     setActiveDatatype(datatype)
   }
-
-  useEffect(() => {
-    const fetchSession = setInterval(() => update(), 1000 * 60)
-
-    if (!session && status === 'unauthenticated') {
-      signOut()
-    }
-
-    return () => clearInterval(fetchSession)
-  }, [session, status, update])
 
 
   return (
