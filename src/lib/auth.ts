@@ -64,6 +64,7 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      allowDangerousEmailAccountLinking: true,
 
       profile(profile) {
         return {
@@ -76,29 +77,4 @@ export const authOptions: NextAuthOptions = {
       }
     }),
   ],
-
-  // callbacks: {
-  //   session: ({ session, token }) => {
-  //     return {
-  //       ...session,
-  //       user: {
-  //         ...session.user,
-  //         id: token.id,
-  //         randomKey: token.randomKey,
-  //       },
-  //     }
-  //   },
-
-  //   jwt: ({ token, user }) => {
-  //     if (user) {
-  //       const u = user as unknown as any
-  //       return {
-  //         ...token,
-  //         id: u.id,
-  //         randomKey: u.randomKey,
-  //       }
-  //     }
-  //     return token
-  //   },
-  // },
 }
