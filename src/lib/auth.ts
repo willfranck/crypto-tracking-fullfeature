@@ -72,9 +72,7 @@ export const authOptions: NextAuthOptions = {
           image: profile.picture,
           savedCoins: [],
         }
-      }
+      },
     }),
   ],
-
-  debug: true,
 }
