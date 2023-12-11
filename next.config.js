@@ -16,9 +16,10 @@ const nextConfig = {
         ],
       },
       {
+        source: '/:path*',
         headers: [
           { key: 'Access-Control-Allow-Credentials', value: 'true' },
-          { key: 'Access-Control-Allow-Origin', value: 'https://accounts.google.com/generate_204?hwOc0Q' },
+          { key: 'Access-Control-Allow-Origin', value: 'https://accounts.google.com/' },
           { key: 'Access-Control-Allow-Methods', value: 'GET,DELETE,PATCH,POST,PUT' },
           {
             key: 'Access-Control-Allow-Headers',
