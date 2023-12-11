@@ -69,7 +69,6 @@ export const authOptions: NextAuthOptions = {
         return {
           id: profile.email,
           email: profile.email,
-          username: profile.name,
           image: profile.picture,
           savedCoins: [],
         }
