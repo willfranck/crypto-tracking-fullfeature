@@ -12,6 +12,8 @@ export default function Footer() {
 
         <Link 
           href={'https://github.com/willfranck'}
+          target='_blank'
+          rel='noopener noreferrer'
           className='flex items-center hover:text-indigo-500'
         >
           <FontAwesomeIcon icon={faGithubSquare} className='w-12 h-12' />
@@ -20,6 +22,8 @@ export default function Footer() {
 
         <Link 
           href={'https://linkedin.com/in/william-franck'}
+          target='_blank'
+          rel='noopener noreferrer'
           className='flex items-center hover:text-indigo-500'
         >
           <FontAwesomeIcon icon={faLinkedin} className='w-12 h-12' />

@@ -25,6 +25,8 @@ export default function HeroCard() {
 
         <Link
           href={'https://github.com/willfranck/crypto-tracking-fullfeature'}
+          target='_blank'
+          rel='noopener noreferrer'
           className='flex justify-center items-center w-72 h-16 p-4 text-gray-400 hover:text-white'
         >
           <span className=''>view the full code on Github:&emsp;</span>
