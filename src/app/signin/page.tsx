@@ -54,8 +54,8 @@ export default function SignInPage() {
             <input
               name='username'
               type='text'
-              required
               value={user.username}
+              required
               autoComplete='on'
               onChange={(e) => setUser({ ...user, username: e.target.value })}
               className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
@@ -69,8 +69,8 @@ export default function SignInPage() {
             <input
               name='password'
               type='password'
-              required
               value={user.password}
+              required
               onChange={(e) => setUser({ ...user, password: e.target.value })}
               className='w-full rounded-md border-0 px-3 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
             ></input>
