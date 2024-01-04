@@ -62,7 +62,7 @@ export default function SignUpPage() {
               name='email'
               type='email'
               value={user.email}
-              pattern='/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/'
+              pattern='^[^@]+@[^@]+\.[^@.]+$'
               required
               autoComplete='on'
               onChange={(e) => setUser({ ...user, email: e.target.value })}
